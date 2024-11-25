@@ -1,20 +1,61 @@
-# Predicting social effects on pharmaceutical wastewater concentrations
+<<<<<<< HEAD
+# PharmUse and PharmFlush
+![PharmUse](pharmuse.png)
+![PharmFlush](pharmflush.png)
 
-## Overview
-This project focuses on updating the previously developed PharmFlush model to include social predictors, such as over-the-counter medication use and temporal variation in consumption trends, and better predict pharmaceutical concentrations in wastewater influent. More details are provided in the Introduction.pdf file or [website](https://akhilaannireddy.github.io/Predicting-social-effects-on-pharmaceutical-wastewater-concentrations/). All sources consulted have links provided in the Bibliography.pdf file.
+## Description:
+PharmUse is a database compiling information on prescription drug consumption, physicochemical properties,
+and literature-reported toxicity values for 290 pharmaceuticals. PharmUse integrates data from the 2020
+Agency for Healthcare Research & Quality Medical Expenditure Panel Survey (MEPS) Prescribed Medicines File,
+accessible from [here](https://meps.ahrq.gov/mepsweb/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-220A),
+with the Environmental Protection Agency's [CompTox Chemicals Dashboard](https://comptox.epa.gov/dashboard/). Notably,
+the MEPS survey is from a nationally representative sample of United States citizens. In the associated scripts, the MEPS
+data are downloaded directly from the provided website and converted to a text file, which is used in the script pharmuse_constructor.R.
+The physicochemical properties and toxicity values are downloaded directly from CompTox by conducting a batch search for Chemical Name, SMILES,
+InChi String, InChiKey, Molecular Formula, Average Mass, ToxValDB Details, and Physicochemical Property Values. 
 
-## Team Members
+PharmFlush is a binomial distribution model that predicts the concentration profile of the 290 pharmaceuticals in a sewershed of a given size, compares
+sewersheds of different sizes, and compares the predicted concentration profile to literature-reported concentrations. It uses data provided by
+PharmUse to run. PharmFlush is run using pharmflush.R.
 
-Vanessa Maybruck
+The script ensemble_exploration.R uses csv files generated in pharmuse_constructor.R and pharmflush.R to compare literature-reported, predicted, and 
+No Observed Effect Concentrations.
 
-Akhila Annireddy
+## Dependencies:
+To run pharmuse_constructor.R, first run the following in your console:
+`install.packages("dplyr")`
+`install.packages("readxl")`
+`install.packages("stringr")`
+`install.packages("tidyr")`
+`install.packages("purrr")`
 
-Meghna Nag
+Alternatively, these packages can be installed at once by running:
+`install.packages("tidyverse")`
 
-Phebe Chen
+Additionally, the functions library pharmuse_constructor_functions.R, the MEPS data file MEPS_data_2020.txt, drugs_to_remove.xlsx, and comptox_search.xlsx
+must be in the working directory to run this script.
 
-## Data Files
-The data files are too large to upload directly, so access is provided by URL here. The Medical Expenditure Panel Survey for years 2012-2022 are accessible [here](https://meps.ahrq.gov/mepsweb/data_stats/download_data_files_results.jsp?cboDataYear=All&cboDataTypeY=2%2CHousehold+Event+File&buttonYearandDataType=Search&cboPufNumber=All&SearchTitle=Prescribed+Medicines). The literature search data are uploaded directly as Prisma_search_results.xlsx. The current version of the PharmUse database (to which the new data will be incorporated) is also included as pharmuse.csv. Additional data sources will be included during Milestone 2.
+To run pharmflush.R, first run the following in your console:
+`install.packages("pracma")`
+`install.packages("tidyverse")`
+`install.packages("cowplot")`
+`install.packages("gridExtra")`
+`install.packages("ggfortify")`
+`install.packages("ggpubr")`
+`install.packages("viridis")`
+`install.packages("svglite")`
+`install.packages("scales")`
+`install.packages("patchwork")`
 
-## Additional Notes
-The R scripts included in this repository will be converted to Python scripts for the project.
+Additionally, pharmuse.csv, lit_values_all.csv, and lit_values_summary.csv must be in the working directory to run this script.
+
+To run ensemble_exploration.R, first run the following in your console:
+`install.packages("tidyverse")`
+`install.packages("ggforce")`
+
+Additionally, all_ensembles_100.csv, all_ensembles_1000.csv, all_ensembles_100k.csv, all_ensembles_1mil.csv, lit_values_all.csv, noec_vert.csv, noec_invert.csv,
+and noec_human.csv must be in the working directory to run this script.
+
+=======
+# data_mining_project_fall_2024
+>>>>>>> 28bdebf105c67279116b149c2e7a0fe0fbf8eb2b
