@@ -1,6 +1,6 @@
 ## PharmUse and PharmFlush
-![PharmUse](pharmuse.png)
-![PharmFlush](pharmflush.png)
+<img src="pharmuse.png" alt="PharmUse logo" width="300">
+<img src="pharmflush.png" alt="PharmFlush logo" width="300">
 
 ## Description:
 PharmUse is a database compiling information on prescription drug consumption, physicochemical properties,
@@ -42,7 +42,7 @@ To run pharmflush.R, first run the following in your console:
 
 Additionally, pharmuse.csv, lit_values_all.csv, and lit_values_summary.csv must be in the working directory to run this script.
 
-To run ensemble_exploration.R, first run the following in your console:
+To run ensemble_exploration.R, first run the following in your console:  
 `install.packages("tidyverse")`  
 `install.packages("ggforce")`  
 
