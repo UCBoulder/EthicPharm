@@ -21,7 +21,7 @@ The script ensemble_exploration.R uses csv files generated in pharmuse_construct
 No Observed Effect Concentrations.
 
 ## Dependencies:
-To run pharmuse_constructor.R, first run the following in your console:
+To run pharmuse_constructor.R, first run the following in your console:  
 `install.packages("dplyr")`  
 `install.packages("readxl")`    
 `install.packages("stringr")`    
@@ -34,7 +34,7 @@ Alternatively, these packages can be installed at once by running:
 Additionally, the functions library pharmuse_constructor_functions.R, the MEPS data file MEPS_data_2020.txt, drugs_to_remove.xlsx, and comptox_search.xlsx
 must be in the working directory to run this script.
 
-To run pharmflush.R, first run the following in your console:
+To run pharmflush.R, first run the following in your console:  
 `install.packages("tidyverse")`  
 `install.packages("viridis")`  
 `install.packages("svglite")`  
