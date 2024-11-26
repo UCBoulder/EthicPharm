@@ -1,0 +1,376 @@
+"","Pharmaceutical","DTXSID","TOXVAL_TYPE","TOXVAL_NUMERIC","TOXVAL_UNITS","SPECIES_COMMON","SPECIES_SUPERCATEGORY","HUMAN_ECO","CRITICAL_EFFECT","Molar_Mass"
+"1","ibuprofen","DTXSID5020732","NOEC",0.25,"ug/L","Mediterranean Mussel","Molluscs","eco","Growth Condition index",206.285
+"2","ibuprofen","DTXSID5020732","NOEC",10,"ug/L","Mediterranean Mussel","Molluscs","eco","Development Normal",206.285
+"3","ibuprofen","DTXSID5020732","NOEC",1020,"ug/L","Gekielte Plate Snail","Molluscs","eco","Growth Weight",206.285
+"4","ibuprofen","DTXSID5020732","NOEC",1230,"ug/L","Water Flea","Crustaceans","eco","Reproduction Eggs per nest",206.285
+"5","ibuprofen","DTXSID5020732","NOEC",2430,"ug/L","Gekielte Plate Snail","Molluscs","eco","Mortality Hatch",206.285
+"6","ibuprofen","DTXSID5020732","NOEC",3700,"ug/L","Water Flea","Crustaceans","eco","Reproduction Time to pregnancy/gravidity",206.285
+"7","ibuprofen","DTXSID5020732","NOEC",5360,"ug/L","Gekielte Plate Snail","Molluscs","eco","Mortality Survival",206.285
+"8","ibuprofen","DTXSID5020732","NOEC",25000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",206.285
+"9","ibuprofen","DTXSID5020732","NOEC",33300,"ug/L","Water Flea","Crustaceans","eco","Mortality Survival",206.285
+"10","ibuprofen","DTXSID5020732","NOEC",50000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Eggs per nest",206.285
+"11","ibuprofen","DTXSID5020732","NOEC",1e+05,"ug/L","Dipteran","Insects/Spiders","eco","Behavior Motility",206.285
+"12","ibuprofen","DTXSID5020732","NOEC",0.1,"ug/L","Asian Clam","Molluscs","eco","Enzyme(s) 7-Ethoxyresorufin O-deethylase",206.285
+"13","ibuprofen","DTXSID5020732","NOEC",0.2,"ug/L","Zebra Mussel","Molluscs","eco","Genetics Damage",206.285
+"14","ibuprofen","DTXSID5020732","NOEC",2,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Superoxide dismutase (SOD) enzyme activity",206.285
+"15","ibuprofen","DTXSID5020732","NOEC",8,"ug/L","Zebra Mussel","Molluscs","eco","Genetics Damage",206.285
+"16","ibuprofen","DTXSID5020732","NOEC",10,"ug/L","Asian Clam","Molluscs","eco","Enzyme(s) Glutathione reductase",206.285
+"17","ibuprofen","DTXSID5020732","NOEC",50,"ug/L","Asian Clam","Molluscs","eco","Genetics Damage",206.285
+"18","ibuprofen","DTXSID5020732","NOEC",100,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Physiology Scope for growth",206.285
+"19","ibuprofen","DTXSID5020732","NOEC",500,"ug/L","Short-Necked Clam","Molluscs","eco","Cell(s) Number of cells",206.285
+"20","ibuprofen","DTXSID5020732","NOEC",1000,"ug/L","Short-Necked Clam","Molluscs","eco","Enzyme(s) Acetylcholinesterase",206.285
+"21","ibuprofen","DTXSID5020732","NOEC",5000,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Physiology Respiration",206.285
+"22","ibuprofen","DTXSID5020732","NOEC",10000,"ug/L","Hydra","Invertebrates","eco","Feeding behavior Feeding behavior",206.285
+"23","ibuprofen","DTXSID5020732","NOEC",10314.2,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Enzyme(s) Prostaglandin-endoperoxide synthase",206.285
+"24","ibuprofen","DTXSID5020732","NOEC",20000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",206.285
+"25","ibuprofen","DTXSID5020732","NOEC",1230,"ug/L","Water Flea","Crustaceans","eco","reproduction",206.285
+"26","ibuprofen","DTXSID5020732","NOEC",3700,"ug/L","Water Flea","Crustaceans","eco","reproduction",206.285
+"27","ibuprofen","DTXSID5020732","NOEC",5000,"ug/L","Bean Blossom Thrips","Insects/Spiders","eco","reproduction",206.285
+"28","ibuprofen","DTXSID5020732","NOEC",20000,"ug/L","Water Flea","Crustaceans","eco","reproduction",206.285
+"29","ibuprofen","DTXSID5020732","NOEC",25000,"ug/L","Water Flea","Crustaceans","eco","reproduction",206.285
+"30","ibuprofen","DTXSID5020732","NOEC",33300,"ug/L","Water Flea","Crustaceans","eco","Population",206.285
+"31","ibuprofen","DTXSID5020732","NOEC",50000,"ug/L","Water Flea","Crustaceans","eco","mortality",206.285
+"32","amoxicillin","DTXSID3037044","NOEC",10,"ug/L","Hydra","Invertebrates","eco","Intoxication Intoxication, general",365.4
+"33","amoxicillin","DTXSID3037044","NOEC",10,"ug/L","Hydra","Invertebrates","eco","Intoxication",365.4
+"34","acetaminophen","DTXSID2020006","NOEC",23,"ug/L","Mediterranean Mussel","Molluscs","eco","Enzyme(s) Lipperoxidase",151.165
+"35","acetaminophen","DTXSID2020006","NOEC",50,"ug/L","Rotifer","Invertebrates","eco","Genetics Acetylcholinesterase mRNA",151.165
+"36","acetaminophen","DTXSID2020006","NOEC",100,"ug/L","Rotifer","Invertebrates","eco","Enzyme(s) Acetylcholinesterase",151.165
+"37","acetaminophen","DTXSID2020006","NOEC",320,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",151.165
+"38","acetaminophen","DTXSID2020006","NOEC",403,"ug/L","Mediterranean Mussel","Molluscs","eco","Enzyme(s) Glutathione S-transferase",151.165
+"39","acetaminophen","DTXSID2020006","NOEC",1600,"ug/L","Water Flea","Crustaceans","eco","Population Intrinsic rate of increase",151.165
+"40","acetaminophen","DTXSID2020006","NOEC",4000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",151.165
+"41","acetaminophen","DTXSID2020006","NOEC",5000,"ug/L","Rotifer","Invertebrates","eco","Population Intrinsic rate of increase",151.165
+"42","acetaminophen","DTXSID2020006","NOEC",5720,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",151.165
+"43","acetaminophen","DTXSID2020006","NOEC",8580,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",151.165
+"44","acetaminophen","DTXSID2020006","NOEC",10000,"ug/L","Hydra","Invertebrates","eco","Feeding behavior Food consumption",151.165
+"45","acetaminophen","DTXSID2020006","NOEC",12880,"ug/L","Water Flea","Crustaceans","eco","Mortality Survival",151.165
+"46","acetaminophen","DTXSID2020006","NOEC",15116.5,"ug/L","Flatworm","Worms","eco","Behavior Phototactic response",151.165
+"47","acetaminophen","DTXSID2020006","NOEC",20000,"ug/L","Rotifer","Invertebrates","eco","Population Intrinsic rate of increase",151.165
+"48","acetaminophen","DTXSID2020006","NOEC",25750,"ug/L","Water Flea","Crustaceans","eco","Mortality Survival",151.165
+"49","acetaminophen","DTXSID2020006","NOEC",51500,"ug/L","Water Flea","Crustaceans","eco","Mortality Survival",151.165
+"50","acetaminophen","DTXSID2020006","NOEC",75000,"ug/L","Rotifer","Invertebrates","eco","Mortality Mortality",151.165
+"51","acetaminophen","DTXSID2020006","NOEC",92500,"ug/L","Rotifer","Invertebrates","eco","Population Population growth rate",151.165
+"52","acetaminophen","DTXSID2020006","NOEC",2e+05,"ug/L","Rotifer","Invertebrates","eco","Mortality Mortality",151.165
+"53","acetaminophen","DTXSID2020006","NOEC",0.154,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Glutathione S-transferase",151.165
+"54","acetaminophen","DTXSID2020006","NOEC",0.75,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Glutathione peroxidase",151.165
+"55","acetaminophen","DTXSID2020006","NOEC",1.51,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Catalase",151.165
+"56","acetaminophen","DTXSID2020006","NOEC",16000,"ug/L","Water Flea","Crustaceans","eco","Population Intrinsic rate of increase",151.165
+"57","acetaminophen","DTXSID2020006","NOEC",151165,"ug/L","Ciliate","Invertebrates","eco","Population Population growth rate",151.165
+"58","acetaminophen","DTXSID2020006","NOEC",100,"ug/L","Hydra","Invertebrates","eco","Intoxication",151.165
+"59","acetaminophen","DTXSID2020006","NOEC",460,"ug/L","Water Flea","Crustaceans","eco","reproduction",151.165
+"60","ciprofloxacin","DTXSID8022824","NOEC",2500,"ug/L","Water Flea","Crustaceans","eco","Development Molting",331.347
+"61","naproxen","DTXSID4040686","NOEC",100,"ug/L","Hydra","Invertebrates","eco","Growth Limb/ body part regeneration",230.263
+"62","naproxen","DTXSID4040686","NOEC",1000,"ug/L","Midge","Insects/Spiders","eco","Behavior Activity, general",230.263
+"63","naproxen","DTXSID4040686","NOEC",10000,"ug/L","Hydra","Invertebrates","eco","Reproduction Vegetative reproduction",230.263
+"64","naproxen","DTXSID4040686","NOEC",50000,"ug/L","Hydra","Invertebrates","eco","Feeding behavior Feeding behavior",230.263
+"65","aspirin","DTXSID5020108","NOEC",1000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",180.159
+"66","aspirin","DTXSID5020108","NOEC",1800,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",180.159
+"67","aspirin","DTXSID5020108","NOEC",10000,"ug/L","Water Flea","Crustaceans","eco","Growth Size",180.159
+"68","aspirin","DTXSID5020108","NOEC",75000,"ug/L","Water Flea","Crustaceans","eco","Intoxication Immobile",180.159
+"69","aspirin","DTXSID5020108","NOEC",100,"ug/L","Hydra","Invertebrates","eco","Intoxication",180.159
+"70","aspirin","DTXSID5020108","NOEC",1000,"ug/L","Water Flea","Crustaceans","eco","reproduction",180.159
+"71","aspirin","DTXSID5020108","NOEC",10000,"ug/L","Water Flea","Crustaceans","eco","mortality",180.159
+"72","atorvastatin","DTXSID8029868","NOEC",1,"ug/L","Water Flea","Crustaceans","eco","Enzyme(s) beta-N-Acetylhexosaminidase",558.65
+"73","sertraline","DTXSID6023577","NOEC",1,"ug/L","Water Flea","Crustaceans","eco","Enzyme(s) beta-N-Acetylhexosaminidase",306.23
+"74","sertraline","DTXSID6023577","NOEC",9,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",306.23
+"75","sertraline","DTXSID6023577","NOEC",89,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",306.23
+"76","sertraline","DTXSID6023577","NOEC",32,"ug/L","Water Flea","Crustaceans","eco","Reproduction Time to first progeny",306.23
+"77","sertraline","DTXSID6023577","NOEC",100,"ug/L","Water Flea","Crustaceans","eco","Intoxication Immobile",306.23
+"78","sertraline","DTXSID6023577","NOEC",400,"ug/L","Fairy Shrimp","Crustaceans","eco","Mortality Mortality",306.23
+"79","sertraline","DTXSID6023577","NOEC",9,"ug/L","Water Flea","Crustaceans","eco","reproduction",306.23
+"80","sertraline","DTXSID6023577","NOEC",32,"ug/L","Water Flea","Crustaceans","eco","reproduction",306.23
+"81","sertraline","DTXSID6023577","NOEC",89,"ug/L","Water Flea","Crustaceans","eco","reproduction",306.23
+"82","gemfibrozil","DTXSID0020652","NOEC",7500,"ug/L","Water Flea","Crustaceans","eco","Population, Intrinsic rate of increase",250.338
+"83","gemfibrozil","DTXSID0020652","NOEC",32000,"ug/L","Water Flea","Crustaceans","eco","Intoxication",250.338
+"84","gemfibrozil","DTXSID0020652","NOEC",2.5,"ug/L","Mediterranean Mussel","Molluscs","eco","Enzyme(s) Lysozyme activity",250.338
+"85","gemfibrozil","DTXSID0020652","NOEC",25.03,"ug/L","Mediterranean Mussel","Molluscs","eco","Enzyme(s) Glutathione reductase",250.338
+"86","gemfibrozil","DTXSID0020652","NOEC",0.05,"ug/L","Water Flea","Crustaceans","eco","Reproduction Fecundity",250.338
+"87","gemfibrozil","DTXSID0020652","NOEC",250.35,"ug/L","Mediterranean Mussel","Molluscs","eco","Enzyme(s) Acyl-CoA oxidase",250.338
+"88","gemfibrozil","DTXSID0020652","NOEC",0.5,"ug/L","Mediterranean Mussel","Molluscs","eco","Reproduction Fertilization",250.338
+"89","gemfibrozil","DTXSID0020652","NOEC",0.50258,"ug/L","Water Flea","Crustaceans","eco","Growth Length",250.338
+"90","gemfibrozil","DTXSID0020652","NOEC",10,"ug/L","Zebra Mussel","Molluscs","eco","Cell(s) Viability",250.338
+"91","gemfibrozil","DTXSID0020652","NOEC",50,"ug/L","Water Flea","Crustaceans","eco","Growth Length",250.338
+"92","gemfibrozil","DTXSID0020652","NOEC",78,"ug/L","Water Flea","Crustaceans","eco","Population Population growth rate",250.338
+"93","gemfibrozil","DTXSID0020652","NOEC",156,"ug/L","Rotifer","Invertebrates","eco","Population Population growth rate",250.338
+"94","gemfibrozil","DTXSID0020652","NOEC",1000,"ug/L","Zebra Mussel","Molluscs","eco","Cell(s) Viability",250.338
+"95","gemfibrozil","DTXSID0020652","NOEC",7500,"ug/L","Water Flea","Crustaceans","eco","Behavior Filtration rate",250.338
+"96","gemfibrozil","DTXSID0020652","NOEC",10000,"ug/L","Zebra Mussel","Molluscs","eco","Cell(s) Viability",250.338
+"97","gemfibrozil","DTXSID0020652","NOEC",1,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Glutathione S-transferase",250.338
+"98","gemfibrozil","DTXSID0020652","NOEC",100,"ug/L","Hydra","Invertebrates","eco","Growth Limb/ body part regeneration",250.338
+"99","gemfibrozil","DTXSID0020652","NOEC",78,"ug/L","Water Flea","Crustaceans","eco","Population",250.338
+"100","gemfibrozil","DTXSID0020652","NOEC",1000,"ug/L","Hydra","Invertebrates","eco","Behavior Ability to detach from substrate",250.338
+"101","gemfibrozil","DTXSID0020652","NOEC",156,"ug/L","Rotifer","Invertebrates","eco","Population",250.338
+"102","gemfibrozil","DTXSID0020652","NOEC",7510.14,"ug/L","Water Flea","Crustaceans","eco","Mortality Mortality",250.338
+"103","gemfibrozil","DTXSID0020652","NOEC",10000,"ug/L","Hydra","Invertebrates","eco","Feeding behavior Feeding behavior",250.338
+"104","gemfibrozil","DTXSID0020652","NOEC",32000,"ug/L","Water Flea","Crustaceans","eco","Intoxication Immobile",250.338
+"105","gemfibrozil","DTXSID0020652","NOEC",1e+05,"ug/L","Hydra","Invertebrates","eco","Reproduction Vegetative reproduction",250.338
+"106","azithromycin","DTXSID8030760","NOEC",48,"ug/L","Water Flea","Crustaceans","eco","Feeding behavior Food consumption",748.996
+"107","azithromycin","DTXSID8030760","NOEC",490,"ug/L","Water Flea","Crustaceans","eco","Biochemistry Polysaccharide",748.996
+"108","azithromycin","DTXSID8030760","NOEC",5070,"ug/L","Water Flea","Crustaceans","eco","Biochemistry Lipid",748.996
+"109","carbamazepine","DTXSID4022731","NOEC",0.43,"ug/L","Asian Clam","Molluscs","eco","Genetics Gamma-aminobutyric acid type A receptor associated protein mRNA",236.274
+"110","carbamazepine","DTXSID4022731","NOEC",0.45,"ug/L","Asian Clam","Molluscs","eco","Enzyme(s) Glutathione reductase",236.274
+"111","carbamazepine","DTXSID4022731","NOEC",4.52,"ug/L","Asian Clam","Molluscs","eco","Genetics Gamma-aminobutyric acid type A receptor associated protein mRNA",236.274
+"112","carbamazepine","DTXSID4022731","NOEC",4.62,"ug/L","Asian Clam","Molluscs","eco","Biochemistry Malondialdehyde",236.274
+"113","carbamazepine","DTXSID4022731","NOEC",5.59967,"ug/L","Zebra Mussel","Molluscs","eco","Genetics Xenobiotic-transporting ATPase mRNA",236.274
+"114","carbamazepine","DTXSID4022731","NOEC",10,"ug/L","Rotifer","Invertebrates","eco","Genetics Xenobiotic-transporting ATPase mRNA",236.274
+"115","carbamazepine","DTXSID4022731","NOEC",25,"ug/L","Water Flea","Crustaceans","eco","Reproduction Reproduction, general",236.274
+"116","carbamazepine","DTXSID4022731","NOEC",56.2094,"ug/L","Zebra Mussel","Molluscs","eco","Genetics Superoxide dismutase mRNA",236.274
+"117","carbamazepine","DTXSID4022731","NOEC",100,"ug/L","Rotifer","Invertebrates","eco","Genetics Acetylcholinesterase mRNA",236.274
+"118","carbamazepine","DTXSID4022731","NOEC",164,"ug/L","Midge","Insects/Spiders","eco","Development Emergence",236.274
+"119","carbamazepine","DTXSID4022731","NOEC",377,"ug/L","Rotifer","Invertebrates","eco","Mortality Survival",236.274
+"120","carbamazepine","DTXSID4022731","NOEC",81500,"ug/L","Rotifer","Invertebrates","eco","Population Population growth rate",236.274
+"121","carbamazepine","DTXSID4022731","NOEC",0.01,"ug/L","Scud","Crustaceans","eco","Behavior Rest",236.274
+"122","carbamazepine","DTXSID4022731","NOEC",0.03,"ug/L","Clam","Molluscs","eco","Enzyme(s) Superoxide dismutase (SOD) enzyme activity",236.274
+"123","carbamazepine","DTXSID4022731","NOEC",0.1,"ug/L","Mediterranean Mussel","Molluscs","eco","Genetics Gene expression",236.274
+"124","carbamazepine","DTXSID4022731","NOEC",0.2,"ug/L","Mayfly","Insects/Spiders","eco","Behavior Swimming",236.274
+"125","carbamazepine","DTXSID4022731","NOEC",0.3,"ug/L","Japanese Littleneck Clam","Molluscs","eco","Biochemistry Reduced Glutathione to Glutathione disulfide",236.274
+"126","carbamazepine","DTXSID4022731","NOEC",0.5,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",236.274
+"127","carbamazepine","DTXSID4022731","NOEC",3,"ug/L","Japanese Littleneck Clam","Molluscs","eco","Enzyme(s) Superoxide dismutase (SOD) enzyme activity",236.274
+"128","carbamazepine","DTXSID4022731","NOEC",6,"ug/L","Solitary Tubeworm","Worms","eco","Growth Limb/ body part regeneration",236.274
+"129","carbamazepine","DTXSID4022731","NOEC",9,"ug/L","Clam","Molluscs","eco","Growth Condition index",236.274
+"130","carbamazepine","DTXSID4022731","NOEC",50,"ug/L","Green Crab","Crustaceans","eco","Genetics Damage",236.274
+"131","carbamazepine","DTXSID4022731","NOEC",100,"ug/L","Water Flea","Crustaceans","eco","Growth Growth rate",236.274
+"132","carbamazepine","DTXSID4022731","NOEC",250,"ug/L","Snail","Molluscs","eco","Reproduction Progeny counts/numbers",236.274
+"133","carbamazepine","DTXSID4022731","NOEC",11000,"ug/L","Water Flea","Crustaceans","eco","Biochemistry Alanine",236.274
+"134","carbamazepine","DTXSID4022731","NOEC",14176.4,"ug/L","Hydra","Invertebrates","eco","Biochemistry Thiobarbituric acid reactive substances",236.274
+"135","carbamazepine","DTXSID4022731","NOEC",18901.8,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Biochemistry Thiobarbituric acid",236.274
+"136","carbamazepine","DTXSID4022731","NOEC",25000,"ug/L","Hydra","Invertebrates","eco","Behavior Ability to detach from substrate",236.274
+"137","carbamazepine","DTXSID4022731","NOEC",50000,"ug/L","Hydra","Invertebrates","eco","Reproduction Vegetative reproduction",236.274
+"138","carbamazepine","DTXSID4022731","NOEC",141764,"ug/L","Hydra","Invertebrates","eco","Enzyme(s) Sulfotransferase",236.274
+"139","carbamazepine","DTXSID4022731","NOEC",1417640,"ug/L","Hydra","Invertebrates","eco","Enzyme(s) Cytochrome P-450 1A1",236.274
+"140","carbamazepine","DTXSID4022731","NOEC",2362730,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Enzyme(s) Glutathione S-transferase",236.274
+"141","carbamazepine","DTXSID4022731","NOEC",25,"ug/L","Water Flea","Crustaceans","eco","reproduction",236.274
+"142","carbamazepine","DTXSID4022731","NOEC",100,"ug/L","Water Flea","Crustaceans","eco","reproduction",236.274
+"143","carbamazepine","DTXSID4022731","NOEC",200,"ug/L","Water Flea","Crustaceans","eco","Growth",236.274
+"144","carbamazepine","DTXSID4022731","NOEC",377,"ug/L","Rotifer","Invertebrates","eco","mortality",236.274
+"145","metronidazole","DTXSID2020892","NOEC",1e+05,"ug/L","Calanoid Copepod","Crustaceans","eco","Mortality Mortality",171.156
+"146","metronidazole","DTXSID2020892","NOEC",250000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",171.156
+"147","metronidazole","DTXSID2020892","NOEC",250000,"ug/L","Water Flea","Crustaceans","eco","reproduction",171.156
+"148","celecoxib","DTXSID0022777","NOEC",62,"ug/L","Water Flea","Crustaceans","eco","Intoxication Immobile",381.37
+"149","celecoxib","DTXSID0022777","NOEC",170,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",381.37
+"150","celecoxib","DTXSID0022777","NOEC",1600,"ug/L","Water Flea","Crustaceans","eco","Intoxication Immobile",381.37
+"151","celecoxib","DTXSID0022777","NOEC",62,"ug/L","Water Flea","Crustaceans","eco","Intoxication",381.37
+"152","celecoxib","DTXSID0022777","NOEC",170,"ug/L","Water Flea","Crustaceans","eco","reproduction",381.37
+"153","celecoxib","DTXSID0022777","NOEC",1600,"ug/L","Water Flea","Crustaceans","eco","Intoxication",381.37
+"154","furosemide","DTXSID6020648","NOEC",10000,"ug/L","Hydra","Invertebrates","eco","Intoxication Intoxication, general",330.74
+"155","furosemide","DTXSID6020648","NOEC",5e+05,"ug/L","Dipteran","Insects/Spiders","eco","Behavior Observed stress",330.74
+"156","furosemide","DTXSID6020648","NOEC",10000,"ug/L","Hydra","Invertebrates","eco","Intoxication",330.74
+"157","fenofibrate","DTXSID2029874","NOEC",39,"ug/L","Water Flea","Crustaceans","eco","Population",360.83
+"158","fenofibrate","DTXSID2029874","NOEC",156,"ug/L","Rotifer","Invertebrates","eco","Population",360.83
+"159","fenofibrate","DTXSID2029874","NOEC",39,"ug/L","Water Flea","Crustaceans","eco","Population Population growth rate",360.83
+"160","fenofibrate","DTXSID2029874","NOEC",156,"ug/L","Rotifer","Invertebrates","eco","Population Population growth rate",360.83
+"161","levofloxacin","DTXSID0041060","NOEC",1600,"ug/L","Water Flea","Crustaceans","eco","Development Molting",361.373
+"162","levofloxacin","DTXSID0041060","NOEC",2500,"ug/L","Water Flea","Crustaceans","eco","Reproduction Reproduction, general",361.373
+"163","levofloxacin","DTXSID0041060","NOEC",12500,"ug/L","Water Flea","Crustaceans","eco","Mortality Survival",361.373
+"164","levofloxacin","DTXSID0041060","NOEC",37500,"ug/L","Water Flea","Crustaceans","eco","Mortality Survival",361.373
+"165","ranitidine","DTXSID8045191","NOEC",310,"ug/L","Water Flea","Crustaceans","eco","Population Population growth rate",314.4
+"166","ranitidine","DTXSID8045191","NOEC",310,"ug/L","Rotifer","Invertebrates","eco","Population",314.4
+"167","simvastatin","DTXSID0023581","NOEC",0.32,"ug/L","Scud","Crustaceans","eco","Morphology Organ weight in relationship to body weight",418.574
+"168","simvastatin","DTXSID0023581","NOEC",1.6,"ug/L","Scud","Crustaceans","eco","Genetics Actin 5C mRNA",418.574
+"169","simvastatin","DTXSID0023581","NOEC",8,"ug/L","Scud","Crustaceans","eco","Mortality Survival",418.574
+"170","verapamil","DTXSID9041152","NOEC",2273.05,"ug/L","Sea Urchin","Invertebrates","eco","Morphology Abnormal",454.611
+"171","verapamil","DTXSID9041152","NOEC",909.219,"ug/L","Harpacticoid Copepod","Crustaceans","eco","Enzyme(s) Xenobiotic-transporting ATPase",454.611
+"172","verapamil","DTXSID9041152","NOEC",9092.19,"ug/L","Rustic Limpet","Molluscs","eco","Enzyme(s) Xenobiotic-transporting ATPase",454.611
+"173","verapamil","DTXSID9041152","NOEC",22730.5,"ug/L","Scud","Crustaceans","eco","Enzyme(s) Xenobiotic-transporting ATPase",454.611
+"174","erythromycin","DTXSID4022991","NOEC",4900,"ug/L","White Shrimp","Crustaceans","eco","Intoxication Immobile",733.937
+"175","erythromycin","DTXSID4022991","NOEC",11100,"ug/L","Water Flea","Crustaceans","eco","Growth Length",733.937
+"176","erythromycin","DTXSID4022991","NOEC",16900,"ug/L","White Shrimp","Crustaceans","eco","Intoxication Immobile",733.937
+"177","erythromycin","DTXSID4022991","NOEC",25000,"ug/L","White Shrimp","Crustaceans","eco","Intoxication Immobile",733.937
+"178","erythromycin","DTXSID4022991","NOEC",33300,"ug/L","Water Flea","Crustaceans","eco","Reproduction Time to first progeny",733.937
+"179","erythromycin","DTXSID4022991","NOEC",50000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",733.937
+"180","erythromycin","DTXSID4022991","NOEC",733938,"ug/L","Ciliate","Invertebrates","eco","Population Population growth rate",733.937
+"181","erythromycin","DTXSID4022991","NOEC",11100,"ug/L","Water Flea","Crustaceans","eco","reproduction",733.937
+"182","erythromycin","DTXSID4022991","NOEC",33300,"ug/L","Water Flea","Crustaceans","eco","reproduction",733.937
+"183","erythromycin","DTXSID4022991","NOEC",50000,"ug/L","Water Flea","Crustaceans","eco","reproduction",733.937
+"184","diclofenac","DTXSID6022923","NOEC",10000,"ug/L","Water Flea","Crustaceans","eco","Intoxication",296.15
+"185","diclofenac","DTXSID6022923","NOEC",0.001,"ug/L","Mediterranean Mussel","Molluscs","eco","Development Normal",296.15
+"186","diclofenac","DTXSID6022923","NOEC",0.041,"ug/L","Zebra Mussel","Molluscs","eco","Cell(s) Cytotoxicity",296.15
+"187","diclofenac","DTXSID6022923","NOEC",0.44,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Amylase",296.15
+"188","diclofenac","DTXSID6022923","NOEC",250,"ug/L","Mysid","Crustaceans","eco","Mortality Mortality",296.15
+"189","diclofenac","DTXSID6022923","NOEC",8000,"ug/L","Mysid","Crustaceans","eco","Mortality Mortality",296.15
+"190","diclofenac","DTXSID6022923","NOEC",1,"ug/L","Zebra Mussel","Molluscs","eco","Biochemistry Metallothionein",296.15
+"191","diclofenac","DTXSID6022923","NOEC",0.1,"ug/L","Green Crab","Crustaceans","eco","Biochemistry Oxyhemocyanin",296.15
+"192","diclofenac","DTXSID6022923","NOEC",0.25,"ug/L","Mediterranean Mussel","Molluscs","eco","Enzyme(s) Catalase",296.15
+"193","diclofenac","DTXSID6022923","NOEC",1000,"ug/L","Scud, Amphipod","Crustaceans","eco","Behavior Observed stress",296.15
+"194","diclofenac","DTXSID6022923","NOEC",0.296153,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Glutathione S-transferase",296.15
+"195","diclofenac","DTXSID6022923","NOEC",0.318,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Catalase",296.15
+"196","diclofenac","DTXSID6022923","NOEC",0.36,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",296.15
+"197","diclofenac","DTXSID6022923","NOEC",0.592306,"ug/L","Zebra Mussel","Molluscs","eco","Cell(s) Cell Viability",296.15
+"198","diclofenac","DTXSID6022923","NOEC",1000,"ug/L","Zebra Mussel","Molluscs","eco","Enzyme(s) Glutathione S-transferase",296.15
+"199","diclofenac","DTXSID6022923","NOEC",10,"ug/L","Amphipod","Crustaceans","eco","Behavior Phototactic response",296.15
+"200","diclofenac","DTXSID6022923","NOEC",5000,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Physiology Adsorption efficiency",296.15
+"201","diclofenac","DTXSID6022923","NOEC",10000,"ug/L","Water Flea","Crustaceans","eco","Intoxication Immobile",296.15
+"202","atenolol","DTXSID2022628","NOEC",1,"ug/L","Zebra Mussel","Molluscs","eco","Cell(s) Viability",266.341
+"203","atenolol","DTXSID2022628","NOEC",10,"ug/L","Zebra Mussel","Molluscs","eco","Cell(s) Viability",266.341
+"204","atenolol","DTXSID2022628","NOEC",50,"ug/L","Rotifer","Invertebrates","eco","Genetics Xenobiotic-transporting ATPase mRNA",266.341
+"205","atenolol","DTXSID2022628","NOEC",100,"ug/L","Rotifer","Invertebrates","eco","Genetics Xenobiotic-transporting ATPase mRNA",266.341
+"206","atenolol","DTXSID2022628","NOEC",1000,"ug/L","Rotifer","Invertebrates","eco","Enzyme(s) Acetylcholinesterase",266.341
+"207","atenolol","DTXSID2022628","NOEC",8820,"ug/L","Scud","Crustaceans","eco","Multiple Multiple effects reported as one result",266.341
+"208","atenolol","DTXSID2022628","NOEC",8872,"ug/L","Water Flea","Crustaceans","eco","Reproduction Reproduction, general",266.341
+"209","atenolol","DTXSID2022628","NOEC",9450,"ug/L","Snail","Molluscs","eco","Multiple Multiple effects reported as one result",266.341
+"210","atenolol","DTXSID2022628","NOEC",1e+05,"ug/L","Rotifer","Invertebrates","eco","Genetics Acetylcholinesterase mRNA",266.341
+"211","atenolol","DTXSID2022628","NOEC",260000,"ug/L","Barnacle","Crustaceans","eco","Physiology Respiration",266.341
+"212","atenolol","DTXSID2022628","NOEC",10000,"ug/L","Hydra","Invertebrates","eco","Intoxication",266.341
+"213","fluoxetine","DTXSID7023067","NOEC",89,"ug/L","Water Flea","Crustaceans","eco","reproduction",309.332
+"214","fluoxetine","DTXSID7023067","NOEC",447,"ug/L","Water Flea","Crustaceans","eco","reproduction",309.332
+"215","fluoxetine","DTXSID7023067","NOEC",0.02,"ug/L","Zebra Mussel","Molluscs","eco","Hormone(s) 17-beta Estradiol",309.332
+"216","fluoxetine","DTXSID7023067","NOEC",0.47,"ug/L","Snail","Molluscs","eco","Reproduction Progeny counts/numbers",309.332
+"217","fluoxetine","DTXSID7023067","NOEC",447,"ug/L","Water Flea","Crustaceans","eco","Reproduction Time to first progeny",309.332
+"218","fluoxetine","DTXSID7023067","NOEC",4.2,"ug/L","Snail","Molluscs","eco","Hormone(s) Testosterone",309.332
+"219","fluoxetine","DTXSID7023067","NOEC",13,"ug/L","Snail","Molluscs","eco","Morphology Thickness",309.332
+"220","fluoxetine","DTXSID7023067","NOEC",69,"ug/L","Snail","Molluscs","eco","Hormone(s) 17-beta Estradiol",309.332
+"221","fluoxetine","DTXSID7023067","NOEC",89,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",309.332
+"222","fluoxetine","DTXSID7023067","NOEC",10,"ug/L","Amphipod","Crustaceans","eco","Behavior Phototactic response",309.332
+"223","fluoxetine","DTXSID7023067","NOEC",15.4666,"ug/L","Dark False Mussel","Molluscs","eco","Reproduction Spawning frequency",309.332
+"224","fluoxetine","DTXSID7023067","NOEC",19,"ug/L","Green Crab","Crustaceans","eco","Biochemistry Glutathione, total",309.332
+"225","fluoxetine","DTXSID7023067","NOEC",36,"ug/L","Water Flea","Crustaceans","eco","Reproduction Fecundity",309.332
+"226","fluoxetine","DTXSID7023067","NOEC",125,"ug/L","European Physa","Molluscs","eco","Mortality Hatch",309.332
+"227","fluoxetine","DTXSID7023067","NOEC",154.666,"ug/L","Dark False Mussel","Molluscs","eco","Reproduction Spawning frequency",309.332
+"228","fluoxetine","DTXSID7023067","NOEC",250,"ug/L","European Physa","Molluscs","eco","Mortality Hatch",309.332
+"229","fluoxetine","DTXSID7023067","NOEC",278.398,"ug/L","Water Flea","Crustaceans","eco","Growth Length",309.332
+"230","fluoxetine","DTXSID7023067","NOEC",500,"ug/L","European Physa","Molluscs","eco","Genetics Micronuclei",309.332
+"231","fluoxetine","DTXSID7023067","NOEC",750,"ug/L","Green Crab","Crustaceans","eco","Enzyme(s) beta-N-Acetylhexosaminidase",309.332
+"232","fluoxetine","DTXSID7023067","NOEC",897.06,"ug/L","Water Flea","Crustaceans","eco","Development Molting",309.332
+"233","propranolol","DTXSID6023525","NOEC",220,"ug/L","Water Flea","Crustaceans","eco","Growth",259.349
+"234","propranolol","DTXSID6023525","NOEC",55,"ug/L","Water Flea","Crustaceans","eco","Reproduction Fecundity",259.349
+"235","propranolol","DTXSID6023525","NOEC",110,"ug/L","Water Flea","Crustaceans","eco","Reproduction Fecundity",259.349
+"236","propranolol","DTXSID6023525","NOEC",220,"ug/L","Water Flea","Crustaceans","eco","Growth Biomass",259.349
+"237","propranolol","DTXSID6023525","NOEC",10,"ug/L","Scud, Amphipod","Crustaceans","eco","Physiology Respiration",259.349
+"238","propranolol","DTXSID6023525","NOEC",100,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Behavior Ability to detach from substrate",259.349
+"239","propranolol","DTXSID6023525","NOEC",125,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",259.349
+"240","propranolol","DTXSID6023525","NOEC",1000,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Physiology Scope for growth",259.349
+"241","propranolol","DTXSID6023525","NOEC",5000,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Physiology Clearance",259.349
+"242","propranolol","DTXSID6023525","NOEC",10000,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Growth Limb/ body part regeneration",259.349
+"243","propranolol","DTXSID6023525","NOEC",55,"ug/L","Water Flea","Crustaceans","eco","reproduction",259.349
+"244","propranolol","DTXSID6023525","NOEC",110,"ug/L","Water Flea","Crustaceans","eco","reproduction",259.349
+"245","propranolol","DTXSID6023525","NOEC",125,"ug/L","Water Flea","Crustaceans","eco","reproduction",259.349
+"246","amlodipine","DTXSID7022596","NOEC",10,"ug/L","Hydra","Invertebrates","eco","Intoxication Intoxication, general",408.88
+"247","amlodipine","DTXSID7022596","NOEC",100,"ug/L","Hydra","Invertebrates","eco","Feeding behavior Food consumption",408.88
+"248","amlodipine","DTXSID7022596","NOEC",10,"ug/L","Hydra","Invertebrates","eco","Intoxication",408.88
+"249","citalopram","DTXSID8022826","NOEC",800,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",324.399
+"250","citalopram","DTXSID8022826","NOEC",4000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",324.399
+"251","citalopram","DTXSID8022826","NOEC",40.5,"ug/L","Silky Tegula","Molluscs","eco","Behavior Ability to detach from substrate",324.399
+"252","citalopram","DTXSID8022826","NOEC",405,"ug/L","Black Turban Snail","Molluscs","eco","Behavior Ability to detach from substrate",324.399
+"253","citalopram","DTXSID8022826","NOEC",4050,"ug/L","Atlantic Oyster Drill","Molluscs","eco","Behavior Ability to detach from substrate",324.399
+"254","citalopram","DTXSID8022826","NOEC",800,"ug/L","Water Flea","Crustaceans","eco","reproduction",324.399
+"255","citalopram","DTXSID8022826","NOEC",4000,"ug/L","Water Flea","Crustaceans","eco","reproduction",324.399
+"256","amitriptyline","DTXSID7022594","NOEC",277.409,"ug/L","Mussel","Molluscs","eco","Development Metamorphosis",277.411
+"257","fluconazole","DTXSID3020627","NOEC",19142.2,"ug/L","Sea Squirt","Invertebrates","eco","Development Normal",306.277
+"258","fluconazole","DTXSID3020627","NOEC",38284.3,"ug/L","Sea Squirt","Invertebrates","eco","Mortality Mortality",306.277
+"259","ampicillin","DTXSID4022602","NOEC",10000,"ug/L","Sea Urchin","Invertebrates","eco","Development Abnormal",349.41
+"260","ampicillin","DTXSID4022602","NOEC",1e+05,"ug/L","Sea Urchin, Echinoderm","Invertebrates","eco","Development Abnormal",349.41
+"261","lovastatin","DTXSID5020784","NOEC",1,"ug/L","Water Flea","Crustaceans","eco","Enzyme(s) beta-N-Acetylhexosaminidase",404.547
+"262","baclofen","DTXSID5022641","NOEC",21366.4,"ug/L","Hydra","Invertebrates","eco","Feeding behavior Feeding behavior",213.66
+"263","paroxetine","DTXSID3023425","NOEC",220,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",329.371
+"264","paroxetine","DTXSID3023425","NOEC",880,"ug/L","Water Flea","Crustaceans","eco","Reproduction Time to first progeny",329.371
+"265","paroxetine","DTXSID3023425","NOEC",32937.1,"ug/L","Zebra Mussel","Molluscs","eco","Reproduction Spawning frequency",329.371
+"266","paroxetine","DTXSID3023425","NOEC",220,"ug/L","Water Flea","Crustaceans","eco","reproduction",329.371
+"267","paroxetine","DTXSID3023425","NOEC",880,"ug/L","Water Flea","Crustaceans","eco","reproduction",329.371
+"268","indomethacin","DTXSID9020740","NOEC",500,"ug/L","European Physa","Molluscs","eco","Mortality Survival",357.79
+"269","diazepam","DTXSID4020406","NOEC",1000,"ug/L","Hydra","Invertebrates","eco","Feeding behavior Food consumption",284.74
+"270","diazepam","DTXSID4020406","NOEC",5860,"ug/L","Brine Shrimp","Crustaceans","eco","Enzyme(s) Cholinesterase",284.74
+"271","diazepam","DTXSID4020406","NOEC",8440,"ug/L","Brine Shrimp","Crustaceans","eco","Enzyme(s) Glutathione reductase",284.74
+"272","diazepam","DTXSID4020406","NOEC",10,"ug/L","Water Flea","Crustaceans","eco","Behavior Distance moved, change in direct movement",284.74
+"273","diazepam","DTXSID4020406","NOEC",5.6948,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Hormone(s) Serotonin",284.74
+"274","diazepam","DTXSID4020406","NOEC",28.474,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Hormone(s) Dopamine",284.74
+"275","sulfamethoxazole","DTXSID8026064","NOEC",100,"ug/L","Rotifer","Invertebrates","eco","Genetics Acetylcholinesterase mRNA",253.28
+"276","sulfamethoxazole","DTXSID8026064","NOEC",120,"ug/L","Water Flea","Crustaceans","eco","Growth Length",253.28
+"277","sulfamethoxazole","DTXSID8026064","NOEC",1110,"ug/L","Water Flea","Crustaceans","eco","Reproduction Time to first progeny",253.28
+"278","sulfamethoxazole","DTXSID8026064","NOEC",10000,"ug/L","Rotifer","Invertebrates","eco","Genetics Acetylcholinesterase mRNA",253.28
+"279","sulfamethoxazole","DTXSID8026064","NOEC",197500,"ug/L","Rotifer","Invertebrates","eco","Population Population growth rate",253.28
+"280","sulfamethoxazole","DTXSID8026064","NOEC",5000,"ug/L","Hydra","Invertebrates","eco","Morphology Abnormal",253.28
+"281","sulfamethoxazole","DTXSID8026064","NOEC",1e+05,"ug/L","Hydra","Invertebrates","eco","Behavior Ability to detach from substrate",253.28
+"282","sulfamethoxazole","DTXSID8026064","NOEC",253276,"ug/L","Ciliate","Invertebrates","eco","Population Population growth rate",253.28
+"283","trimethoprim","DTXSID3023712","NOEC",10,"ug/L","Rotifer","Invertebrates","eco","Enzyme(s) Acetylcholinesterase",290.323
+"284","trimethoprim","DTXSID3023712","NOEC",50,"ug/L","Rotifer","Invertebrates","eco","Genetics Acetylcholinesterase mRNA",290.323
+"285","trimethoprim","DTXSID3023712","NOEC",100,"ug/L","Rotifer","Invertebrates","eco","Genetics Acetylcholinesterase mRNA",290.323
+"286","trimethoprim","DTXSID3023712","NOEC",1000,"ug/L","Rotifer","Invertebrates","eco","Genetics Acetylcholinesterase mRNA",290.323
+"287","trimethoprim","DTXSID3023712","NOEC",3120,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",290.323
+"288","trimethoprim","DTXSID3023712","NOEC",6000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",290.323
+"289","trimethoprim","DTXSID3023712","NOEC",6250,"ug/L","Water Flea","Crustaceans","eco","Growth Length",290.323
+"290","trimethoprim","DTXSID3023712","NOEC",12500,"ug/L","Water Flea","Crustaceans","eco","Growth Length",290.323
+"291","trimethoprim","DTXSID3023712","NOEC",124400,"ug/L","Rotifer","Invertebrates","eco","Population Population growth rate",290.323
+"292","trimethoprim","DTXSID3023712","NOEC",4e+05,"ug/L","Dipteran","Insects/Spiders","eco","Behavior Observed stress",290.323
+"293","trimethoprim","DTXSID3023712","NOEC",0.29,"ug/L","Zebra Mussel","Molluscs","eco","Cell(s) Polychromatic cells, micronucleated",290.323
+"294","trimethoprim","DTXSID3023712","NOEC",2.90322,"ug/L","Ciliate","Invertebrates","eco","Population Population growth rate",290.323
+"295","trimethoprim","DTXSID3023712","NOEC",290.322,"ug/L","Ciliate","Invertebrates","eco","Avoidance Chemical avoidance",290.323
+"296","trimethoprim","DTXSID3023712","NOEC",1e+05,"ug/L","Hydra","Invertebrates","eco","Reproduction Vegetative reproduction",290.323
+"297","trimethoprim","DTXSID3023712","NOEC",6000,"ug/L","Water Flea","Crustaceans","eco","reproduction",290.323
+"298","methotrexate","DTXSID4020822","NOEC",36355.6,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Enzyme(s) 7-Ethoxyresorufin O-deethylase",454.447
+"299","methotrexate","DTXSID4020822","NOEC",908891,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Genetics Damage",454.447
+"300","methotrexate","DTXSID4020822","NOEC",4544450,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Mortality Mortality",454.447
+"301","cyproheptadine","DTXSID8022872","NOEC",50,"ug/L","Water Flea","Crustaceans","eco","Growth Length",287.406
+"302","cyproheptadine","DTXSID8022872","NOEC",100,"ug/L","Water Flea","Crustaceans","eco","Growth Length",287.406
+"303","cyproheptadine","DTXSID8022872","NOEC",50,"ug/L","Water Flea","Crustaceans","eco","Growth",287.406
+"304","cyproheptadine","DTXSID8022872","NOEC",100,"ug/L","Water Flea","Crustaceans","eco","Growth",287.406
+"305","nitroglycerin","DTXSID1021407","NOEC",3230,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",227.085
+"306","nitroglycerin","DTXSID1021407","NOEC",9650,"ug/L","Water Flea","Crustaceans","eco","Mortality Mortality",227.085
+"307","nitroglycerin","DTXSID1021407","NOEC",3230,"ug/L","Water Flea","Crustaceans","eco","reproduction",227.085
+"308","nitroglycerin","DTXSID1021407","NOEC",9650,"ug/L","Water Flea","Crustaceans","eco","mortality",227.085
+"309","clonidine","DTXSID6022846","NOEC",230.097,"ug/L","Mussel","Molluscs","eco","Development Metamorphosis",230.09
+"310","clonidine","DTXSID6022846","NOEC",2300.97,"ug/L","Mussel","Molluscs","eco","Development Metamorphosis",230.09
+"311","colchicine","DTXSID5024845","NOEC",399.444,"ug/L","Keel Worm","Worms","eco","Genetics Meiotic abnormalities, 2nd anaphase",399.443
+"312","colchicine","DTXSID5024845","NOEC",2396.66,"ug/L","Keel Worm","Worms","eco","Genetics Apoptosis, programmed cell death, DNA fragmentation",399.443
+"313","colchicine","DTXSID5024845","NOEC",1e+05,"ug/L","Snail","Molluscs","eco","Mortality Hatch",399.443
+"314","digoxin","DTXSID5022934","NOEC",1000,"ug/L","Hydra","Invertebrates","eco","Intoxication Intoxication, general",780.949
+"315","digoxin","DTXSID5022934","NOEC",1000,"ug/L","Hydra","Invertebrates","eco","Intoxication",780.949
+"316","levothyroxine","DTXSID8023214","NOEC",1000,"ug/L","Water Flea","Crustaceans","eco","Growth Size",776.874
+"317","levothyroxine","DTXSID8023214","NOEC",1000,"ug/L","Water Flea","Crustaceans","eco","Growth",776.874
+"318","ethinyl estradiol","DTXSID5020576","NOEC",0.009,"ug/L","Freshwater Snail","Molluscs","eco","Growth Growth rate",296.41
+"319","ethinyl estradiol","DTXSID5020576","NOEC",2500,"ug/L","Flatworm","Worms","eco","Growth Limb/ body part regeneration",296.41
+"320","ethinyl estradiol","DTXSID5020576","NOEC",0.0338,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Genetics Cyclooxygenase mRNA",296.41
+"321","ethinyl estradiol","DTXSID5020576","NOEC",3700,"ug/L","Scud","Crustaceans","eco","Avoidance Stimulus avoidance",296.41
+"322","ethinyl estradiol","DTXSID5020576","NOEC",5.13,"ug/L","Freshwater Snail","Molluscs","eco","Reproduction Time to first progeny",296.41
+"323","ethinyl estradiol","DTXSID5020576","NOEC",20,"ug/L","Midge","Insects/Spiders","eco","Population Biomass",296.41
+"324","ethinyl estradiol","DTXSID5020576","NOEC",44.95,"ug/L","Snail","Molluscs","eco","Population Intrinsic rate of increase",296.41
+"325","ethinyl estradiol","DTXSID5020576","NOEC",70,"ug/L","Scud","Crustaceans","eco","Reproduction Progeny counts/numbers",296.41
+"326","ethinyl estradiol","DTXSID5020576","NOEC",200,"ug/L","Water Flea","Crustaceans","eco","Mortality Survivorship",296.41
+"327","ethinyl estradiol","DTXSID5020576","NOEC",300,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",296.41
+"328","ethinyl estradiol","DTXSID5020576","NOEC",500,"ug/L","Flatworm","Worms","eco","Growth Limb/ body part regeneration",296.41
+"329","ethinyl estradiol","DTXSID5020576","NOEC",550,"ug/L","Midge","Insects/Spiders","eco","Development Emergence",296.41
+"330","ethinyl estradiol","DTXSID5020576","NOEC",560,"ug/L","Midge","Insects/Spiders","eco","Mortality Hatch",296.41
+"331","ethinyl estradiol","DTXSID5020576","NOEC",740,"ug/L","Scud","Crustaceans","eco","Population Sex ratio",296.41
+"332","ethinyl estradiol","DTXSID5020576","NOEC",910,"ug/L","Scud","Crustaceans","eco","Mortality Survival",296.41
+"333","ethinyl estradiol","DTXSID5020576","NOEC",1000,"ug/L","Water Flea","Crustaceans","eco","Biochemistry Proline",296.41
+"334","ethinyl estradiol","DTXSID5020576","NOEC",1e-04,"ug/L","Water Flea","Crustaceans","eco","Growth Length",296.41
+"335","ethinyl estradiol","DTXSID5020576","NOEC",0.5,"ug/L","Snail","Molluscs","eco","Morphology Length",296.41
+"336","ethinyl estradiol","DTXSID5020576","NOEC",100,"ug/L","Midge","Insects/Spiders","eco","Development Pupation",296.41
+"337","ethinyl estradiol","DTXSID5020576","NOEC",500,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",296.41
+"338","ethinyl estradiol","DTXSID5020576","NOEC",5000,"ug/L","Midge","Insects/Spiders","eco","Genetics Heat shock cognate protein 70 mRNA",296.41
+"339","ethinyl estradiol","DTXSID5020576","NOEC",1000,"ug/L","Water Flea","Crustaceans","eco","Population",296.41
+"340","ethinyl estradiol","DTXSID5020576","NOEC",10,"ug/L","Water Flea","Crustaceans","eco","reproduction",296.41
+"341","ethinyl estradiol","DTXSID5020576","NOEC",200,"ug/L","Water Flea","Crustaceans","eco","mortality",296.41
+"342","ethinyl estradiol","DTXSID5020576","NOEC",300,"ug/L","Water Flea","Crustaceans","eco","reproduction",296.41
+"343","ethinyl estradiol","DTXSID5020576","NOEC",500,"ug/L","Water Flea","Crustaceans","eco","mortality",296.41
+"344","tamoxifen","DTXSID1034187","NOEC",0.1,"ug/L","Asian Clam","Molluscs","eco","Enzyme(s) Glutathione S-transferase",371.524
+"345","tamoxifen","DTXSID1034187","NOEC",50,"ug/L","Asian Clam","Molluscs","eco","Genetics Damage",371.524
+"346","tamoxifen","DTXSID1034187","NOEC",300,"ug/L","Atlantic Dogwinkle","Molluscs","eco","Morphology Length",371.524
+"347","moxifloxacin","DTXSID3048491","NOEC",1600,"ug/L","Water Flea","Crustaceans","eco","Development Molting",401.438
+"348","moxifloxacin","DTXSID3048491","NOEC",3500,"ug/L","Water Flea","Crustaceans","eco","Development Molting",401.438
+"349","moxifloxacin","DTXSID3048491","NOEC",12500,"ug/L","Water Flea","Crustaceans","eco","Mortality Survival",401.438
+"350","moxifloxacin","DTXSID3048491","NOEC",17500,"ug/L","Water Flea","Crustaceans","eco","Mortality Survival",401.438
+"351","norethindrone","DTXSID9023380","NOEC",5e+05,"ug/L","Water Flea","Crustaceans","eco","development",298.426
+"352","norethindrone","DTXSID9023380","NOEC",5e+05,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",298.426
+"353","estradiol","DTXSID0020573","NOEC",2179.1,"ug/L","Water Flea","Crustaceans","eco","Development Abnormal",272.388
+"354","estradiol","DTXSID0020573","NOEC",0.0035,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Genetics 5-Hydroxytryptamine receptor mRNA",272.388
+"355","estradiol","DTXSID0020573","NOEC",0.0036,"ug/L","Common Bay Mussel,Blue Mussel","Molluscs","eco","Genetics Cyclooxygenase mRNA",272.388
+"356","estradiol","DTXSID0020573","NOEC",0.048,"ug/L","Great Ramshorn Snail","Molluscs","eco","Reproduction Progeny counts/numbers",272.388
+"357","estradiol","DTXSID0020573","NOEC",1,"ug/L","Rotifer","Invertebrates","eco","Reproduction Net Reproductive Rate",272.388
+"358","estradiol","DTXSID0020573","NOEC",50,"ug/L","Harpacticoid Copepod","Crustaceans","eco","Mortality Mortality",272.388
+"359","estradiol","DTXSID0020573","NOEC",270,"ug/L","Water Flea","Crustaceans","eco","Development Molting",272.388
+"360","estradiol","DTXSID0020573","NOEC",1000,"ug/L","Harpacticoid Copepod","Crustaceans","eco","Intoxication Immobile",272.388
+"361","estradiol","DTXSID0020573","NOEC",2500,"ug/L","Flatworm","Worms","eco","Growth Limb/ body part regeneration",272.388
+"362","estradiol","DTXSID0020573","NOEC",5000,"ug/L","Flatworm","Worms","eco","Growth Limb/ body part regeneration",272.388
+"363","estradiol","DTXSID0020573","NOEC",1e+06,"ug/L","Scallop","Molluscs","eco","Reproduction Time to spawn",272.388
+"364","estradiol","DTXSID0020573","NOEC",6,"ug/L","Calanoid Copepod","Crustaceans","eco","Mortality Survival",272.388
+"365","estradiol","DTXSID0020573","NOEC",100,"ug/L","Mussel, Eastern Elliptio","Molluscs","eco","Biochemistry Vitellogenin",272.388
+"366","estradiol","DTXSID0020573","NOEC",136.194,"ug/L","Mediterranean Mussel","Molluscs","eco","Cell(s) Volume",272.388
+"367","estradiol","DTXSID0020573","NOEC",600,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",272.388
+"368","estradiol","DTXSID0020573","NOEC",10000,"ug/L","Sand Dollar","Invertebrates","eco","Development Abnormal",272.388
+"369","estradiol","DTXSID0020573","NOEC",270,"ug/L","Water Flea","Crustaceans","eco","development",272.388
+"370","estradiol","DTXSID0020573","NOEC",600,"ug/L","Water Flea","Crustaceans","eco","reproduction",272.388
+"371","estradiol","DTXSID0020573","NOEC",1000,"ug/L","Water Flea","Crustaceans","eco","reproduction",272.388
+"372","estradiol","DTXSID0020573","NOEC",2180,"ug/L","Water Flea","Crustaceans","eco","mortality",272.388
+"373","estradiol","DTXSID0020573","NOEC",10000,"ug/L","Water Flea","Crustaceans","eco","reproduction",272.388
+"374","medroxyprogesterone","DTXSID0036508","NOEC",5000,"ug/L","Water Flea","Crustaceans","eco","Reproduction Progeny counts/numbers",344.495
+"375","medroxyprogesterone","DTXSID0036508","NOEC",5000,"ug/L","Water Flea","Crustaceans","eco","mortality",344.495

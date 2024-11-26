@@ -1,4 +1,4 @@
-### PharmUse and PharmFlush
+# PharmUse and PharmFlush
 <div style="display: flex; justify-content: space-around;">
     <img src="pharmuse.png" alt="PharmUse logo" width="300">
     <img src="pharmflush.png" alt="PharmFlush logo" width="300">
