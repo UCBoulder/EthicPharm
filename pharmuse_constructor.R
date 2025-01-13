@@ -133,10 +133,10 @@ fix_units_df = data.frame(miscoded_units = c("MCG/INH", "MG/ACT", "MCG/mg/Act",
                                              "MG/GM", "mg/Act", "GM/SCOOP",
                                              "MG/mg/Act", "MCG/BLIST",
                                              "MCG/SPRAY","MG/SPRAY", "MCG/ACT",
-                                             "GM", "GM/ML"),
+                                             "GM", "GM/ML","MG/ML/MG/ML"),
                           correct_units = c("MCG", "MG", "MCG/MG", "MG/G", "MG",
                                             "G","MG/MG", "MCG", "MCG", "MG",
-                                            "MCG","G", "G/ML"))
+                                            "MCG","G", "G/ML","MG/ML"))
 for (i in seq_len(nrow(fix_units_df))){
   meps = fix_drug_coding(meps, meps$Units, "Units", fix_units_df[i,1],
                          fix_units_df[i,2])
@@ -151,7 +151,8 @@ for (i in seq_len(nrow(fix_forms_df))){
                          fix_forms_df[i,2])
 }
 
-# remove unnecessary commas from strength
+# remove unnecessary commas
+meps$Drug = gsub(",", "", meps$Drug)
 meps$Strength = gsub(",", "", meps$Strength)
 
 # NOTE: all the corrections to miscoded info below are curated against known
@@ -159,9 +160,11 @@ meps$Strength = gsub(",", "", meps$Strength)
 
 # remove miscoded drugs or drugs with vague/missing info
 meps = meps[is.na(meps$Units)==FALSE,]
-meps = remove_entries(meps, meps$Drug, "CODEINE/GUAIFENESIN")
-meps = remove_entries(meps, meps$Drug, "CODEINE-GUAIFENESIN")
+meps = meps[is.na(meps$Drug)==FALSE,]
 meps = remove_entries(meps, meps$Form, "OTHER")
+meps = remove_entries(meps, meps$NDC, "53002090672")
+meps = remove_entries(meps, meps$NDC, "70147031316")
+meps = remove_entries(meps, meps$Units, "ML")
 
 # fix cases with miscoded strengths
 meps = meps %>%
@@ -170,19 +173,12 @@ meps = meps %>%
 meps = meps %>%
   mutate(Strength = case_when(Strength=="1.25/1.25/1.25/1.25" ~ "1.25/1.25",
                               .default=Strength))
-meps = meps %>%
-  mutate(Strength = case_when(Strength=="70/1/30/1" ~ "70/30",
-                              .default=Strength))
 
 # fix miscoded albuterol (108 mcg albuterol sulfate = 90 mcg albuterol)
 meps = meps %>%
   mutate(Strength = case_when(Drug=="ALBUTEROL" & Strength=="108/1" ~ "90",
                               Drug=="ALBUTEROL" & Strength=="108" ~ "90",
                               .default=Strength))
-
-# remove miscoded albuterol (2 entries)
-meps = meps %>%
-  filter(!(Drug=="ALBUTEROL" & Units == "ML"))
 
 # fix albuterol units
 meps = meps %>%
@@ -195,12 +191,9 @@ meps = meps %>%
   mutate(Units = case_when(Drug=="ALBUTEROL" & Strength=="90" ~ "MCG",
                            .default=Units))
 
-# fix miscoded strength/units
-meps = meps %>% 
-  mutate(Strength = case_when(NDC=="53002090672" ~ "3.5/10000/1",
-                              .default = Strength)) %>%
-  mutate(Units = case_when(NDC=="53002090672" ~ "ML/ML/ML",
-                           .default = Units))
+# Remove whitespace
+meps = meps %>%
+  mutate_all(~str_squish(.))
 
 # fix miscoded units for combination drugs
 meps = meps %>%
@@ -213,7 +206,7 @@ meps = meps %>%
                            .default = Units))
 meps = meps %>%
   mutate(Units = case_when((grepl("-", Drug)==TRUE | grepl("/", Drug)==TRUE)
-                           & Units=="MG" ~ "MG/MG",
+                           & Units=="G" ~ "G/G",
                            .default = Units))
 meps = meps %>%
   mutate(Units = case_when((grepl("-", Drug)==TRUE | grepl("/", Drug)==TRUE)
@@ -223,6 +216,10 @@ meps = meps %>%
   mutate(Units = case_when((grepl("/", Drug)==TRUE | grepl("-", Drug)==TRUE)
                            & Units=="ML" ~ "ML/ML/ML",
                            .default = Units))
+
+# remove rows where strength has no slash/dash and drug does
+meps = meps %>%
+  filter(!((grepl("/",Drug)==TRUE | grepl("-",Drug)==TRUE) & (grepl("/",Strength)==FALSE & grepl("-",Strength)==FALSE)))
 
 # Separate combination drugs (and find ones that are miscoded as combination
 # drugs)
@@ -242,12 +239,14 @@ meps = meps %>%
                               .default = Strength))
 
 meps = meps %>%
-  mutate(Units = case_when(grepl("-", Drug)==TRUE & grepl("/", Units) == TRUE ~
+  mutate(Units = case_when(grepl("-", Drug)==TRUE & grepl("/", Units) == TRUE &
+                             grepl("ML",Units)==FALSE & grepl("HR",Units)==FALSE ~ 
                                 str_replace_all(Units, "/", "-"),
                               .default = Units))
 
 meps = meps %>%
-  mutate(Units = case_when(grepl("/", Drug)==TRUE & grepl("-", Units) == TRUE ~
+  mutate(Units = case_when(grepl("/", Drug)==TRUE & grepl("-", Units) == TRUE &
+                             grepl("ML",Units)==FALSE & grepl("HR",Units)==FALSE ~
                              str_replace_all(Units, "-", "/"),
                            .default = Units))
 
@@ -264,7 +263,7 @@ meps = meps %>% filter(!Drug %in% drug_names_to_remove)
 meps = meps %>%
   mutate_all(~str_squish(.))
 
-# Handle dash delimiters
+# Handle dash delimiters - no slash delimiters after data curation
 
 # Make dummy column of all zeros initially
 meps = meps %>%
@@ -281,71 +280,22 @@ duplicated_rows = rows_with_dash %>% mutate(Is_Combo = 1)
 # Combine the original dataframe with the duplicated rows
 meps = bind_rows(meps, duplicated_rows) %>% arrange(row_number())
 
-# Split the Drug, Strength, Units columns into parts before and after the dash
-meps = meps %>%
-  mutate(
-    Drug_Parts = str_split(Drug, "-", simplify = TRUE),
-    Strength_Parts = str_split(Strength, "-", simplify = TRUE),
-    Units_Parts = str_split(Units, "-", simplify = TRUE)
-  )
-
-# Use if_else to conditionally assign the correct part based on the Is_Combo column
-meps = meps %>%
-  mutate(
-    Drug = if_else(Is_Combo == 0, Drug_Parts[, 1],
-                   if_else(Is_Combo == 1, Drug_Parts[, 2], Drug)),
-    Strength = if_else(Is_Combo == 0, Strength_Parts[, 1],
-                       if_else(Is_Combo == 1, Strength_Parts[, 2], Strength)),
-    Units = if_else(Is_Combo == 0, Units_Parts[, 1],
-                    if_else(Is_Combo == 1, Units_Parts[, 2], Units))
-  )
-
-# Drop the helper columns
-meps = meps %>%
-  select(-Is_Combo, -Drug_Parts, -Strength_Parts, -Units_Parts)
-
-# Handle slash delimiters
-
-# Make dummy column of all zeros initially
-meps = meps %>%
-  mutate(Is_Combo = rep(0, nrow(meps)))
-
-# Make a duplicate row with Is_Combo set to 1 if drug is a combination drug
-
-# Identify rows where 'Drug' contains a slash
-rows_with_slash = meps %>% filter(grepl("/", Drug))
-
-# Duplicate these rows and set 'Is_Combo' to 1
-duplicated_rows1 = rows_with_slash %>% mutate(Is_Combo = 1)
-
-# Duplicate these rows and set 'Is_Combo' to 2 (capturing combo drugs with 3
-# drugs, i.e. all combo drugs with slashes in drug name in this dataset)
-duplicated_rows2 = rows_with_slash %>% mutate(Is_Combo = 2)
-
-# Combine the original dataframe with the duplicated rows
-meps = bind_rows(meps, duplicated_rows1,
-                 duplicated_rows2) %>% arrange(row_number())
-
-# Conditionally split the Units column based on the presence of a slash in the
-# Drug column
+# Conditionally split the Units column based on the presence of a dash in the
+# Drug column (all units with slash are not combos)
 meps = meps %>%
   mutate(
     Units_Parts = if_else(
-      grepl("/", Drug),  
-      str_split(Units, "/", simplify = TRUE),  
-      if_else(  
-        !grepl("/", Drug) & grepl("/", Strength),  
-        str_split(Units, "/", simplify = TRUE),  
+      grepl("-", Drug),  
+      str_split(Units, "-", simplify = TRUE),  
         Units  
-      )
     )
   )
 
-# Split the Drug, Strength columns into parts before and after the slash
+# Split the Drug, Strength columns into parts before and after the dash or slash
 meps = meps %>%
   mutate(
-    Drug_Parts = str_split(Drug, "/", simplify = TRUE),
-    Strength_Parts = str_split(Strength, "/", simplify = TRUE)
+    Drug_Parts = str_split(Drug, "-", simplify = TRUE),
+    Strength_Parts = str_split(Strength, "[-/]", simplify = TRUE)
   )
 
 # Use if_else to conditionally assign the correct part based on the Is_Combo
@@ -353,39 +303,16 @@ meps = meps %>%
 meps = meps %>%
   mutate(
     Drug = if_else(Is_Combo == 0, Drug_Parts[, 1],
-                   if_else(Is_Combo == 1, Drug_Parts[, 2],
-                           if_else(Is_Combo == 2, Drug_Parts[, 3], Drug))),
+                   if_else(Is_Combo == 1, Drug_Parts[, 2],Drug)),
     Strength = if_else(Is_Combo == 0, Strength_Parts[, 1],
-                       if_else(Is_Combo == 1, Strength_Parts[, 2],
-                           if_else(Is_Combo == 2, Strength_Parts[, 3],
-                                   Strength))),
+                       if_else(Is_Combo == 1, Strength_Parts[, 2], Strength)),
     Units = if_else(Is_Combo == 0, Units_Parts[, 1],
-                       if_else(Is_Combo == 1, Units_Parts[, 2],
-                               if_else(Is_Combo == 2, Units_Parts[, 3], Units)))
+                    if_else(Is_Combo == 1, Units_Parts[, 2],Units))
   )
 
 # Drop the helper columns
 meps = meps %>%
   select(-Is_Combo, -Drug_Parts, -Strength_Parts, -Units_Parts)
-
-# fix miscoded drugs that were previously stuck in combinations
-# (correct drugs coded with units of ML, should be units of %;
-# HYDROCORTISONE/NEOMYCIN/POLYMYXIN B miscoded, should be 1%-0.35%-10000
-# units/mL but must remove polymyxin B b/c units are not clear)
-meps = meps %>%
-  mutate(Strength = case_when(Drug=="TRAVOPROST" & Units=="ML" ~
-                                "0.004",
-                              Drug=="CIPROFLOXACIN" & Units=="ML" ~
-                                "0.3",
-                              Drug=="NEOMYCIN" & Units=="ML" ~
-                                "0.35", 
-                              Drug=="HYDROCORTISONE" & Units=="ML" ~
-                                "1",
-                              .default=Strength))
-meps = remove_entries(meps,meps$Drug,"POLYMYXIN B")
-meps = meps %>%
-  mutate(Units = case_when(Units == "ML" ~ "%",
-                           .default=Units))
 
 # Generate drug list to loop through
 
@@ -423,8 +350,7 @@ for (drug in drugs){
 # remove any duplicates introduced
 drugs = unique(drugs)
 
-# remove blank spaces and periods from data
-meps$Strength[meps$Strength == ""] = NA
+# remove extra periods from data
 meps$Strength = gsub("\\.+$", "", meps$Strength)
 
 # initialize larger data frame to store cleaned data
@@ -436,17 +362,13 @@ for (i in 1:length(drugs)){
     filter(Drug==drugs[i])
   
   # Find avg Day_Supply and Quantity values for each drug (to be used for
-  # imputing)
+  # imputing - no missing Strength values)
   not_missing_daysup = drug_data[is.na(drug_data$Day_Supply)==FALSE,]
   avg_daysup = sum(as.numeric(not_missing_daysup$Day_Supply))/
     length(not_missing_daysup$Day_Supply)
   not_missing_quanty = drug_data[is.na(drug_data$Quantity)==FALSE,]
   avg_quanty = sum(as.numeric(not_missing_quanty$Quantity))/
     length(not_missing_quanty$Quantity)
-  
-  # remove entries where strength is missing (only 1 entry left after
-  # processing)
-  drug_data = subset(drug_data, is.na(drug_data$Strength)==FALSE)
 
   # remove entries where Day_Supply missing for >95% of entries (imputing not
   # reliable in this case)
@@ -483,7 +405,8 @@ for (i in 1:length(drugs)){
     mutate(Strength = case_when(Units == "MG" ~ Strength*1000,
                                 .default=Strength))
 
-  # convert MG/ML to MCG (assume density is about 1 g/mL and 1mL drug each)
+  # convert MG/ML to MCG (mass and volume often directly given (e.g. 3 mg/20 mL);
+  # if volume not given, assuming 1 mL)
   drug_data = drug_data %>%
     mutate(Strength = case_when(Units == "MG/ML" ~ Strength*1000,
                                 .default=Strength))
@@ -499,7 +422,8 @@ for (i in 1:length(drugs)){
     mutate(Strength = case_when(Units == "%" ~ Strength*1000000,
                                 .default=Strength))
 
-  # Convert G/ML to MCG (assume density is about 1 g/mL and 1mL drug each)
+  # Convert G/ML to MCG (mass and volume often directly given (e.g. 3 g/20 mL);
+  # if volume not given, assuming 1 mL)
   drug_data = drug_data %>%
     mutate(Strength = case_when(Units == "G/ML" ~ Strength*1000000,
                                 .default=Strength))
@@ -535,12 +459,8 @@ meps_clean = do.call(rbind, meps_clean)
 meps_clean = subset(meps_clean, select=-c(Units))
 
 # calculate daily frequency for each record
-# (except the patches! these are already calculated as rates)
 meps_clean = meps_clean %>%
-  mutate(Daily_Frequency = case_when(Form != "PTWK" & Form != "PT24" ~
-                                       Quantity/Day_Supply,
-                               Form == "PTWK" ~ 1,
-                               Form == "PT24" ~ 1))
+  mutate(Daily_Frequency = Quantity/Day_Supply)
 
 # calculate daily dosage for each record
 meps_clean = meps_clean %>%
@@ -568,6 +488,10 @@ colnames(avg_durations) = c("Pharmaceutical",
                                 "Average_Duration_per_Prescription")
 avg_durations = avg_durations %>%
   arrange(desc(Average_Duration_per_Prescription))
+
+# LEFT OFF HERE.then new figures needed (incl InkScape edits) & paper number and
+# result update check & double check
+# GitHub files (make sure updated drugs_to_remove sheet & check other)
 
 ################################################################################
 # Load and clean CompTox data. 
@@ -777,18 +701,19 @@ lc50 = lc50 %>%
   rename(Vertebrate_Median_LC50 = Vertebrate) %>%
   rename(Invertebrate_Median_LC50 = Invertebrate)
 
-# estimate human LC50 by multiplying min vertebrate LC50 by safety factor of 10
-lc50_human = comptox_search_tox %>%
-  filter(TOXVAL_TYPE=="LC50") %>%
-  mutate(Organism_category = case_when(SPECIES_SUPERCATEGORY %in% vertebrates ~
-                                         "Vertebrate",
-                                     SPECIES_SUPERCATEGORY %in% invertebrates ~
-                                       "Invertebrate",
-                                     SPECIES_SUPERCATEGORY %in% plants_algae ~
-                                       "Plants_and_Algae")) %>%
-  filter(Organism_category=="Vertebrate") %>%
+# estimate human LC50 by dividing min vertebrate LC50 by safety factor of 10
+lc50_vert = comptox_search_tox %>%
+  filter(TOXVAL_TYPE=="LC50" & SPECIES_SUPERCATEGORY %in% vertebrates)
+
+lc50_invert = comptox_search_tox %>%
+  filter(TOXVAL_TYPE=="LC50" & SPECIES_SUPERCATEGORY %in% invertebrates)
+
+lc50_plants_algae = comptox_search_tox %>%
+  filter(TOXVAL_TYPE=="LC50" & SPECIES_SUPERCATEGORY %in% plants_algae)
+
+lc50_human = lc50_vert %>%
   group_by(Pharmaceutical) %>%
-  summarize(Human=min(TOXVAL_NUMERIC)) 
+  summarize(Human=min(TOXVAL_NUMERIC)/10)
   
 # get drug names in correct format to merge MEPS and tox data
 meps_clean$Drug = trimws(tolower(meps_clean$Drug))
@@ -865,7 +790,7 @@ noec_plants_algae = comptox_search_tox %>%
 # estimate human NOEC by multiplying min vertebrate NOEC by safety factor of 10
 noec_human = noec_vert %>%
   group_by(Pharmaceutical) %>%
-  summarize(Human=10*min(TOXVAL_NUMERIC))
+  summarize(Human=min(TOXVAL_NUMERIC)/10)
 
 # get in correct format to merge MEPS and tox data
 noec$Pharmaceutical = trimws(tolower(noec$Pharmaceutical))
