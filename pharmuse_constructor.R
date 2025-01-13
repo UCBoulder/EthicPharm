@@ -489,10 +489,6 @@ colnames(avg_durations) = c("Pharmaceutical",
 avg_durations = avg_durations %>%
   arrange(desc(Average_Duration_per_Prescription))
 
-# LEFT OFF HERE.then new figures needed (incl InkScape edits) & paper number and
-# result update check & double check
-# GitHub files (make sure updated drugs_to_remove sheet & check other)
-
 ################################################################################
 # Load and clean CompTox data. 
 # NOTE: all properties are added as medians of all available values
