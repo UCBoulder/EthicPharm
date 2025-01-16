@@ -38,8 +38,9 @@ lit = na.omit(lit)
 lit = lit %>%
   filter(Influent_concentration != "ND") %>%
   filter(Influent_concentration != "78-10900") %>%
-  mutate(Influent_concentration = as.numeric(trimws(gsub(",","",
-                                                         Influent_concentration)))) %>%
+  mutate(Influent_concentration = trimws(gsub(",","",Influent_concentration))) %>%
+  mutate(Influent_concentration = trimws(gsub(" ","",Influent_concentration))) %>%
+  mutate(Influent_concentration = as.numeric(Influent_concentration)) %>%
   mutate(Influent_concentration = case_when(Drug=="Pseudoephedrine + ephedrine" ~
                                               Influent_concentration/2,
                                             .default=Influent_concentration)) %>%

@@ -8,9 +8,7 @@
 # pharmaceutical. Predicted concentrations are compared across sewershed sizes
 # by running this script with different values of wastewater_pop_size parameter.
 # Values are compared to literature-reported concentrations. Various data
-# visualizations are provided to examine these relationships, and the readily
-# biodegrades, Henry's Law, and log Kow parameters from PharmUse are
-# also examined and visualized.
+# visualizations are provided to examine these relationships.
  
 ################################################################################
 
@@ -383,52 +381,53 @@ stacked_ensembles_filtered = rbind(stacked_ensembles_greaterthan4,
 
 # # color palette for wastewater_pop_size = 100
 # color_palette = c(
-#   "Metformin"="#0072B2",  
-#   "Naproxen"="#CC7722",  
-#   "Gabapentin"="#56B4E9",  
-#   "Ibuprofen"="#009E73",  
-#   "Levetiracetam"="#8E44AD", 
-#   "Others"="#999999", 
-#   "Icosapent"="#E41A1C",  
-#   "Labetalol"="#4682B4",  
-#   "Bupropion"="#8A9B0F",  
-#   "Aspirin"="#E69F00",  
-#   "Acyclovir"="#5E3370",  
-#   "Mesalamine"="#00BFC4",  
-#   "Acetaminophen"="#FB8072",  
-#   "Valacyclovir"="#007C7A",  
-#   "Gemfibrozil"="#556B2F",  
-#   "Hydrocodone"="#A62A29",  
-#   "Methocarbamol"="#FFC300",  
-#   "Divalproex Sodium"="#DDA0DD",  
-#   "Oxcarbazepine"="#FF8C00", 
-#   "Carbamazepine"="#DA70D6",  
-#   "Losartan"="#8B4513",  
-#   "Amoxicillin"="#2E8B57",  
-#   "Cephalexin"="#FF00FF",  
-#   "Dorzolamide"="#00B140", 
-#   "Celecoxib"="#F4A460"   
+#   "Metformin"="#0072B2",
+#   "Naproxen"="#CC7722",
+#   "Gabapentin"="#56B4E9",
+#   "Ibuprofen"="#009E73",
+#   "Levetiracetam"="#8E44AD",
+#   "Others"="#999999",
+#   "Icosapent"="#E41A1C",
+#   "Labetalol"="#4682B4",
+#   "Bupropion"="#8A9B0F",
+#   "Aspirin"="#E69F00",
+#   "Acyclovir"="#5E3370",
+#   "Mesalamine"="#00BFC4",
+#   "Acetaminophen"="#FB8072",
+#   "Diltiazem"="#007C7A",
+#   "Gemfibrozil"="#556B2F",
+#   "Ranolazine"="#A62A29",
+#   "Methocarbamol"="#FFC300",
+#   "Divalproex Sodium"="#DDA0DD",
+#   "Mycophenolate Mofetil"="#FF8C00",
+#   "Carbamazepine"="#DA70D6",
+#   "Losartan"="#8B4513",
+#   "Amoxicillin"='#C19A6B',
+#   "Cephalexin"="#FF00FF",
+#   "Dorzolamide"="#00B140",
+#   "Celecoxib"="#F4A460",
+#   "Quetiapine"="#1E90FF",
+#   "Hydralazine"="#32CD32"
 # )
 
-# # color palette for wastewater_pop_size = 100
+# color palette for wastewater_pop_size = 1000
 # color_palette = c(
-#   "Metformin"="#0072B2",  
-#   "Naproxen"="#CC7722",  
-#   "Gabapentin"="#56B4E9",  
-#   "Ibuprofen"="#009E73",  
-#   "Levetiracetam"="#8E44AD",  
-#   "Others"="#999999",  
-#   "Icosapent"="#E41A1C",  
-#   "Bupropion"="#8A9B0F", 
-#   "Aspirin"="#E69F00",  
-#   "Mesalamine"="#00BFC4",  
-#   "Valacyclovir"="#007C7A",
-#   "Methocarbamol"="#FFC300",  
+#   "Metformin"="#0072B2",
+#   "Gabapentin"="#56B4E9",
+#   "Ibuprofen"="#009E73",
+#   "Levetiracetam"="#8E44AD",
+#   "Others"="#999999",
+#   "Icosapent"="#E41A1C",
+#   "Bupropion"="#8A9B0F",
+#   "Aspirin"="#E69F00",
+#   "Mesalamine"="#00BFC4",
+#   "Acetaminophen"="#FB8072",
+#   "Methocarbamol"="#FFC300",
 #   "Amoxicillin"="#2E8B57",
 #   "Lactulose" ="#D95F02"
 # )
 
-# color palette for wastewater_pop_size = 100000 or 1 million
+# # color palette for wastewater_pop_size = 100000 or 1 million
 color_palette = c("Metformin"="#0072B2", "Lactulose"="#D95F02",
                    "Gabapentin"="#56B4E9", "Ibuprofen"="#009E73",
                    "Levetiracetam"="#8E44AD","Others"="#999999")
@@ -442,7 +441,7 @@ drug_stacked = ggplot(stacked_ensembles_filtered, aes(x = as.factor(Ensemble_num
        y = expression("Predicted Concentration ("*mu*"g/L)"),
        fill="Pharmaceutical") +
   theme_minimal() + 
-  coord_cartesian(ylim = c(0, 250)) + # use for 100k plot only
+  coord_cartesian(ylim = c(0, 300)) + # use for 100k and 1mil plots only
   theme(axis.title.x = element_text(size = 14),  
         axis.title.y = element_text(size = 14),  
         axis.text.x = element_text(size = 12),   
@@ -563,108 +562,3 @@ ggsave("comp_bar.svg", plot = comp_bar, width = 6, height = 6,
  combined_plot = comp_scatter + comp_bar + 
    plot_layout(ncol = 2, widths = c(3, 3))
  ggsave("combined_plot.svg",plot=combined_plot,width=10,height=5,device="svg")
-
-# Figure 5b
-# biotransformation plot prep
-lit_comp_biotransf = lit_comp_summ %>%
-  left_join(pharmuse,by="Pharmaceutical") %>%
-  filter(!is.na(Readily.Biodegrades))
-
-lit_comp_biotransf$Readily.Biodegrades <- factor(
-  lit_comp_biotransf$Readily.Biodegrades,
-  levels = c(0, 1),
-  labels = c("No", "Yes")
-)
-
-# NOTE: below y=x line, lit-reported concentration > predicted; above line is
-# predicted > lit_reported
-biotransf = ggplot(lit_comp_biotransf, aes(x = Mean,
-                                           y = Average_Predicted_Concentration,
-                                           fill = Readily.Biodegrades)) +
-  scale_x_log10() +
-  scale_y_log10() +
-  geom_point(shape = 21, size = 4, color = "black") +  
-  geom_abline(slope = 1, intercept = 0, linetype = "dotted", color = "black") + 
-  scale_fill_manual(values = c("Yes" = "blue", "No" = "red")) +  
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  labs(x=expression("Measured Concentration ("*mu*"g/L)"),
-       y = expression("Predicted Concentration ("*mu*"g/L)"),
-       fill = "Readily biodegrades?") +
-  theme(axis.title.x = element_text(size = 14),  
-        axis.title.y = element_text(size = 14),  
-        axis.text.x = element_text(size = 12),   
-        axis.text.y = element_text(size = 12)) +
-  theme(legend.text = element_text(size = 12)) +
-  theme(legend.title = element_text(size = 12))
-ggsave("biotransf.svg", plot = biotransf, width = 5, height = 5,
-       device="svg")
-
-# Figure S1:
-# Henry's law constant plot prep
-lit_comp_HL = lit_comp_summ %>%
-  left_join(pharmuse,by="Pharmaceutical") %>%
-  filter(!is.na(Henrys.Law)) %>%
-  mutate(henry_law_category = case_when(Henrys.Law > 1E-03 & Molar_Mass < 200 ~
-                                          "High",
-                                        Henrys.Law <= 1E-03 & Henrys.Law > 1E-06 &
-                                          Molar_Mass ~ "Intermediate",
-                                        Henrys.Law <= 1E-06 & Molar_Mass ~ "Low"))
-
-# NOTE: below y=x line, lit-reported concentration > predicted; above line is
-# predicted > lit_reported
-HL = ggplot(lit_comp_HL, aes(x = Mean, y = Average_Predicted_Concentration,
-                                           fill = henry_law_category)) +
-  scale_x_log10() +
-  scale_y_log10() +
-  geom_point(shape = 21, size = 4, color = "black") +  
-  geom_abline(slope = 1, intercept = 0, linetype = "dotted", color = "black") +
-  scale_fill_manual(values = c("Low" = "blue", "Intermediate" = "red", 
-  "High" = "violet")) +   
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  labs(x=expression("Measured Concentration ("*mu*"g/L)"),
-       y = expression("Predicted Concentration ("*mu*"g/L)"),
-       fill = "Henry's law constant") +
-  theme(axis.title.x = element_text(size = 14),  
-        axis.title.y = element_text(size = 14),  
-        axis.text.x = element_text(size = 12),   
-        axis.text.y = element_text(size = 12)) +
-  theme(legend.text = element_text(size = 12)) +
-  theme(legend.title = element_text(size = 12))
-ggsave("HL.svg", plot = HL, width = 5, height = 5,
-       device="svg")
-
-# Figure 5a
-# LogKow plot prep
-lit_comp_logKow = lit_comp_summ %>%
-  left_join(pharmuse,by="Pharmaceutical") %>%
-  filter(!is.na(LogKow.Octanol.Water)) %>%
-  mutate(logKow_category = case_when(LogKow.Octanol.Water >= 5 ~ "High",
-                                     LogKow.Octanol.Water < 5 & LogKow.Octanol.Water >=2 ~
-                                       "Intermediate",
-                                     LogKow.Octanol.Water < 2 ~ "Low"))
-
-# NOTE: below y=x line, lit-reported concentration > predicted; above line is
-# predicted > lit_reported
-logKow = ggplot(lit_comp_logKow, aes(x = Mean, y = Average_Predicted_Concentration,
-                             fill = logKow_category)) +
-  scale_x_log10() +
-  scale_y_log10() +
-  geom_point(shape = 21, size = 4, color = "black") +  
-  geom_abline(slope = 1, intercept = 0, linetype = "dotted", color = "black") + 
-  scale_fill_manual(values = c("Low" = "blue", "Intermediate" = "violet",
-                               "High" = "red")) +   
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  labs(x=expression("Measured Concentration ("*mu*"g/L)"),
-       y = expression("Predicted Concentration ("*mu*"g/L)"),
-       fill = "Log Kow") +
-  theme(axis.title.x = element_text(size = 14),  
-        axis.title.y = element_text(size = 14),  
-        axis.text.x = element_text(size = 12),
-        axis.text.y = element_text(size = 12)) +
-  theme(legend.text = element_text(size = 12)) +
-  theme(legend.title = element_text(size = 12))
-ggsave("logKow.svg", plot = logKow, width = 5, height = 5,
-       device="svg")
