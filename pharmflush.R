@@ -18,6 +18,7 @@ library("tidyverse")
 library("viridis")
 library("svglite")
 library("patchwork")
+library("cowplot")
 
 ################################################################################
 # PharmFlush model creation
@@ -54,7 +55,7 @@ for (i in 1:length(drugs)){
 }
 
 # Calculate probability P of detecting exactly x prescriptions for given drug in
-# sewershed of size n with detection probability p
+# sewershed of wastewater_pop_size with detection probability p
 P = list()
 for (i in 1:length(drugs)){ 
   new_P = dbinom(x,wastewater_pop_size,p[i]) 
@@ -228,6 +229,7 @@ write.csv(stacked_ensembles_avg,"stacked_ensembles_avg_100k.csv")
 
 # load all literature values (each observation) and pre-process
 lit_search_all = read.csv("lit_values_all.csv")
+lit_search_all[] = lapply(lit_search_all, function(x) trimws(as.character(x)))
 lit_search_all = na.omit(lit_search_all)
 lit_search_all = lit_search_all %>%
   select(-c("Sampling.date","Sampling.location","Sampling.type","Reference")) %>%
@@ -279,6 +281,7 @@ lit_comp_all = lit_comp_all %>%
 # load summary statistics of literature-reported data (mean, median, etc.)
 lit_search_summ = read.csv("lit_values_summary.csv")
 lit_search_summ$Pharmaceutical = toupper(lit_search_summ$Pharmaceutical)
+lit_search_summ[] = lapply(lit_search_summ, function(x) trimws(as.character(x)))
 
 # pre-process summary data
 lit_search_summ = lit_search_summ %>%
@@ -315,41 +318,62 @@ lit_comp_summ = lit_search_summ %>%
 # Data visualization
 ################################################################################
 
-# Figure 2 code: Average predicted concentration across 100 ensembles vs average
-# number of prescriptions 
+# Figure 2 code:
 median_val = median(average_profile$Average_Predicted_Concentration)
-labels = c("Median = 0.04 \U00B5g/L",
-            "4e-04 \U00B5g/L",
-            "4 \U00B5g/L")
-annotations = data.frame(
-  x = c(6700,7250,7500),  
-  y = c(median_val, 4e-04, 4),  
-  label = labels
-)
-avg_plot = ggplot(average_profile, aes(x=Average_Number_Prescriptions,
-                            y=Average_Predicted_Concentration)) + 
-  scale_y_log10() + 
-  annotate("segment", x = 0, y = median_val, xend = 8000, yend = median_val,
-           color = "black",
-           linewidth=1) + 
-  annotate("segment", x = 0, y = 4e-04, xend = 8000, yend = 4e-04, 
-           color = "black",
-           linewidth=1) + 
-  annotate("segment", x = 0, y = 4, xend = 8000, yend = 4, color = "black",
-           linewidth=1) + 
-  geom_text(data = annotations, aes(x = x, y = y, label = label), vjust = -0.5,
-            color="black") +
-  geom_point(color = "darkgray",alpha=0.5) + 
-  guides(color = "none") +
-  labs(x="Number of prescriptions",
-       y=expression("Log Predicted Concentration ("*mu*"g/L)"),
-       color="Pharmaceuticals") +
-  theme_bw() + 
-  theme(axis.title.x = element_text(size = 14),  
-        axis.title.y = element_text(size = 14),  
-        axis.text.x = element_text(size = 12),   
-        axis.text.y = element_text(size = 12)) 
-ggsave("average_drug_conc_plot.svg", plot = avg_plot, width = 5, height = 5,
+
+# Highlight pharmaceuticals with concentrations 2 std deviations above median
+highlight_condition <- function(bin_midpoint, threshold = 4) {
+  bin_midpoint > threshold  # Change this condition as needed
+}
+hist_data <- ggplot_build(ggplot(average_profile,
+                                 aes(x = Average_Predicted_Concentration)) +
+                            geom_histogram(binwidth = 1))$data[[1]]
+hist_data <- hist_data %>%
+  mutate(highlight = highlight_condition(x))
+
+main_hist <- ggplot(average_profile, aes(x = Average_Predicted_Concentration)) +
+  geom_histogram(binwidth = 1, fill = "gray", color = "gray", alpha = 0.3) +
+  geom_rect(data = subset(hist_data, highlight),
+            aes(xmin = xmin, xmax = xmax, ymin = 0, ymax = count),
+            fill = "red", color = "red", alpha = 0.8, inherit.aes = FALSE) +
+  geom_vline(xintercept = 4, color = "black", linetype = "dashed", size = 0.7) +
+  labs(x = expression("Predicted Concentration ("*mu*"g/L)"),
+       y = "Number of Pharmaceuticals") +
+  theme_minimal() + 
+  annotate("text", x = 10, y = 225,
+           label = bquote(4 ~ mu * "g/L"),
+           color = "black", vjust = -0.5, size = 4) +
+  theme(
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(),  
+    axis.ticks = element_line(color = "black") 
+  )
+
+inset_hist = ggplot(average_profile, aes(x = Average_Predicted_Concentration)) +
+  geom_histogram(binwidth = 0.001, fill = "gray", color = "gray", alpha=0.3) +
+  geom_vline(xintercept = 4, color = "black", linetype = "dashed", size = 0.1) +
+  geom_vline(xintercept = 4e-2, color = "black", linetype = "dashed", size = 0.7) +
+  geom_vline(xintercept = 4e-4, color = "black", linetype = "dashed", size = 0.7) +
+  annotate("text", x = 0.02, y =22 , label=bquote(4 ~ x ~ 10^-4 ~ mu * "g/L"),
+           color = "black", vjust = -0.5,
+           size = 3) +
+  annotate("text", x = 0.06, y =22 , label=bquote(4 ~ x ~ 10^-2 ~ mu * "g/L"),
+           color = "black", vjust = -0.5,
+           size = 3) +
+  coord_cartesian(xlim = c(0, 0.1)) +  
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 10) +
+  theme(
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(),  
+    axis.ticks = element_line(color = "black") 
+  )
+
+combined_hist = ggdraw() +
+  draw_plot(main_hist) +
+  draw_plot(inset_hist, x = 0.55, y = 0.55, width = 0.45, height = 0.45)
+
+ggsave("concentration_distrib.svg", plot = combined_hist, width = 5, height = 5,
        device="svg")
 
 # Figure 3 code:
@@ -379,7 +403,7 @@ stacked_ensembles_greaterthan4$Drug = str_to_title(stacked_ensembles_greaterthan
 stacked_ensembles_filtered = rbind(stacked_ensembles_greaterthan4,
                                    stacked_ensembles_lessthan4)
 
-# # color palette for wastewater_pop_size = 100
+# color palette for wastewater_pop_size = 100
 # color_palette = c(
 #   "Metformin"="#0072B2",
 #   "Naproxen"="#CC7722",
@@ -410,7 +434,7 @@ stacked_ensembles_filtered = rbind(stacked_ensembles_greaterthan4,
 #   "Hydralazine"="#32CD32"
 # )
 
-# color palette for wastewater_pop_size = 1000
+# # color palette for wastewater_pop_size = 1000
 # color_palette = c(
 #   "Metformin"="#0072B2",
 #   "Gabapentin"="#56B4E9",
@@ -423,7 +447,7 @@ stacked_ensembles_filtered = rbind(stacked_ensembles_greaterthan4,
 #   "Mesalamine"="#00BFC4",
 #   "Acetaminophen"="#FB8072",
 #   "Methocarbamol"="#FFC300",
-#   "Amoxicillin"="#2E8B57",
+#   "Amoxicillin"="#C19A6B",
 #   "Lactulose" ="#D95F02"
 # )
 
