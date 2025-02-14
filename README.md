@@ -48,6 +48,7 @@ Additionally, pharmuse.csv, lit_values_all.csv, and lit_values_summary.csv must 
 To run ensemble_exploration.R, first run the following in your console:  
 `install.packages("tidyverse")`  
 `install.packages("ggforce")`  
+`install.packages("pdftools")`
 
 Additionally, all_ensembles_100.csv, all_ensembles_1000.csv, all_ensembles_100k.csv, all_ensembles_1mil.csv, lit_values_all.csv, noec_vert.csv, noec_invert.csv,
 and noec_human.csv must be in the working directory to run this script.

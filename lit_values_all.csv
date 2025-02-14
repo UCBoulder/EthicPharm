@@ -23,8 +23,6 @@ Cyclobenzaprine,36,ng/L,Apr-June 2019,Intermountain western US state,24h composi
 Cyclobenzaprine,15.6,ng/L,Apr-June 2019,Intermountain western US state,24h composite,1
 Nortriptyline,30,ng/L,Apr-June 2019,Intermountain western US state,24h composite,1
 Nortriptyline,12,ng/L,Apr-June 2019,Intermountain western US state,24h composite,1
-Naltrexone,ND,ng/L,Apr-June 2019,Intermountain western US state,24h composite,1
-Naltrexone,ND,ng/L,Apr-June 2019,Intermountain western US state,24h composite,1
 Amphetamine,991,ng/L,Apr-June 2019,Intermountain western US state,24h composite,1
 Amphetamine,530,ng/L,Apr-June 2019,Intermountain western US state,24h composite,1
 Zolpidem,ND,ng/L,Apr-June 2019,Intermountain western US state,24h composite,1
@@ -101,10 +99,6 @@ Primidone,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
 Primidone,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
 Primidone,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
 Primidone,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
-Risperidone,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
-Risperidone,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
-Risperidone,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
-Risperidone,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
 Sertraline,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
 Sertraline,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
 Sertraline,ND,ng/L,"Aug-Dec 2017, Jun-Jul 2018",Eastern US,24h composite,2
@@ -183,7 +177,6 @@ Albuterol,ND,ng/L,17-Sep,Massachusetts,grab sample,5
 Sulfamethoxazole,165,ng/L,17-Sep,Massachusetts,grab sample,5
 Trimethoprim,"1,299",ng/L,17-Sep,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,17-Sep,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,17-Sep,Massachusetts,grab sample,5
 Acetaminophen,"16,413",ng/L,17-Dec,Massachusetts,grab sample,5
 Atenolol,224,ng/L,17-Dec,Massachusetts,grab sample,5
 Carbamazepine,95,ng/L,17-Dec,Massachusetts,grab sample,5
@@ -203,7 +196,6 @@ Albuterol,ND,ng/L,17-Dec,Massachusetts,grab sample,5
 Sulfamethoxazole,"2,968",ng/L,17-Dec,Massachusetts,grab sample,5
 Trimethoprim,524,ng/L,17-Dec,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,17-Dec,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,17-Dec,Massachusetts,grab sample,5
 Acetaminophen,"24,903",ng/L,18-Jul,Massachusetts,grab sample,5
 Atenolol,452,ng/L,18-Jul,Massachusetts,grab sample,5
 Carbamazepine,ND,ng/L,18-Jul,Massachusetts,grab sample,5
@@ -223,7 +215,6 @@ Albuterol,ND,ng/L,18-Jul,Massachusetts,grab sample,5
 Sulfamethoxazole,"1,682",ng/L,18-Jul,Massachusetts,grab sample,5
 Trimethoprim,302,ng/L,18-Jul,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,18-Jul,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,18-Jul,Massachusetts,grab sample,5
 Acetaminophen,"21,137",ng/L,16-Nov,Massachusetts,grab sample,5
 Atenolol,352,ng/L,16-Nov,Massachusetts,grab sample,5
 Carbamazepine,207,ng/L,16-Nov,Massachusetts,grab sample,5
@@ -243,7 +234,6 @@ Albuterol,400,ng/L,16-Nov,Massachusetts,grab sample,5
 Sulfamethoxazole,"2,744",ng/L,16-Nov,Massachusetts,grab sample,5
 Trimethoprim,"1,885",ng/L,16-Nov,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,16-Nov,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,16-Nov,Massachusetts,grab sample,5
 Acetaminophen,"23,413",ng/L,16-Nov,Massachusetts,grab sample,5
 Atenolol,ND,ng/L,16-Nov,Massachusetts,grab sample,5
 Carbamazepine,248,ng/L,16-Nov,Massachusetts,grab sample,5
@@ -263,7 +253,6 @@ Albuterol,665,ng/L,16-Nov,Massachusetts,grab sample,5
 Sulfamethoxazole,"2,941",ng/L,16-Nov,Massachusetts,grab sample,5
 Trimethoprim,"2,127",ng/L,16-Nov,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,16-Nov,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,16-Nov,Massachusetts,grab sample,5
 Acetaminophen,"53,143",ng/L,17-Sep,Massachusetts,grab sample,5
 Atenolol,564,ng/L,17-Sep,Massachusetts,grab sample,5
 Carbamazepine,115,ng/L,17-Sep,Massachusetts,grab sample,5
@@ -283,7 +272,6 @@ Albuterol,ND,ng/L,17-Sep,Massachusetts,grab sample,5
 Sulfamethoxazole,238,ng/L,17-Sep,Massachusetts,grab sample,5
 Trimethoprim,958,ng/L,17-Sep,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,17-Sep,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,17-Sep,Massachusetts,grab sample,5
 Acetaminophen,"19,984",ng/L,17-Dec,Massachusetts,grab sample,5
 Atenolol,254,ng/L,17-Dec,Massachusetts,grab sample,5
 Carbamazepine,79,ng/L,17-Dec,Massachusetts,grab sample,5
@@ -303,7 +291,6 @@ Albuterol,ND,ng/L,17-Dec,Massachusetts,grab sample,5
 Sulfamethoxazole,"2,925",ng/L,17-Dec,Massachusetts,grab sample,5
 Trimethoprim,526,ng/L,17-Dec,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,17-Dec,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,17-Dec,Massachusetts,grab sample,5
 Acetaminophen,"30,328",ng/L,18-Jul,Massachusetts,grab sample,5
 Atenolol,441,ng/L,18-Jul,Massachusetts,grab sample,5
 Carbamazepine,ND,ng/L,18-Jul,Massachusetts,grab sample,5
@@ -323,7 +310,6 @@ Albuterol,ND,ng/L,18-Jul,Massachusetts,grab sample,5
 Sulfamethoxazole,"1,545",ng/L,18-Jul,Massachusetts,grab sample,5
 Trimethoprim,259,ng/L,18-Jul,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,18-Jul,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,18-Jul,Massachusetts,grab sample,5
 Acetaminophen,"25,654",ng/L,16-Nov,Massachusetts,grab sample,5
 Atenolol,ND,ng/L,16-Nov,Massachusetts,grab sample,5
 Carbamazepine,233,ng/L,16-Nov,Massachusetts,grab sample,5
@@ -343,7 +329,6 @@ Albuterol,635,ng/L,16-Nov,Massachusetts,grab sample,5
 Sulfamethoxazole,"3,003",ng/L,16-Nov,Massachusetts,grab sample,5
 Trimethoprim,"2,852",ng/L,16-Nov,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,16-Nov,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,16-Nov,Massachusetts,grab sample,5
 Acetaminophen,"86,207",ng/L,17-Sep,Massachusetts,grab sample,5
 Atenolol,606,ng/L,17-Sep,Massachusetts,grab sample,5
 Carbamazepine,158,ng/L,17-Sep,Massachusetts,grab sample,5
@@ -363,7 +348,6 @@ Albuterol,ND,ng/L,17-Sep,Massachusetts,grab sample,5
 Sulfamethoxazole,"4,998",ng/L,17-Sep,Massachusetts,grab sample,5
 Trimethoprim,"1,329",ng/L,17-Sep,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,17-Sep,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,17-Sep,Massachusetts,grab sample,5
 Acetaminophen,"18,862",ng/L,17-Dec,Massachusetts,grab sample,5
 Atenolol,226,ng/L,17-Dec,Massachusetts,grab sample,5
 Carbamazepine,94,ng/L,17-Dec,Massachusetts,grab sample,5
@@ -383,7 +367,6 @@ Albuterol,ND,ng/L,17-Dec,Massachusetts,grab sample,5
 Sulfamethoxazole,"2,956",ng/L,17-Dec,Massachusetts,grab sample,5
 Trimethoprim,371,ng/L,17-Dec,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,17-Dec,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,17-Dec,Massachusetts,grab sample,5
 Acetaminophen,"30,592",ng/L,18-Jul,Massachusetts,grab sample,5
 Atenolol,464,ng/L,18-Jul,Massachusetts,grab sample,5
 Carbamazepine,ND,ng/L,18-Jul,Massachusetts,grab sample,5
@@ -403,7 +386,6 @@ Albuterol,ND,ng/L,18-Jul,Massachusetts,grab sample,5
 Sulfamethoxazole,"1,623",ng/L,18-Jul,Massachusetts,grab sample,5
 Trimethoprim,203,ng/L,18-Jul,Massachusetts,grab sample,5
 Venlafaxine,ND,ng/L,18-Jul,Massachusetts,grab sample,5
-Warfarin,ND,ng/L,18-Jul,Massachusetts,grab sample,5
 Acetaminophen,0.28,ng/L,5/27/2020,Pennsylvania,24h composite,6
 Acetaminophen,12.55,ng/L,6/3/2020,Pennsylvania,24h composite,6
 Acetaminophen,20.59,ng/L,6/11/2020,Pennsylvania,24h composite,6

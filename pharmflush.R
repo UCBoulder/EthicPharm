@@ -331,7 +331,7 @@ hist_data <- ggplot_build(ggplot(average_profile,
 hist_data <- hist_data %>%
   mutate(highlight = highlight_condition(x))
 
-main_hist <- ggplot(average_profile, aes(x = Average_Predicted_Concentration)) +
+hist <- ggplot(average_profile, aes(x = Average_Predicted_Concentration)) +
   geom_histogram(binwidth = 1, fill = "gray", color = "gray", alpha = 0.3) +
   geom_rect(data = subset(hist_data, highlight),
             aes(xmin = xmin, xmax = xmax, ymin = 0, ymax = count),
@@ -349,31 +349,7 @@ main_hist <- ggplot(average_profile, aes(x = Average_Predicted_Concentration)) +
     axis.ticks = element_line(color = "black") 
   )
 
-inset_hist = ggplot(average_profile, aes(x = Average_Predicted_Concentration)) +
-  geom_histogram(binwidth = 0.001, fill = "gray", color = "gray", alpha=0.3) +
-  geom_vline(xintercept = 4, color = "black", linetype = "dashed", size = 0.1) +
-  geom_vline(xintercept = 4e-2, color = "black", linetype = "dashed", size = 0.7) +
-  geom_vline(xintercept = 4e-4, color = "black", linetype = "dashed", size = 0.7) +
-  annotate("text", x = 0.02, y =22 , label=bquote(4 ~ x ~ 10^-4 ~ mu * "g/L"),
-           color = "black", vjust = -0.5,
-           size = 3) +
-  annotate("text", x = 0.06, y =22 , label=bquote(4 ~ x ~ 10^-2 ~ mu * "g/L"),
-           color = "black", vjust = -0.5,
-           size = 3) +
-  coord_cartesian(xlim = c(0, 0.1)) +  
-  labs(x = NULL, y = NULL) +
-  theme_minimal(base_size = 10) +
-  theme(
-    panel.grid.major = element_blank(), 
-    panel.grid.minor = element_blank(),  
-    axis.ticks = element_line(color = "black") 
-  )
-
-combined_hist = ggdraw() +
-  draw_plot(main_hist) +
-  draw_plot(inset_hist, x = 0.55, y = 0.55, width = 0.45, height = 0.45)
-
-ggsave("concentration_distrib.svg", plot = combined_hist, width = 5, height = 5,
+ggsave("concentration_distrib.svg", plot = hist, width = 5, height = 5,
        device="svg")
 
 # Figure 3 code:

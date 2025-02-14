@@ -15,6 +15,7 @@
 library(dplyr)
 library(ggplot2)
 library(ggforce)
+library(pdftools)
 
 # read in the data frames
 en100      <- read.csv("all_ensembles_100.csv")
@@ -113,7 +114,7 @@ transformed_data = combined_data %>%
 transformed_data <- transformed_data %>% filter(Concentration > 0)
 
 # calculate the total number of pages needed (290 graphs, 35 per page)
-num_pages <- ceiling(length(unique(transformed_data$Drug)) / 35)
+num_pages <- ceiling(length(unique(transformed_data$Drug)) / 8)
 
 # consolidate "Predicted concentration" into one label
 transformed_data$Source <- ifelse(
@@ -168,6 +169,9 @@ transformed_data <- transformed_data %>%
     LegendLabel = factor(LegendLabel, levels = legend_label_order)
   )
 
+# remove any extra whitespaces in drug
+transformed_data$Drug <- trimws(transformed_data$Drug)
+
 # generate paginated plots and save to PDF
 pdf("Lit_pred_tox_concentration_graphs.pdf", height = 24, width = 32)
 
@@ -190,10 +194,10 @@ for (i in 1:num_pages) {
         alpha = 0.5,
         na.rm = TRUE
       ) +
-      facet_wrap_paginate(~ Drug, scales = "free_y", nrow = 5, ncol = 7,
+      facet_wrap_paginate(~ Drug, scales = "free_y", nrow = 2, ncol = 4,
                           page = i) +
       labs(
-        y = expression("Log Concentration ("*mu*"g/L)"),
+        y = "Log Concentration (\u03bcg/L)",
         x = NULL,
         color = "Concentration value"
       ) +
@@ -201,15 +205,15 @@ for (i in 1:num_pages) {
       scale_color_manual(values = color_blind_palette) +
       theme_minimal() +
       theme(
-        text = element_text(size = 18),               
-        axis.text.x = element_text(angle = 90, hjust = 1, size = 14),  
-        axis.text.y = element_text(size = 14),         
-        axis.title = element_text(size = 16),        
-        strip.text = element_text(size = 16),          
-        legend.text = element_text(size = 14),        
-        legend.title = element_text(size = 16),        
-        plot.margin = margin(t = 10, r = 10, b = 30, l = 10),
-        legend.position = "right"                     
+        text = element_text(size = 30),               
+        axis.text.x = element_text(angle = 90, hjust = 1, size = 26),  
+        axis.text.y = element_text(size = 26),         
+        axis.title = element_text(size = 28),        
+        strip.text = element_text(size = 28),          
+        legend.text = element_text(size = 26),        
+        legend.title = element_text(size = 28),        
+        plot.margin = margin(t = 15, r = 15, b = 35, l = 15),
+        legend.position = "none"                     
       )
   )
 }

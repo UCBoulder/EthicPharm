@@ -1,0 +1,7 @@
+# Ignore figures
+*.svg
+*.png
+*.pdf
+
+# Ignore files starting with stacked
+stacked*
