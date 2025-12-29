@@ -1,0 +1,273 @@
+"","Pharmaceutical","DTXSID","TOXVAL_TYPE","TOXVAL_NUMERIC","TOXVAL_UNITS","SPECIES_COMMON","SPECIES_SUPERCATEGORY","Molar_Mass"
+"1","ibuprofen","DTXSID5020732","LC50",680,"ug/L","Fathead Minnow","Fish",206.285
+"2","ibuprofen","DTXSID5020732","LC50",1e+05,"ug/L","Japanese Medaka","Fish",206.285
+"3","ibuprofen","DTXSID5020732","LC50",142000,"ug/L","Carp, Hawk Fish","Fish",206.285
+"4","amoxicillin","DTXSID3037044","LC50",1e+06,"ug/L","Japanese Medaka","Fish",365.4
+"5","acetaminophen","DTXSID2020006","LC50",33900,"ug/L","Mouse","Mammals",151.165
+"6","acetaminophen","DTXSID2020006","LC50",814000,"ug/L","Fathead Minnow","Fish",151.165
+"7","acetaminophen","DTXSID2020006","LC50",49600,"ug/L","African Clawed Frog","Amphibians",151.165
+"8","acetaminophen","DTXSID2020006","LC50",160000,"ug/L","Japanese Medaka","Fish",151.165
+"9","acetaminophen","DTXSID2020006","LC50",191100,"ug/L","African Clawed Frog","Amphibians",151.165
+"10","acetaminophen","DTXSID2020006","LC50",560822,"ug/L","Zebra Danio","Fish",151.165
+"11","acetaminophen","DTXSID2020006","LC50",1189670,"ug/L","Zebra Danio","Fish",151.165
+"12","acetaminophen","DTXSID2020006","LC50",1499560,"ug/L","Zebra Danio","Fish",151.165
+"13","acetaminophen","DTXSID2020006","LC50",1529790,"ug/L","Zebra Danio","Fish",151.165
+"14","acetaminophen","DTXSID2020006","LC50",561000,"ug/L","Zebra Danio","Fish",151.165
+"15","acetaminophen","DTXSID2020006","LC50",812000,"ug/L","Fathead Minnow","Fish",151.165
+"16","acetaminophen","DTXSID2020006","LC50",814000,"ug/L","Fathead Minnow","Fish",151.165
+"17","acetaminophen","DTXSID2020006","LC50",1190000,"ug/L","Zebra Danio","Fish",151.165
+"18","ciprofloxacin","DTXSID8022824","LC50",1e+05,"ug/L","Zebra Danio","Fish",331.347
+"19","ciprofloxacin","DTXSID8022824","LC50",150000,"ug/L","Zebra Danio","Fish",331.347
+"20","aspirin","DTXSID5020108","LC50",274600,"ug/L","Zebra Danio","Fish",180.159
+"21","aspirin","DTXSID5020108","LC50",567700,"ug/L","Zebra Danio","Fish",180.159
+"22","sertraline","DTXSID6023577","LC50",143,"ug/L","Fathead Minnow","Fish",306.23
+"23","sertraline","DTXSID6023577","LC50",143,"ug/L","Fathead Minnow","Fish",306.23
+"24","sertraline","DTXSID6023577","LC50",191,"ug/L","Japanese Medaka","Fish",306.23
+"25","sertraline","DTXSID6023577","LC50",380,"ug/L","Rainbow Trout","Fish",306.23
+"26","sertraline","DTXSID6023577","LC50",191,"ug/L","Japanese Medaka","Fish",306.23
+"27","sertraline","DTXSID6023577","LC50",380,"ug/L","Rainbow Trout","Fish",306.23
+"28","gemfibrozil","DTXSID0020652","LC50",10870,"ug/L","Zebra Danio","Fish",250.338
+"29","gemfibrozil","DTXSID0020652","LC50",11010,"ug/L","Zebra Danio","Fish",250.338
+"30","gemfibrozil","DTXSID0020652","LC50",11140,"ug/L","Zebra Danio","Fish",250.338
+"31","gemfibrozil","DTXSID0020652","LC50",11260,"ug/L","Zebra Danio","Fish",250.338
+"32","gemfibrozil","DTXSID0020652","LC50",12620,"ug/L","Zebra Danio","Fish",250.338
+"33","gemfibrozil","DTXSID0020652","LC50",12990,"ug/L","Zebra Danio","Fish",250.338
+"34","gemfibrozil","DTXSID0020652","LC50",14610,"ug/L","Zebra Danio","Fish",250.338
+"35","gemfibrozil","DTXSID0020652","LC50",16260,"ug/L","Zebra Danio","Fish",250.338
+"36","gemfibrozil","DTXSID0020652","LC50",19090,"ug/L","Zebra Danio","Fish",250.338
+"37","gemfibrozil","DTXSID0020652","LC50",19460,"ug/L","Zebra Danio","Fish",250.338
+"38","gemfibrozil","DTXSID0020652","LC50",21020,"ug/L","Zebra Danio","Fish",250.338
+"39","gemfibrozil","DTXSID0020652","LC50",21140,"ug/L","Zebra Danio","Fish",250.338
+"40","gemfibrozil","DTXSID0020652","LC50",21960,"ug/L","Zebra Danio","Fish",250.338
+"41","gemfibrozil","DTXSID0020652","LC50",21970,"ug/L","Zebra Danio","Fish",250.338
+"42","gemfibrozil","DTXSID0020652","LC50",22430,"ug/L","Zebra Danio","Fish",250.338
+"43","gemfibrozil","DTXSID0020652","LC50",23090,"ug/L","Zebra Danio","Fish",250.338
+"44","gemfibrozil","DTXSID0020652","LC50",27470,"ug/L","Zebra Danio","Fish",250.338
+"45","gemfibrozil","DTXSID0020652","LC50",851.149,"ug/L","Zebra Danio","Fish",250.338
+"46","carbamazepine","DTXSID4022731","LC50",862,"ug/L","Fathead Minnow","Fish",236.274
+"47","carbamazepine","DTXSID4022731","LC50",19900,"ug/L","Rainbow Trout","Fish",236.274
+"48","carbamazepine","DTXSID4022731","LC50",45870,"ug/L","Japanese Medaka","Fish",236.274
+"49","carbamazepine","DTXSID4022731","LC50",61500,"ug/L","Japanese Medaka","Fish",236.274
+"50","carbamazepine","DTXSID4022731","LC50",63200,"ug/L","Japanese Medaka","Fish",236.274
+"51","carbamazepine","DTXSID4022731","LC50",65300,"ug/L","Japanese Medaka","Fish",236.274
+"52","carbamazepine","DTXSID4022731","LC50",72150,"ug/L","Japanese Medaka","Fish",236.274
+"53","carbamazepine","DTXSID4022731","LC50",245000,"ug/L","Zebra Danio","Fish",236.274
+"54","carbamazepine","DTXSID4022731","LC50",35400,"ug/L","Japanese Medaka","Fish",236.274
+"55","carbamazepine","DTXSID4022731","LC50",50089.9,"ug/L","Zebra Danio","Fish",236.274
+"56","carbamazepine","DTXSID4022731","LC50",118137,"ug/L","Zebra Danio","Fish",236.274
+"57","carbamazepine","DTXSID4022731","LC50",19900,"ug/L","Rainbow Trout","Fish",236.274
+"58","carbamazepine","DTXSID4022731","LC50",35400,"ug/L","Japanese Medaka","Fish",236.274
+"59","carbamazepine","DTXSID4022731","LC50",45900,"ug/L","Japanese Medaka","Fish",236.274
+"60","metronidazole","DTXSID2020892","LC50",1e+05,"ug/L","Rainbow Trout","Fish",171.156
+"61","metronidazole","DTXSID2020892","LC50",1e+06,"ug/L","Rainbow Trout","Fish",171.156
+"62","metronidazole","DTXSID2020892","LC50",1060000,"ug/L","Sheepshead Minnow","Fish",171.156
+"63","omeprazole","DTXSID6021080","LC50",20725,"ug/L","Zebra Danio","Fish",345.42
+"64","omeprazole","DTXSID6021080","LC50",31087.5,"ug/L","Zebra Danio","Fish",345.42
+"65","omeprazole","DTXSID6021080","LC50",20700,"ug/L","Zebra Danio","Fish",345.42
+"66","omeprazole","DTXSID6021080","LC50",31100,"ug/L","Zebra Danio","Fish",345.42
+"67","diphenhydramine","DTXSID4022949","LC50",28089.6,"ug/L","Zebra Danio","Fish",255.361
+"68","diphenhydramine","DTXSID4022949","LC50",51072,"ug/L","Zebra Danio","Fish",255.361
+"69","diphenhydramine","DTXSID4022949","LC50",68947.1,"ug/L","Zebra Danio","Fish",255.361
+"70","diphenhydramine","DTXSID4022949","LC50",28100,"ug/L","Zebra Danio","Fish",255.361
+"71","diphenhydramine","DTXSID4022949","LC50",51100,"ug/L","Zebra Danio","Fish",255.361
+"72","fenofibrate","DTXSID2029874","LC50",169,"ug/L","Fathead Minnow","Fish",360.83
+"73","levofloxacin","DTXSID0041060","LC50",1e+05,"ug/L","Japanese Medaka","Fish",361.373
+"74","simvastatin","DTXSID0023581","LC50",2680,"ug/L","Mummichog","Fish",418.574
+"75","verapamil","DTXSID9041152","LC50",600,"ug/L","Fathead Minnow","Fish",454.611
+"76","verapamil","DTXSID9041152","LC50",2720,"ug/L","Rainbow Trout","Fish",454.611
+"77","verapamil","DTXSID9041152","LC50",2720,"ug/L","Rainbow Trout","Fish",454.611
+"78","erythromycin","DTXSID4022991","LC50",1e+05,"ug/L","Japanese Medaka","Fish",733.937
+"79","erythromycin","DTXSID4022991","LC50",349000,"ug/L","Striped Bass","Fish",733.937
+"80","erythromycin","DTXSID4022991","LC50",665000,"ug/L","Striped Bass","Fish",733.937
+"81","erythromycin","DTXSID4022991","LC50",349000,"ug/L","Striped Bass","Fish",733.937
+"82","diclofenac","DTXSID6022923","LC50",10100,"ug/L","Japanese Medaka","Fish",296.15
+"83","diclofenac","DTXSID6022923","LC50",10900,"ug/L","Japanese Medaka","Fish",296.15
+"84","diclofenac","DTXSID6022923","LC50",12100,"ug/L","Japanese Medaka","Fish",296.15
+"85","diclofenac","DTXSID6022923","LC50",14000,"ug/L","Japanese Medaka","Fish",296.15
+"86","diclofenac","DTXSID6022923","LC50",50000,"ug/L","Zebra Danio","Fish",296.15
+"87","diclofenac","DTXSID6022923","LC50",70980,"ug/L","Common Carp","Fish",296.15
+"88","diclofenac","DTXSID6022923","LC50",1e+05,"ug/L","Zebra Danio","Fish",296.15
+"89","amiodarone","DTXSID7022592","LC50",526,"ug/L","Fathead Minnow","Fish",645.32
+"90","fluoxetine","DTXSID7023067","LC50",250.558,"ug/L","Zebra Danio","Fish",309.332
+"91","phenytoin","DTXSID8020541","LC50",63068.1,"ug/L","Zebra Danio","Fish",252.273
+"92","phenytoin","DTXSID8020541","LC50",71000,"ug/L","Clawed Frog","Amphibians",252.273
+"93","phenytoin","DTXSID8020541","LC50",77900,"ug/L","Clawed Frog","Amphibians",252.273
+"94","propranolol","DTXSID6023525","LC50",11400,"ug/L","Japanese Medaka","Fish",259.349
+"95","propranolol","DTXSID6023525","LC50",24300,"ug/L","Japanese Medaka","Fish",259.349
+"96","propranolol","DTXSID6023525","LC50",11400,"ug/L","Japanese Medaka","Fish",259.349
+"97","propranolol","DTXSID6023525","LC50",24300,"ug/L","Japanese Medaka","Fish",259.349
+"98","clarithromycin","DTXSID3022829","LC50",1e+05,"ug/L","Japanese Medaka","Fish",747.964
+"99","fluconazole","DTXSID3020627","LC50",4910,"ug/L","Chinese Rare Minnow","Fish",306.277
+"100","fluconazole","DTXSID3020627","LC50",4910,"ug/L","Chinese Rare Minnow","Fish",306.277
+"101","ampicillin","DTXSID4022602","LC50",1e+06,"ug/L","Japanese Medaka","Fish",349.41
+"102","nortriptyline","DTXSID9023384","LC50",2190,"ug/L","Zebra Danio","Fish",263.384
+"103","nortriptyline","DTXSID9023384","LC50",3000,"ug/L","Zebra Danio","Fish",263.384
+"104","nortriptyline","DTXSID9023384","LC50",4920,"ug/L","Zebra Danio","Fish",263.384
+"105","nortriptyline","DTXSID9023384","LC50",7970,"ug/L","Zebra Danio","Fish",263.384
+"106","nortriptyline","DTXSID9023384","LC50",13141,"ug/L","Zebra Danio","Fish",263.384
+"107","nortriptyline","DTXSID9023384","LC50",13853,"ug/L","Zebra Danio","Fish",263.384
+"108","nortriptyline","DTXSID9023384","LC50",30369,"ug/L","Zebra Danio","Fish",263.384
+"109","indomethacin","DTXSID9020740","LC50",81920,"ug/L","Japanese Medaka","Fish",357.79
+"110","indomethacin","DTXSID9020740","LC50",53669,"ug/L","Zebra Danio","Fish",357.79
+"111","indomethacin","DTXSID9020740","LC50",139539,"ug/L","Zebra Danio","Fish",357.79
+"112","indomethacin","DTXSID9020740","LC50",171741,"ug/L","Zebra Danio","Fish",357.79
+"113","indomethacin","DTXSID9020740","LC50",53700,"ug/L","Zebra Danio","Fish",357.79
+"114","indomethacin","DTXSID9020740","LC50",81900,"ug/L","Japanese Medaka","Fish",357.79
+"115","indomethacin","DTXSID9020740","LC50",140000,"ug/L","Zebra Danio","Fish",357.79
+"116","pseudoephedrine","DTXSID0023537","LC50",2e+06,"ug/L","Rat","Mammals",165.236
+"117","diazepam","DTXSID4020406","LC50",12700,"ug/L","Eastern Mosquitofish","Fish",284.74
+"118","sulfamethoxazole","DTXSID8026064","LC50",562500,"ug/L","Japanese Medaka","Fish",253.28
+"119","sulfamethoxazole","DTXSID8026064","LC50",750000,"ug/L","Japanese Medaka","Fish",253.28
+"120","sulfamethoxazole","DTXSID8026064","LC50",563000,"ug/L","Japanese Medaka","Fish",253.28
+"121","warfarin","DTXSID5023742","LC50",320000,"ug/L","Rat","Mammals",308.333
+"122","warfarin","DTXSID5023742","LC50",5000,"ug/L","Rat","Mammals",308.333
+"123","warfarin","DTXSID5023742","LC50",17500,"ug/L","Bluegill","Fish",308.333
+"124","warfarin","DTXSID5023742","LC50",34.3,"ug/L","Channel Catfish","Fish",308.333
+"125","warfarin","DTXSID5023742","LC50",37.7,"ug/L","Channel Catfish","Fish",308.333
+"126","warfarin","DTXSID5023742","LC50",46,"ug/L","Channel Catfish","Fish",308.333
+"127","warfarin","DTXSID5023742","LC50",12000,"ug/L","Harlequinfish, Red Rasbora","Fish",308.333
+"128","warfarin","DTXSID5023742","LC50",14000,"ug/L","Harlequinfish, Red Rasbora","Fish",308.333
+"129","warfarin","DTXSID5023742","LC50",16000,"ug/L","Rainbow Trout","Fish",308.333
+"130","warfarin","DTXSID5023742","LC50",17000,"ug/L","Harlequinfish, Red Rasbora","Fish",308.333
+"131","warfarin","DTXSID5023742","LC50",88000,"ug/L","Bluegill","Fish",308.333
+"132","warfarin","DTXSID5023742","LC50",750000,"ug/L","Bluegill","Fish",308.333
+"133","warfarin","DTXSID5023742","LC50",1e+06,"ug/L","Rainbow Trout","Fish",308.333
+"134","warfarin","DTXSID5023742","LC50",304634,"ug/L","Zebra Danio","Fish",308.333
+"135","warfarin","DTXSID5023742","LC50",1e+06,"ug/L","Western Mosquitofish","Fish",308.333
+"136","warfarin","DTXSID5023742","LC50",14000,"ug/L","Harlequinfish, Red Rasbora","Fish",308.333
+"137","warfarin","DTXSID5023742","LC50",34.3,"ug/L","Channel Catfish","Fish",308.333
+"138","warfarin","DTXSID5023742","LC50",37.7,"ug/L","Channel Catfish","Fish",308.333
+"139","warfarin","DTXSID5023742","LC50",12000,"ug/L","Harlequinfish, Red Rasbora","Fish",308.333
+"140","warfarin","DTXSID5023742","LC50",34300,"ug/L","Channel Catfish","Fish",308.333
+"141","warfarin","DTXSID5023742","LC50",88000,"ug/L","Bluegill","Fish",308.333
+"142","warfarin","DTXSID5023742","LC50",750000,"ug/L","Bluegill","Fish",308.333
+"143","warfarin","DTXSID5023742","LC50",1e+06,"ug/L","Western Mosquitofish","Fish",308.333
+"144","isotretinoin","DTXSID4023177","LC50",18,"ug/L","African Clawed Frog","Amphibians",300.442
+"145","isotretinoin","DTXSID4023177","LC50",36,"ug/L","African Clawed Frog","Amphibians",300.442
+"146","isotretinoin","DTXSID4023177","LC50",37,"ug/L","African Clawed Frog","Amphibians",300.442
+"147","bismuth subsalicylate","DTXSID6024622","LC50",114,"ug/L","Rat","Mammals",362.093
+"148","bismuth subsalicylate","DTXSID6024622","LC50",400,"ug/L","Rat","Mammals",362.093
+"149","bismuth subsalicylate","DTXSID6024622","LC50",5070000,"ug/L","Rat","Mammals",362.093
+"150","methimazole","DTXSID4020820","LC50",894800,"ug/L","Zebra Danio","Fish",114.17
+"151","methimazole","DTXSID4020820","LC50",909895,"ug/L","Zebra Danio","Fish",114.17
+"152","methimazole","DTXSID4020820","LC50",993236,"ug/L","Clawed Frog","Amphibians",114.17
+"153","methimazole","DTXSID4020820","LC50",2182830,"ug/L","Zebra Danio","Fish",114.17
+"154","methimazole","DTXSID4020820","LC50",2462540,"ug/L","Zebra Danio","Fish",114.17
+"155","methimazole","DTXSID4020820","LC50",3648710,"ug/L","Zebra Danio","Fish",114.17
+"156","methimazole","DTXSID4020820","LC50",4571170,"ug/L","Zebra Danio","Fish",114.17
+"157","methimazole","DTXSID4020820","LC50",910000,"ug/L","Zebra Danio","Fish",114.17
+"158","methimazole","DTXSID4020820","LC50",2180000,"ug/L","Zebra Danio","Fish",114.17
+"159","methimazole","DTXSID4020820","LC50",2460000,"ug/L","Zebra Danio","Fish",114.17
+"160","trimethoprim","DTXSID3023712","LC50",1e+05,"ug/L","Japanese Medaka","Fish",290.323
+"161","nitroglycerin","DTXSID1021407","LC50",1900,"ug/L","Rainbow Trout","Fish",227.085
+"162","nitroglycerin","DTXSID1021407","LC50",1910,"ug/L","Bluegill","Fish",227.085
+"163","nitroglycerin","DTXSID1021407","LC50",1200,"ug/L","Fathead Minnow","Fish",227.085
+"164","nitroglycerin","DTXSID1021407","LC50",1380,"ug/L","Bluegill","Fish",227.085
+"165","nitroglycerin","DTXSID1021407","LC50",1510,"ug/L","Bluegill","Fish",227.085
+"166","nitroglycerin","DTXSID1021407","LC50",1650,"ug/L","Bluegill","Fish",227.085
+"167","nitroglycerin","DTXSID1021407","LC50",1920,"ug/L","Bluegill","Fish",227.085
+"168","nitroglycerin","DTXSID1021407","LC50",1670,"ug/L","Bluegill","Fish",227.085
+"169","nitroglycerin","DTXSID1021407","LC50",1700,"ug/L","Bluegill","Fish",227.085
+"170","nitroglycerin","DTXSID1021407","LC50",1760,"ug/L","Bluegill","Fish",227.085
+"171","nitroglycerin","DTXSID1021407","LC50",1870,"ug/L","Channel Catfish","Fish",227.085
+"172","nitroglycerin","DTXSID1021407","LC50",1900,"ug/L","Rainbow Trout","Fish",227.085
+"173","nitroglycerin","DTXSID1021407","LC50",1910,"ug/L","Bluegill","Fish",227.085
+"174","nitroglycerin","DTXSID1021407","LC50",1920,"ug/L","Bluegill","Fish",227.085
+"175","nitroglycerin","DTXSID1021407","LC50",1990,"ug/L","Bluegill","Fish",227.085
+"176","nitroglycerin","DTXSID1021407","LC50",1990,"ug/L","Bluegill","Fish",227.085
+"177","nitroglycerin","DTXSID1021407","LC50",2000,"ug/L","Bluegill","Fish",227.085
+"178","nitroglycerin","DTXSID1021407","LC50",2100,"ug/L","Bluegill","Fish",227.085
+"179","nitroglycerin","DTXSID1021407","LC50",2200,"ug/L","Bluegill","Fish",227.085
+"180","nitroglycerin","DTXSID1021407","LC50",2500,"ug/L","Fathead Minnow","Fish",227.085
+"181","nitroglycerin","DTXSID1021407","LC50",2700,"ug/L","Bluegill","Fish",227.085
+"182","nitroglycerin","DTXSID1021407","LC50",2710,"ug/L","Bluegill","Fish",227.085
+"183","nitroglycerin","DTXSID1021407","LC50",2720,"ug/L","Bluegill","Fish",227.085
+"184","nitroglycerin","DTXSID1021407","LC50",2800,"ug/L","Rainbow Trout","Fish",227.085
+"185","nitroglycerin","DTXSID1021407","LC50",2000,"ug/L","Bluegill","Fish",227.085
+"186","nitroglycerin","DTXSID1021407","LC50",2900,"ug/L","Rainbow Trout","Fish",227.085
+"187","nitroglycerin","DTXSID1021407","LC50",3000,"ug/L","Fathead Minnow","Fish",227.085
+"188","nitroglycerin","DTXSID1021407","LC50",3100,"ug/L","Bluegill","Fish",227.085
+"189","nitroglycerin","DTXSID1021407","LC50",3200,"ug/L","Channel Catfish","Fish",227.085
+"190","nitroglycerin","DTXSID1021407","LC50",3400,"ug/L","Fathead Minnow","Fish",227.085
+"191","nitroglycerin","DTXSID1021407","LC50",3550,"ug/L","Bluegill","Fish",227.085
+"192","nitroglycerin","DTXSID1021407","LC50",3580,"ug/L","Fathead Minnow","Fish",227.085
+"193","nitroglycerin","DTXSID1021407","LC50",3600,"ug/L","Bluegill","Fish",227.085
+"194","nitroglycerin","DTXSID1021407","LC50",2100,"ug/L","Bluegill","Fish",227.085
+"195","nitroglycerin","DTXSID1021407","LC50",3700,"ug/L","Bluegill","Fish",227.085
+"196","nitroglycerin","DTXSID1021407","LC50",3800,"ug/L","Bluegill","Fish",227.085
+"197","nitroglycerin","DTXSID1021407","LC50",3900,"ug/L","Bluegill","Fish",227.085
+"198","nitroglycerin","DTXSID1021407","LC50",4010,"ug/L","Bluegill","Fish",227.085
+"199","nitroglycerin","DTXSID1021407","LC50",4100,"ug/L","Fathead Minnow","Fish",227.085
+"200","nitroglycerin","DTXSID1021407","LC50",4300,"ug/L","Bluegill","Fish",227.085
+"201","nitroglycerin","DTXSID1021407","LC50",4600,"ug/L","Bluegill","Fish",227.085
+"202","nitroglycerin","DTXSID1021407","LC50",4700,"ug/L","Channel Catfish","Fish",227.085
+"203","nitroglycerin","DTXSID1021407","LC50",2200,"ug/L","Bluegill","Fish",227.085
+"204","nitroglycerin","DTXSID1021407","LC50",4800,"ug/L","Rainbow Trout","Fish",227.085
+"205","nitroglycerin","DTXSID1021407","LC50",4820,"ug/L","Bluegill","Fish",227.085
+"206","nitroglycerin","DTXSID1021407","LC50",4910,"ug/L","Bluegill","Fish",227.085
+"207","nitroglycerin","DTXSID1021407","LC50",5040,"ug/L","Bluegill","Fish",227.085
+"208","nitroglycerin","DTXSID1021407","LC50",5300,"ug/L","Fathead Minnow","Fish",227.085
+"209","nitroglycerin","DTXSID1021407","LC50",5400,"ug/L","Fathead Minnow","Fish",227.085
+"210","nitroglycerin","DTXSID1021407","LC50",5500,"ug/L","Fathead Minnow","Fish",227.085
+"211","nitroglycerin","DTXSID1021407","LC50",6090,"ug/L","Bluegill","Fish",227.085
+"212","nitroglycerin","DTXSID1021407","LC50",2500,"ug/L","Fathead Minnow","Fish",227.085
+"213","nitroglycerin","DTXSID1021407","LC50",6100,"ug/L","Bluegill","Fish",227.085
+"214","nitroglycerin","DTXSID1021407","LC50",6180,"ug/L","Bluegill","Fish",227.085
+"215","nitroglycerin","DTXSID1021407","LC50",6200,"ug/L","Bluegill","Fish",227.085
+"216","nitroglycerin","DTXSID1021407","LC50",6230,"ug/L","Bluegill","Fish",227.085
+"217","nitroglycerin","DTXSID1021407","LC50",6300,"ug/L","Fathead Minnow","Fish",227.085
+"218","nitroglycerin","DTXSID1021407","LC50",6380,"ug/L","Bluegill","Fish",227.085
+"219","nitroglycerin","DTXSID1021407","LC50",6390,"ug/L","Bluegill","Fish",227.085
+"220","nitroglycerin","DTXSID1021407","LC50",6400,"ug/L","Bluegill","Fish",227.085
+"221","nitroglycerin","DTXSID1021407","LC50",2700,"ug/L","Bluegill","Fish",227.085
+"222","nitroglycerin","DTXSID1021407","LC50",6500,"ug/L","Channel Catfish","Fish",227.085
+"223","nitroglycerin","DTXSID1021407","LC50",6670,"ug/L","Bluegill","Fish",227.085
+"224","nitroglycerin","DTXSID1021407","LC50",6800,"ug/L","Fathead Minnow","Fish",227.085
+"225","nitroglycerin","DTXSID1021407","LC50",10000,"ug/L","Fathead Minnow","Fish",227.085
+"226","nitroglycerin","DTXSID1021407","LC50",18000,"ug/L","Fathead Minnow","Fish",227.085
+"227","nitroglycerin","DTXSID1021407","LC50",2710,"ug/L","Bluegill","Fish",227.085
+"228","nitroglycerin","DTXSID1021407","LC50",2720,"ug/L","Bluegill","Fish",227.085
+"229","nitroglycerin","DTXSID1021407","LC50",2800,"ug/L","Rainbow Trout","Fish",227.085
+"230","nitroglycerin","DTXSID1021407","LC50",2900,"ug/L","Rainbow Trout","Fish",227.085
+"231","nitroglycerin","DTXSID1021407","LC50",3000,"ug/L","Fathead Minnow","Fish",227.085
+"232","nitroglycerin","DTXSID1021407","LC50",3100,"ug/L","Bluegill","Fish",227.085
+"233","nitroglycerin","DTXSID1021407","LC50",3200,"ug/L","Channel Catfish","Fish",227.085
+"234","nitroglycerin","DTXSID1021407","LC50",6.9282,"ug/L","Fathead Minnow","Fish",227.085
+"235","nitroglycerin","DTXSID1021407","LC50",1200,"ug/L","Fathead Minnow","Fish",227.085
+"236","nitroglycerin","DTXSID1021407","LC50",1380,"ug/L","Bluegill","Fish",227.085
+"237","nitroglycerin","DTXSID1021407","LC50",1510,"ug/L","Bluegill","Fish",227.085
+"238","nitroglycerin","DTXSID1021407","LC50",1650,"ug/L","Bluegill","Fish",227.085
+"239","nitroglycerin","DTXSID1021407","LC50",1670,"ug/L","Bluegill","Fish",227.085
+"240","nitroglycerin","DTXSID1021407","LC50",1700,"ug/L","Bluegill","Fish",227.085
+"241","nitroglycerin","DTXSID1021407","LC50",1760,"ug/L","Bluegill","Fish",227.085
+"242","nitroglycerin","DTXSID1021407","LC50",3400,"ug/L","Fathead Minnow","Fish",227.085
+"243","nitroglycerin","DTXSID1021407","LC50",3550,"ug/L","Bluegill","Fish",227.085
+"244","nitroglycerin","DTXSID1021407","LC50",3580,"ug/L","Fathead Minnow","Fish",227.085
+"245","nitroglycerin","DTXSID1021407","LC50",3600,"ug/L","Bluegill","Fish",227.085
+"246","nitroglycerin","DTXSID1021407","LC50",3700,"ug/L","Bluegill","Fish",227.085
+"247","nitroglycerin","DTXSID1021407","LC50",3800,"ug/L","Bluegill","Fish",227.085
+"248","nitroglycerin","DTXSID1021407","LC50",3900,"ug/L","Bluegill","Fish",227.085
+"249","nitroglycerin","DTXSID1021407","LC50",4100,"ug/L","Fathead Minnow","Fish",227.085
+"250","nitroglycerin","DTXSID1021407","LC50",4300,"ug/L","Bluegill","Fish",227.085
+"251","nitroglycerin","DTXSID1021407","LC50",4700,"ug/L","Channel Catfish","Fish",227.085
+"252","nitroglycerin","DTXSID1021407","LC50",4800,"ug/L","Fathead Minnow","Fish",227.085
+"253","nitroglycerin","DTXSID1021407","LC50",4820,"ug/L","Bluegill","Fish",227.085
+"254","nitroglycerin","DTXSID1021407","LC50",4910,"ug/L","Bluegill","Fish",227.085
+"255","nitroglycerin","DTXSID1021407","LC50",5500,"ug/L","Fathead Minnow","Fish",227.085
+"256","nitroglycerin","DTXSID1021407","LC50",6090,"ug/L","Bluegill","Fish",227.085
+"257","nitroglycerin","DTXSID1021407","LC50",1900,"ug/L","Rainbow Trout","Fish",227.085
+"258","nitroglycerin","DTXSID1021407","LC50",3580,"ug/L","Fathead Minnow","Fish",227.085
+"259","ethinyl estradiol","DTXSID5020576","LC50",0.1,"ug/L","Zebra Danio","Fish",296.41
+"260","ethinyl estradiol","DTXSID5020576","LC50",560.214,"ug/L","Wood Frog","Amphibians",296.41
+"261","ethinyl estradiol","DTXSID5020576","LC50",815.126,"ug/L","Leopard Frog","Amphibians",296.41
+"262","ethinyl estradiol","DTXSID5020576","LC50",892.192,"ug/L","Leopard Frog","Amphibians",296.41
+"263","ethinyl estradiol","DTXSID5020576","LC50",1236.03,"ug/L","Leopard Frog","Amphibians",296.41
+"264","ethinyl estradiol","DTXSID5020576","LC50",1700,"ug/L","Zebra Danio","Fish",296.41
+"265","ethinyl estradiol","DTXSID5020576","LC50",0.1,"ug/L","Zebra Danio","Fish",296.41
+"266","ethinyl estradiol","DTXSID5020576","LC50",0.001,"ug/L","Japanese Medaka","Fish",296.41
+"267","ethinyl estradiol","DTXSID5020576","LC50",1700,"ug/L","Zebra Danio","Fish",296.41
+"268","ethinyl estradiol","DTXSID5020576","LC50",0.1,"ug/L","Zebra Danio","Fish",296.41
+"269","norethindrone","DTXSID9023380","LC50",14.8,"ug/L","Fathead Minnow","Fish",298.426
+"270","dexamethasone","DTXSID3020384","LC50",254,"ug/L","Fathead Minnow","Fish",392.467
+"271","permethrin","DTXSID8022292","LC50",685,"ug/L","Mouse","Mammals",391.29
+"272","permethrin","DTXSID8022292","LC50",485,"ug/L","Rat","Mammals",391.29

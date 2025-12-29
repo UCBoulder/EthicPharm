@@ -1,6 +1,8 @@
+# The following code converts each page from an uploaded PDF into individual PNG files.
+
 from pdf2image import convert_from_path
 
-pdf_path = "Lit_pred_tox_concentration_graphs.pdf"  
+pdf_path = "Lit_pred_tox_mass_load_graphs.pdf"  
 images = convert_from_path(pdf_path, dpi=300)
 
 for i, image in enumerate(images):

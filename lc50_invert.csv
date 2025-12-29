@@ -1,0 +1,338 @@
+"","Pharmaceutical","DTXSID","TOXVAL_TYPE","TOXVAL_NUMERIC","TOXVAL_UNITS","SPECIES_COMMON","SPECIES_SUPERCATEGORY","Molar_Mass"
+"1","ibuprofen","DTXSID5020732","LC50",39100,"ug/L","Flatworm","Worms",206.285
+"2","ibuprofen","DTXSID5020732","LC50",11100,"ug/L","Flatworm","Worms",206.285
+"3","ibuprofen","DTXSID5020732","LC50",16800,"ug/L","Flatworm","Worms",206.285
+"4","ibuprofen","DTXSID5020732","LC50",17080,"ug/L","Gekielte Plate Snail","Molluscs",206.285
+"5","ibuprofen","DTXSID5020732","LC50",19590,"ug/L","Fairy Shrimp","Crustaceans",206.285
+"6","ibuprofen","DTXSID5020732","LC50",73300,"ug/L","Flatworm","Worms",206.285
+"7","ibuprofen","DTXSID5020732","LC50",32,"ug/L","Water Flea","Crustaceans",206.285
+"8","ibuprofen","DTXSID5020732","LC50",22360,"ug/L","Hydra","Invertebrates",206.285
+"9","ibuprofen","DTXSID5020732","LC50",124400,"ug/L","Water Flea","Crustaceans",206.285
+"10","ibuprofen","DTXSID5020732","LC50",132600,"ug/L","Water Flea","Crustaceans",206.285
+"11","ibuprofen","DTXSID5020732","LC50",19600,"ug/L","Fairy Shrimp","Crustaceans",206.285
+"12","ibuprofen","DTXSID5020732","LC50",22400,"ug/L","Bean Blossom Thrips","Insects/Spiders",206.285
+"13","ibuprofen","DTXSID5020732","LC50",124000,"ug/L","Water Flea","Crustaceans",206.285
+"14","ibuprofen","DTXSID5020732","LC50",133000,"ug/L","Water Flea","Crustaceans",206.285
+"15","acetaminophen","DTXSID2020006","LC50",32,"ug/L","Water Flea","Crustaceans",151.165
+"16","acetaminophen","DTXSID2020006","LC50",29628.3,"ug/L","Fairy Shrimp","Crustaceans",151.165
+"17","acetaminophen","DTXSID2020006","LC50",121000,"ug/L","Rotifer","Invertebrates",151.165
+"18","acetaminophen","DTXSID2020006","LC50",150800,"ug/L","Flatworm","Worms",151.165
+"19","acetaminophen","DTXSID2020006","LC50",185400,"ug/L","Rotifer","Invertebrates",151.165
+"20","acetaminophen","DTXSID2020006","LC50",316200,"ug/L","Flatworm","Worms",151.165
+"21","acetaminophen","DTXSID2020006","LC50",319000,"ug/L","Rotifer","Invertebrates",151.165
+"22","acetaminophen","DTXSID2020006","LC50",371500,"ug/L","Flatworm","Worms",151.165
+"23","acetaminophen","DTXSID2020006","LC50",577450,"ug/L","Brine Shrimp","Crustaceans",151.165
+"24","acetaminophen","DTXSID2020006","LC50",858600,"ug/L","Flatworm","Worms",151.165
+"25","acetaminophen","DTXSID2020006","LC50",5305890,"ug/L","Rotifer","Invertebrates",151.165
+"26","acetaminophen","DTXSID2020006","LC50",2000,"ug/L","Ciliate","Invertebrates",151.165
+"27","acetaminophen","DTXSID2020006","LC50",8000,"ug/L","Protozoan Phylum","Invertebrates",151.165
+"28","acetaminophen","DTXSID2020006","LC50",20100,"ug/L","Water Flea","Crustaceans",151.165
+"29","acetaminophen","DTXSID2020006","LC50",29628.3,"ug/L","Fairy Shrimp","Crustaceans",151.165
+"30","acetaminophen","DTXSID2020006","LC50",577450,"ug/L","Brine Shrimp","Crustaceans",151.165
+"31","acetaminophen","DTXSID2020006","LC50",1600000,"ug/L","Yellow Fever Mosquito","Insects/Spiders",151.165
+"32","acetaminophen","DTXSID2020006","LC50",1700000,"ug/L","Yellow Fever Mosquito","Insects/Spiders",151.165
+"33","acetaminophen","DTXSID2020006","LC50",1980000,"ug/L","Yellow Fever Mosquito","Insects/Spiders",151.165
+"34","acetaminophen","DTXSID2020006","LC50",2040000,"ug/L","Yellow Fever Mosquito","Insects/Spiders",151.165
+"35","acetaminophen","DTXSID2020006","LC50",2500000,"ug/L","Yellow Fever Mosquito","Insects/Spiders",151.165
+"36","acetaminophen","DTXSID2020006","LC50",3748890,"ug/L","Rotifer","Invertebrates",151.165
+"37","acetaminophen","DTXSID2020006","LC50",5305890,"ug/L","Rotifer","Invertebrates",151.165
+"38","acetaminophen","DTXSID2020006","LC50",20100,"ug/L","Water Flea","Crustaceans",151.165
+"39","acetaminophen","DTXSID2020006","LC50",29600,"ug/L","Fairy Shrimp","Crustaceans",151.165
+"40","acetaminophen","DTXSID2020006","LC50",577000,"ug/L","Brine Shrimp","Crustaceans",151.165
+"41","acetaminophen","DTXSID2020006","LC50",3750000,"ug/L","Rotifer","Invertebrates",151.165
+"42","acetaminophen","DTXSID2020006","LC50",5310000,"ug/L","Rotifer","Invertebrates",151.165
+"43","ciprofloxacin","DTXSID8022824","LC50",4000,"ug/L","Water Flea","Crustaceans",331.347
+"44","ciprofloxacin","DTXSID8022824","LC50",14000,"ug/L","Water Flea","Crustaceans",331.347
+"45","ciprofloxacin","DTXSID8022824","LC50",36000,"ug/L","Water Flea","Crustaceans",331.347
+"46","ciprofloxacin","DTXSID8022824","LC50",1e+06,"ug/L","Flatworm","Worms",331.347
+"47","cephalexin","DTXSID9022780","LC50",1e+06,"ug/L","Flatworm","Worms",347.39
+"48","naproxen","DTXSID4040686","LC50",6900,"ug/L","Flatworm","Worms",230.263
+"49","naproxen","DTXSID4040686","LC50",7200,"ug/L","Flatworm","Worms",230.263
+"50","naproxen","DTXSID4040686","LC50",8600,"ug/L","Flatworm","Worms",230.263
+"51","naproxen","DTXSID4040686","LC50",50000,"ug/L","Flatworm","Worms",230.263
+"52","naproxen","DTXSID4040686","LC50",32,"ug/L","Water Flea","Crustaceans",230.263
+"53","naproxen","DTXSID4040686","LC50",22360,"ug/L","Hydra","Invertebrates",230.263
+"54","naproxen","DTXSID4040686","LC50",36000,"ug/L","Ciliate","Invertebrates",230.263
+"55","naproxen","DTXSID4040686","LC50",60000,"ug/L","Rotifer","Invertebrates",230.263
+"56","naproxen","DTXSID4040686","LC50",82000,"ug/L","Water Flea","Crustaceans",230.263
+"57","naproxen","DTXSID4040686","LC50",22400,"ug/L","Bean Blossom Thrips","Insects/Spiders",230.263
+"58","naproxen","DTXSID4040686","LC50",60000,"ug/L","Rotifer","Invertebrates",230.263
+"59","naproxen","DTXSID4040686","LC50",82000,"ug/L","Water Flea","Crustaceans",230.263
+"60","aspirin","DTXSID5020108","LC50",93800,"ug/L","Flatworm","Worms",180.159
+"61","aspirin","DTXSID5020108","LC50",95900,"ug/L","Flatworm","Worms",180.159
+"62","aspirin","DTXSID5020108","LC50",100200,"ug/L","Flatworm","Worms",180.159
+"63","aspirin","DTXSID5020108","LC50",141426,"ug/L","Rotifer","Invertebrates",180.159
+"64","aspirin","DTXSID5020108","LC50",177998,"ug/L","Fairy Shrimp","Crustaceans",180.159
+"65","aspirin","DTXSID5020108","LC50",381939,"ug/L","Brine Shrimp","Crustaceans",180.159
+"66","aspirin","DTXSID5020108","LC50",134219,"ug/L","Rotifer","Invertebrates",180.159
+"67","aspirin","DTXSID5020108","LC50",141426,"ug/L","Rotifer","Invertebrates",180.159
+"68","aspirin","DTXSID5020108","LC50",177998,"ug/L","Fairy Shrimp","Crustaceans",180.159
+"69","aspirin","DTXSID5020108","LC50",381939,"ug/L","Brine Shrimp","Crustaceans",180.159
+"70","metoprolol","DTXSID2023309","LC50",8800,"ug/L","Water Flea","Crustaceans",267.369
+"71","metoprolol","DTXSID2023309","LC50",63900,"ug/L","Water Flea","Crustaceans",267.369
+"72","metoprolol","DTXSID2023309","LC50",1e+05,"ug/L","Scud","Crustaceans",267.369
+"73","metoprolol","DTXSID2023309","LC50",8800,"ug/L","Water Flea","Crustaceans",267.369
+"74","metoprolol","DTXSID2023309","LC50",63900,"ug/L","Water Flea","Crustaceans",267.369
+"75","atorvastatin","DTXSID8029868","LC50",1500,"ug/L","Scud","Crustaceans",558.65
+"76","atorvastatin","DTXSID8029868","LC50",14300,"ug/L","Midge","Insects/Spiders",558.65
+"77","atorvastatin","DTXSID8029868","LC50",2600,"ug/L","Barnacle","Crustaceans",558.65
+"78","sertraline","DTXSID6023577","LC50",600,"ug/L","Fairy Shrimp","Crustaceans",306.23
+"79","sertraline","DTXSID6023577","LC50",1300,"ug/L","Water Flea","Crustaceans",306.23
+"80","sertraline","DTXSID6023577","LC50",120,"ug/L","Water Flea","Crustaceans",306.23
+"81","sertraline","DTXSID6023577","LC50",120,"ug/L","Water Flea","Crustaceans",306.23
+"82","sertraline","DTXSID6023577","LC50",147,"ug/L","Water Flea","Crustaceans",306.23
+"83","sertraline","DTXSID6023577","LC50",475.02,"ug/L","Blackfly","Insects/Spiders",306.23
+"84","sertraline","DTXSID6023577","LC50",120,"ug/L","Water Flea","Crustaceans",306.23
+"85","sertraline","DTXSID6023577","LC50",433,"ug/L","Water Flea","Crustaceans",306.23
+"86","sertraline","DTXSID6023577","LC50",600,"ug/L","Fairy Shrimp","Crustaceans",306.23
+"87","sertraline","DTXSID6023577","LC50",1300,"ug/L","Water Flea","Crustaceans",306.23
+"88","sertraline","DTXSID6023577","LC50",3100,"ug/L","Water Flea","Crustaceans",306.23
+"89","sertraline","DTXSID6023577","LC50",3100,"ug/L","Water Flea","Crustaceans",306.23
+"90","gemfibrozil","DTXSID0020652","LC50",77300,"ug/L","Rotifer","Invertebrates",250.338
+"91","gemfibrozil","DTXSID0020652","LC50",161050,"ug/L","Fairy Shrimp","Crustaceans",250.338
+"92","gemfibrozil","DTXSID0020652","LC50",10400,"ug/L","Water Flea","Crustaceans",250.338
+"93","gemfibrozil","DTXSID0020652","LC50",22360,"ug/L","Hydra","Invertebrates",250.338
+"94","gemfibrozil","DTXSID0020652","LC50",10400,"ug/L","Water Flea","Crustaceans",250.338
+"95","gemfibrozil","DTXSID0020652","LC50",30300,"ug/L","Water Flea","Crustaceans",250.338
+"96","gemfibrozil","DTXSID0020652","LC50",56600,"ug/L","Water Flea","Crustaceans",250.338
+"97","gemfibrozil","DTXSID0020652","LC50",66000,"ug/L","Ciliate","Invertebrates",250.338
+"98","gemfibrozil","DTXSID0020652","LC50",74000,"ug/L","Water Flea","Crustaceans",250.338
+"99","gemfibrozil","DTXSID0020652","LC50",78000,"ug/L","Rotifer","Invertebrates",250.338
+"100","gemfibrozil","DTXSID0020652","LC50",127600,"ug/L","Harpacticoid Copepod","Crustaceans",250.338
+"101","gemfibrozil","DTXSID0020652","LC50",22400,"ug/L","Bean Blossom Thrips","Insects/Spiders",250.338
+"102","gemfibrozil","DTXSID0020652","LC50",30300,"ug/L","Water Flea","Crustaceans",250.338
+"103","gemfibrozil","DTXSID0020652","LC50",74000,"ug/L","Water Flea","Crustaceans",250.338
+"104","gemfibrozil","DTXSID0020652","LC50",77300,"ug/L","Rotifer","Invertebrates",250.338
+"105","gemfibrozil","DTXSID0020652","LC50",78000,"ug/L","Rotifer","Invertebrates",250.338
+"106","gemfibrozil","DTXSID0020652","LC50",161000,"ug/L","Fairy Shrimp","Crustaceans",250.338
+"107","carbamazepine","DTXSID4022731","LC50",9900,"ug/L","Scud","Crustaceans",236.274
+"108","carbamazepine","DTXSID4022731","LC50",47300,"ug/L","Midge","Insects/Spiders",236.274
+"109","carbamazepine","DTXSID4022731","LC50",70700,"ug/L","Flatworm","Worms",236.274
+"110","carbamazepine","DTXSID4022731","LC50",1e+05,"ug/L","Fairy Shrimp","Crustaceans",236.274
+"111","carbamazepine","DTXSID4022731","LC50",100500,"ug/L","Flatworm","Worms",236.274
+"112","carbamazepine","DTXSID4022731","LC50",138600,"ug/L","Rotifer","Invertebrates",236.274
+"113","carbamazepine","DTXSID4022731","LC50",163800,"ug/L","Flatworm","Worms",236.274
+"114","carbamazepine","DTXSID4022731","LC50",229900,"ug/L","Flatworm","Worms",236.274
+"115","carbamazepine","DTXSID4022731","LC50",4000,"ug/L","Oligochaete, Worm","Worms",236.274
+"116","carbamazepine","DTXSID4022731","LC50",29400,"ug/L","Hydra","Invertebrates",236.274
+"117","carbamazepine","DTXSID4022731","LC50",111000,"ug/L","Water Flea","Crustaceans",236.274
+"118","carbamazepine","DTXSID4022731","LC50",29400,"ug/L","Bean Blossom Thrips","Insects/Spiders",236.274
+"119","carbamazepine","DTXSID4022731","LC50",111000,"ug/L","Water Flea","Crustaceans",236.274
+"120","metronidazole","DTXSID2020892","LC50",182000,"ug/L","Opossum Shrimp","Crustaceans",171.156
+"121","diphenhydramine","DTXSID4022949","LC50",3940,"ug/L","Water Flea","Crustaceans",255.361
+"122","fenofibrate","DTXSID2029874","LC50",65000,"ug/L","Rotifer","Invertebrates",360.83
+"123","fenofibrate","DTXSID2029874","LC50",64970,"ug/L","Rotifer","Invertebrates",360.83
+"124","levofloxacin","DTXSID0041060","LC50",6000,"ug/L","Water Flea","Crustaceans",361.373
+"125","levofloxacin","DTXSID0041060","LC50",8000,"ug/L","Water Flea","Crustaceans",361.373
+"126","levofloxacin","DTXSID0041060","LC50",9000,"ug/L","Water Flea","Crustaceans",361.373
+"127","levofloxacin","DTXSID0041060","LC50",11000,"ug/L","Water Flea","Crustaceans",361.373
+"128","levofloxacin","DTXSID0041060","LC50",28000,"ug/L","Water Flea","Crustaceans",361.373
+"129","levofloxacin","DTXSID0041060","LC50",35000,"ug/L","Water Flea","Crustaceans",361.373
+"130","ranitidine","DTXSID8045191","LC50",1e+05,"ug/L","Rotifer","Invertebrates",314.4
+"131","verapamil","DTXSID9041152","LC50",11330,"ug/L","Water Flea","Crustaceans",454.611
+"132","verapamil","DTXSID9041152","LC50",13040,"ug/L","Water Flea","Crustaceans",454.611
+"133","verapamil","DTXSID9041152","LC50",15210,"ug/L","Water Flea","Crustaceans",454.611
+"134","erythromycin","DTXSID4022991","LC50",17680,"ug/L","Fairy Shrimp","Crustaceans",733.937
+"135","erythromycin","DTXSID4022991","LC50",27530,"ug/L","Rotifer","Invertebrates",733.937
+"136","erythromycin","DTXSID4022991","LC50",16000,"ug/L","Ciliate","Invertebrates",733.937
+"137","erythromycin","DTXSID4022991","LC50",24000,"ug/L","Water Flea","Crustaceans",733.937
+"138","erythromycin","DTXSID4022991","LC50",28000,"ug/L","Rotifer","Invertebrates",733.937
+"139","erythromycin","DTXSID4022991","LC50",30800,"ug/L","White Shrimp","Crustaceans",733.937
+"140","erythromycin","DTXSID4022991","LC50",50000,"ug/L","White Shrimp","Crustaceans",733.937
+"141","erythromycin","DTXSID4022991","LC50",85000,"ug/L","White Shrimp","Crustaceans",733.937
+"142","erythromycin","DTXSID4022991","LC50",17700,"ug/L","Fairy Shrimp","Crustaceans",733.937
+"143","erythromycin","DTXSID4022991","LC50",24000,"ug/L","Water Flea","Crustaceans",733.937
+"144","erythromycin","DTXSID4022991","LC50",27500,"ug/L","Rotifer","Invertebrates",733.937
+"145","erythromycin","DTXSID4022991","LC50",28000,"ug/L","Rotifer","Invertebrates",733.937
+"146","diclofenac","DTXSID6022923","LC50",94100,"ug/L","Water Flea","Crustaceans",296.15
+"147","diclofenac","DTXSID6022923","LC50",10.436,"ug/L","Mysid","Crustaceans",296.15
+"148","diclofenac","DTXSID6022923","LC50",2919,"ug/L","Mysid","Crustaceans",296.15
+"149","diclofenac","DTXSID6022923","LC50",15800,"ug/L","Harpacticoid Copepod","Crustaceans",296.15
+"150","diclofenac","DTXSID6022923","LC50",56600,"ug/L","Water Flea","Crustaceans",296.15
+"151","diclofenac","DTXSID6022923","LC50",80100,"ug/L","Water Flea","Crustaceans",296.15
+"152","diclofenac","DTXSID6022923","LC50",94100,"ug/L","Water Flea","Crustaceans",296.15
+"153","diclofenac","DTXSID6022923","LC50",80100,"ug/L","Water Flea","Crustaceans",296.15
+"154","atenolol","DTXSID2022628","LC50",1e+05,"ug/L","Fairy Shrimp","Crustaceans",266.341
+"155","atenolol","DTXSID2022628","LC50",3e+05,"ug/L","Rotifer","Invertebrates",266.341
+"156","atenolol","DTXSID2022628","LC50",5e+05,"ug/L","Flatworm","Worms",266.341
+"157","atenolol","DTXSID2022628","LC50",1300000,"ug/L","Barnacle","Crustaceans",266.341
+"158","fluoxetine","DTXSID7023067","LC50",510,"ug/L","Water Flea","Crustaceans",309.332
+"159","fluoxetine","DTXSID7023067","LC50",145,"ug/L","Water Flea","Crustaceans",309.332
+"160","fluoxetine","DTXSID7023067","LC50",150,"ug/L","Ciliate","Invertebrates",309.332
+"161","fluoxetine","DTXSID7023067","LC50",184,"ug/L","Water Flea","Crustaceans",309.332
+"162","fluoxetine","DTXSID7023067","LC50",230,"ug/L","Rotifer","Invertebrates",309.332
+"163","fluoxetine","DTXSID7023067","LC50",326,"ug/L","Water Flea","Crustaceans",309.332
+"164","fluoxetine","DTXSID7023067","LC50",830,"ug/L","Water Flea","Crustaceans",309.332
+"165","fluoxetine","DTXSID7023067","LC50",150000,"ug/L","Ciliate","Invertebrates",309.332
+"166","fluoxetine","DTXSID7023067","LC50",230000,"ug/L","Rotifer","Invertebrates",309.332
+"167","fluoxetine","DTXSID7023067","LC50",830000,"ug/L","Water Flea","Crustaceans",309.332
+"168","fluoxetine","DTXSID7023067","LC50",230000,"ug/L","Rotifer","Invertebrates",309.332
+"169","fluoxetine","DTXSID7023067","LC50",830000,"ug/L","Water Flea","Crustaceans",309.332
+"170","fluoxetine","DTXSID7023067","LC50",380,"ug/L","Water Flea","Crustaceans",309.332
+"171","fluoxetine","DTXSID7023067","LC50",510,"ug/L","Water Flea","Crustaceans",309.332
+"172","phenytoin","DTXSID8020541","LC50",62563.6,"ug/L","Fairy Shrimp","Crustaceans",252.273
+"173","phenytoin","DTXSID8020541","LC50",9989990,"ug/L","Rotifer","Invertebrates",252.273
+"174","phenytoin","DTXSID8020541","LC50",4460,"ug/L","Rotifer","Invertebrates",252.273
+"175","phenytoin","DTXSID8020541","LC50",62600,"ug/L","Fairy Shrimp","Crustaceans",252.273
+"176","propranolol","DTXSID6023525","LC50",1867.31,"ug/L","Fairy Shrimp","Crustaceans",259.349
+"177","propranolol","DTXSID6023525","LC50",2593.48,"ug/L","Rotifer","Invertebrates",259.349
+"178","propranolol","DTXSID6023525","LC50",10310,"ug/L","Fairy Shrimp","Crustaceans",259.349
+"179","propranolol","DTXSID6023525","LC50",407177,"ug/L","Brine Shrimp","Crustaceans",259.349
+"180","propranolol","DTXSID6023525","LC50",800,"ug/L","Water Flea","Crustaceans",259.349
+"181","propranolol","DTXSID6023525","LC50",1600,"ug/L","Water Flea","Crustaceans",259.349
+"182","propranolol","DTXSID6023525","LC50",13800,"ug/L","Water Flea","Crustaceans",259.349
+"183","propranolol","DTXSID6023525","LC50",29800,"ug/L","Scud","Crustaceans",259.349
+"184","propranolol","DTXSID6023525","LC50",800,"ug/L","Water Flea","Crustaceans",259.349
+"185","propranolol","DTXSID6023525","LC50",1600,"ug/L","Water Flea","Crustaceans",259.349
+"186","propranolol","DTXSID6023525","LC50",1870,"ug/L","Fairy Shrimp","Crustaceans",259.349
+"187","propranolol","DTXSID6023525","LC50",2590,"ug/L","Rotifer","Invertebrates",259.349
+"188","propranolol","DTXSID6023525","LC50",10300,"ug/L","Fairy Shrimp","Crustaceans",259.349
+"189","propranolol","DTXSID6023525","LC50",13800,"ug/L","Water Flea","Crustaceans",259.349
+"190","citalopram","DTXSID8022826","LC50",3900,"ug/L","Water Flea","Crustaceans",324.399
+"191","citalopram","DTXSID8022826","LC50",3400,"ug/L","Water Flea","Crustaceans",324.399
+"192","citalopram","DTXSID8022826","LC50",3900,"ug/L","Water Flea","Crustaceans",324.399
+"193","famotidine","DTXSID5023039","LC50",1e+05,"ug/L","Fairy Shrimp","Crustaceans",337.44
+"194","amitriptyline","DTXSID7022594","LC50",776.746,"ug/L","Fairy Shrimp","Crustaceans",277.411
+"195","amitriptyline","DTXSID7022594","LC50",804.487,"ug/L","Rotifer","Invertebrates",277.411
+"196","amitriptyline","DTXSID7022594","LC50",36895.4,"ug/L","Brine Shrimp","Crustaceans",277.411
+"197","amitriptyline","DTXSID7022594","LC50",777,"ug/L","Fairy Shrimp","Crustaceans",277.411
+"198","amitriptyline","DTXSID7022594","LC50",804,"ug/L","Rotifer","Invertebrates",277.411
+"199","clarithromycin","DTXSID3022829","LC50",33640,"ug/L","Fairy Shrimp","Crustaceans",747.964
+"200","clarithromycin","DTXSID3022829","LC50",35460,"ug/L","Rotifer","Invertebrates",747.964
+"201","clarithromycin","DTXSID3022829","LC50",35500,"ug/L","Rotifer","Invertebrates",747.964
+"202","clarithromycin","DTXSID3022829","LC50",94230,"ug/L","Fairy Shrimp","Crustaceans",747.964
+"203","clarithromycin","DTXSID3022829","LC50",33600,"ug/L","Fairy Shrimp","Crustaceans",747.964
+"204","clarithromycin","DTXSID3022829","LC50",94200,"ug/L","Fairy Shrimp","Crustaceans",747.964
+"205","fluconazole","DTXSID3020627","LC50",1e+05,"ug/L","Fairy Shrimp","Crustaceans",306.277
+"206","fluconazole","DTXSID3020627","LC50",1087890,"ug/L","Sea Squirt","Invertebrates",306.277
+"207","ampicillin","DTXSID4022602","LC50",127800,"ug/L","Southern House Mosquito","Insects/Spiders",349.41
+"208","ampicillin","DTXSID4022602","LC50",127800,"ug/L","Southern House Mosquito","Insects/Spiders",349.41
+"209","paroxetine","DTXSID3023425","LC50",580,"ug/L","Water Flea","Crustaceans",329.371
+"210","paroxetine","DTXSID3023425","LC50",580,"ug/L","Water Flea","Crustaceans",329.371
+"211","paroxetine","DTXSID3023425","LC50",734,"ug/L","Water Flea","Crustaceans",329.371
+"212","indomethacin","DTXSID9020740","LC50",16140,"ug/L","Fairy Shrimp","Crustaceans",357.79
+"213","indomethacin","DTXSID9020740","LC50",16100,"ug/L","Fairy Shrimp","Crustaceans",357.79
+"214","diazepam","DTXSID4020406","LC50",12200,"ug/L","Brine Shrimp","Crustaceans",284.74
+"215","diazepam","DTXSID4020406","LC50",65491.3,"ug/L","Brine Shrimp","Crustaceans",284.74
+"216","diazepam","DTXSID4020406","LC50",103078,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"217","diazepam","DTXSID4020406","LC50",9994550,"ug/L","Rotifer","Invertebrates",284.74
+"218","diazepam","DTXSID4020406","LC50",9197.26,"ug/L","Water Flea","Crustaceans",284.74
+"219","diazepam","DTXSID4020406","LC50",9567.43,"ug/L","Water Flea","Crustaceans",284.74
+"220","diazepam","DTXSID4020406","LC50",14066.4,"ug/L","Water Flea","Crustaceans",284.74
+"221","diazepam","DTXSID4020406","LC50",37301.6,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"222","diazepam","DTXSID4020406","LC50",41003.3,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"223","diazepam","DTXSID4020406","LC50",47267.7,"ug/L","Rotifer","Invertebrates",284.74
+"224","diazepam","DTXSID4020406","LC50",65491.3,"ug/L","Brine Shrimp","Crustaceans",284.74
+"225","diazepam","DTXSID4020406","LC50",68623.5,"ug/L","Brine Shrimp","Crustaceans",284.74
+"226","diazepam","DTXSID4020406","LC50",81721.8,"ug/L","Brine Shrimp","Crustaceans",284.74
+"227","diazepam","DTXSID4020406","LC50",99945.5,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"228","diazepam","DTXSID4020406","LC50",103078,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"229","diazepam","DTXSID4020406","LC50",495456,"ug/L","Rotifer","Invertebrates",284.74
+"230","diazepam","DTXSID4020406","LC50",9994550,"ug/L","Rotifer","Invertebrates",284.74
+"231","diazepam","DTXSID4020406","LC50",9200,"ug/L","Water Flea","Crustaceans",284.74
+"232","diazepam","DTXSID4020406","LC50",9570,"ug/L","Water Flea","Crustaceans",284.74
+"233","diazepam","DTXSID4020406","LC50",14100,"ug/L","Water Flea","Crustaceans",284.74
+"234","diazepam","DTXSID4020406","LC50",37300,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"235","diazepam","DTXSID4020406","LC50",41000,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"236","diazepam","DTXSID4020406","LC50",47300,"ug/L","Rotifer","Invertebrates",284.74
+"237","diazepam","DTXSID4020406","LC50",68600,"ug/L","Brine Shrimp","Crustaceans",284.74
+"238","diazepam","DTXSID4020406","LC50",81700,"ug/L","Brine Shrimp","Crustaceans",284.74
+"239","diazepam","DTXSID4020406","LC50",99900,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"240","diazepam","DTXSID4020406","LC50",103000,"ug/L","Fairy Shrimp","Crustaceans",284.74
+"241","diazepam","DTXSID4020406","LC50",495000,"ug/L","Rotifer","Invertebrates",284.74
+"242","sulfamethoxazole","DTXSID8026064","LC50",26270,"ug/L","Rotifer","Invertebrates",253.28
+"243","sulfamethoxazole","DTXSID8026064","LC50",35360,"ug/L","Fairy Shrimp","Crustaceans",253.28
+"244","sulfamethoxazole","DTXSID8026064","LC50",126700,"ug/L","Flatworm","Worms",253.28
+"245","sulfamethoxazole","DTXSID8026064","LC50",208500,"ug/L","Flatworm","Worms",253.28
+"246","sulfamethoxazole","DTXSID8026064","LC50",234180,"ug/L","Water Flea","Crustaceans",253.28
+"247","sulfamethoxazole","DTXSID8026064","LC50",276100,"ug/L","Rotifer","Invertebrates",253.28
+"248","sulfamethoxazole","DTXSID8026064","LC50",282800,"ug/L","Flatworm","Worms",253.28
+"249","sulfamethoxazole","DTXSID8026064","LC50",333000,"ug/L","Flatworm","Worms",253.28
+"250","sulfamethoxazole","DTXSID8026064","LC50",1e+05,"ug/L","Hydra","Invertebrates",253.28
+"251","sulfamethoxazole","DTXSID8026064","LC50",26300,"ug/L","Rotifer","Invertebrates",253.28
+"252","sulfamethoxazole","DTXSID8026064","LC50",35400,"ug/L","Fairy Shrimp","Crustaceans",253.28
+"253","warfarin","DTXSID5023742","LC50",342250,"ug/L","Fairy Shrimp","Crustaceans",308.333
+"254","warfarin","DTXSID5023742","LC50",444000,"ug/L","Rotifer","Invertebrates",308.333
+"255","warfarin","DTXSID5023742","LC50",3638340,"ug/L","Brine Shrimp","Crustaceans",308.333
+"256","warfarin","DTXSID5023742","LC50",342000,"ug/L","Fairy Shrimp","Crustaceans",308.333
+"257","warfarin","DTXSID5023742","LC50",444000,"ug/L","Rotifer","Invertebrates",308.333
+"258","trimethoprim","DTXSID3023712","LC50",189500,"ug/L","Rotifer","Invertebrates",290.323
+"259","trimethoprim","DTXSID3023712","LC50",235600,"ug/L","Flatworm","Worms",290.323
+"260","trimethoprim","DTXSID3023712","LC50",243900,"ug/L","Flatworm","Worms",290.323
+"261","trimethoprim","DTXSID3023712","LC50",271600,"ug/L","Flatworm","Worms",290.323
+"262","trimethoprim","DTXSID3023712","LC50",331000,"ug/L","Flatworm","Worms",290.323
+"263","nadolol","DTXSID3023342","LC50",615100,"ug/L","Flatworm","Worms",309.406
+"264","nadolol","DTXSID3023342","LC50",621400,"ug/L","Flatworm","Worms",309.406
+"265","nadolol","DTXSID3023342","LC50",1e+05,"ug/L","Scud","Crustaceans",309.406
+"266","nitroglycerin","DTXSID1021407","LC50",17430,"ug/L","Hydra","Invertebrates",227.085
+"267","nitroglycerin","DTXSID1021407","LC50",17830,"ug/L","Water Flea","Crustaceans",227.085
+"268","nitroglycerin","DTXSID1021407","LC50",20000,"ug/L","Midge","Insects/Spiders",227.085
+"269","nitroglycerin","DTXSID1021407","LC50",32000,"ug/L","Water Flea","Crustaceans",227.085
+"270","nitroglycerin","DTXSID1021407","LC50",34930,"ug/L","Midge","Insects/Spiders",227.085
+"271","nitroglycerin","DTXSID1021407","LC50",57000,"ug/L","Midge","Insects/Spiders",227.085
+"272","nitroglycerin","DTXSID1021407","LC50",72000,"ug/L","Water Flea","Crustaceans",227.085
+"273","nitroglycerin","DTXSID1021407","LC50",17400,"ug/L","Hydra","Invertebrates",227.085
+"274","nitroglycerin","DTXSID1021407","LC50",17800,"ug/L","Water Flea","Crustaceans",227.085
+"275","nitroglycerin","DTXSID1021407","LC50",20000,"ug/L","Midge","Insects/Spiders",227.085
+"276","nitroglycerin","DTXSID1021407","LC50",32000,"ug/L","Water Flea","Crustaceans",227.085
+"277","nitroglycerin","DTXSID1021407","LC50",72000,"ug/L","Water Flea","Crustaceans",227.085
+"278","colchicine","DTXSID5024845","LC50",5e+05,"ug/L","Snail","Molluscs",399.443
+"279","digoxin","DTXSID5022934","LC50",9996170,"ug/L","Fairy Shrimp","Crustaceans",780.949
+"280","digoxin","DTXSID5022934","LC50",99961.7,"ug/L","Rotifer","Invertebrates",780.949
+"281","digoxin","DTXSID5022934","LC50",192114,"ug/L","Water Flea","Crustaceans",780.949
+"282","digoxin","DTXSID5022934","LC50",320190,"ug/L","Water Flea","Crustaceans",780.949
+"283","digoxin","DTXSID5022934","LC50",999617,"ug/L","Rotifer","Invertebrates",780.949
+"284","digoxin","DTXSID5022934","LC50",9996170,"ug/L","Rotifer","Invertebrates",780.949
+"285","digoxin","DTXSID5022934","LC50",1e+05,"ug/L","Brine Shrimp","Crustaceans",780.949
+"286","digoxin","DTXSID5022934","LC50",192000,"ug/L","Water Flea","Crustaceans",780.949
+"287","digoxin","DTXSID5022934","LC50",1e+07,"ug/L","Rotifer","Invertebrates",780.949
+"288","ethinyl estradiol","DTXSID5020576","LC50",800,"ug/L","Scud","Crustaceans",296.41
+"289","ethinyl estradiol","DTXSID5020576","LC50",1000,"ug/L","Flatworm","Worms",296.41
+"290","ethinyl estradiol","DTXSID5020576","LC50",1100,"ug/L","Calanoid Copepod","Crustaceans",296.41
+"291","ethinyl estradiol","DTXSID5020576","LC50",1500,"ug/L","Flatworm","Worms",296.41
+"292","ethinyl estradiol","DTXSID5020576","LC50",1650,"ug/L","Flatworm","Worms",296.41
+"293","ethinyl estradiol","DTXSID5020576","LC50",2000,"ug/L","Scud","Crustaceans",296.41
+"294","ethinyl estradiol","DTXSID5020576","LC50",2160,"ug/L","Midge","Insects/Spiders",296.41
+"295","ethinyl estradiol","DTXSID5020576","LC50",2780,"ug/L","Flatworm","Worms",296.41
+"296","ethinyl estradiol","DTXSID5020576","LC50",3000,"ug/L","Flatworm","Worms",296.41
+"297","ethinyl estradiol","DTXSID5020576","LC50",3400,"ug/L","Flatworm","Worms",296.41
+"298","ethinyl estradiol","DTXSID5020576","LC50",4100,"ug/L","Midge","Insects/Spiders",296.41
+"299","ethinyl estradiol","DTXSID5020576","LC50",4190,"ug/L","Scud","Crustaceans",296.41
+"300","ethinyl estradiol","DTXSID5020576","LC50",7920,"ug/L","Scud","Crustaceans",296.41
+"301","ethinyl estradiol","DTXSID5020576","LC50",100,"ug/L","Harpacticoid Copepod","Crustaceans",296.41
+"302","ethinyl estradiol","DTXSID5020576","LC50",510,"ug/L","Harpacticoid Copepod","Crustaceans",296.41
+"303","ethinyl estradiol","DTXSID5020576","LC50",1200,"ug/L","Opossum Shrimp","Crustaceans",296.41
+"304","ethinyl estradiol","DTXSID5020576","LC50",2590.4,"ug/L","Water Flea","Crustaceans",296.41
+"305","ethinyl estradiol","DTXSID5020576","LC50",3800,"ug/L","Hydra","Invertebrates",296.41
+"306","ethinyl estradiol","DTXSID5020576","LC50",5500,"ug/L","Hydra","Invertebrates",296.41
+"307","ethinyl estradiol","DTXSID5020576","LC50",6700,"ug/L","Hydra","Invertebrates",296.41
+"308","ethinyl estradiol","DTXSID5020576","LC50",8600,"ug/L","Hydra","Invertebrates",296.41
+"309","ethinyl estradiol","DTXSID5020576","LC50",8830,"ug/L","Midge","Insects/Spiders",296.41
+"310","ethinyl estradiol","DTXSID5020576","LC50",9136,"ug/L","Midge","Insects/Spiders",296.41
+"311","ethinyl estradiol","DTXSID5020576","LC50",2590,"ug/L","Water Flea","Crustaceans",296.41
+"312","ethinyl estradiol","DTXSID5020576","LC50",3800,"ug/L","Hydra","Invertebrates",296.41
+"313","ethinyl estradiol","DTXSID5020576","LC50",5500,"ug/L","Hydra","Invertebrates",296.41
+"314","ethinyl estradiol","DTXSID5020576","LC50",6700,"ug/L","Hydra","Invertebrates",296.41
+"315","ethinyl estradiol","DTXSID5020576","LC50",8600,"ug/L","Hydra","Invertebrates",296.41
+"316","prednisolone","DTXSID9021184","LC50",22290,"ug/L","Rotifer","Invertebrates",360.45
+"317","prednisolone","DTXSID9021184","LC50",22300,"ug/L","Rotifer","Invertebrates",360.45
+"318","moxifloxacin","DTXSID3048491","LC50",3000,"ug/L","Water Flea","Crustaceans",401.438
+"319","moxifloxacin","DTXSID3048491","LC50",5000,"ug/L","Water Flea","Crustaceans",401.438
+"320","moxifloxacin","DTXSID3048491","LC50",7000,"ug/L","Water Flea","Crustaceans",401.438
+"321","moxifloxacin","DTXSID3048491","LC50",14000,"ug/L","Water Flea","Crustaceans",401.438
+"322","moxifloxacin","DTXSID3048491","LC50",26000,"ug/L","Water Flea","Crustaceans",401.438
+"323","moxifloxacin","DTXSID3048491","LC50",29000,"ug/L","Water Flea","Crustaceans",401.438
+"324","dexamethasone","DTXSID3020384","LC50",48220,"ug/L","Rotifer","Invertebrates",392.467
+"325","dexamethasone","DTXSID3020384","LC50",60110,"ug/L","Fairy Shrimp","Crustaceans",392.467
+"326","dexamethasone","DTXSID3020384","LC50",48200,"ug/L","Rotifer","Invertebrates",392.467
+"327","dexamethasone","DTXSID3020384","LC50",60100,"ug/L","Fairy Shrimp","Crustaceans",392.467
+"328","ofloxacin","DTXSID3041085","LC50",195200,"ug/L","Flatworm","Worms",361.373
+"329","ofloxacin","DTXSID3041085","LC50",29900,"ug/L","Rotifer","Invertebrates",361.373
+"330","ofloxacin","DTXSID3041085","LC50",34000,"ug/L","Fairy Shrimp","Crustaceans",361.373
+"331","ofloxacin","DTXSID3041085","LC50",29880,"ug/L","Rotifer","Invertebrates",361.373
+"332","ofloxacin","DTXSID3041085","LC50",32500,"ug/L","Flatworm","Worms",361.373
+"333","ofloxacin","DTXSID3041085","LC50",33980,"ug/L","Fairy Shrimp","Crustaceans",361.373
+"334","ofloxacin","DTXSID3041085","LC50",98500,"ug/L","Flatworm","Worms",361.373
+"335","ofloxacin","DTXSID3041085","LC50",447200,"ug/L","Flatworm","Worms",361.373
+"336","cyclosporine","DTXSID0020365","LC50",29584.7,"ug/L","Water Flea","Crustaceans",1202.635
+"337","cyclosporine","DTXSID0020365","LC50",192541,"ug/L","Water Flea","Crustaceans",1202.635

@@ -25,12 +25,12 @@
 "24","doxycycline",2000
 "25","enalapril",0.00376453
 "26","erythromycin",733.938
-"27","estradiol",2.7e-06
-"28","ethinyl estradiol",2.96409e-06
-"29","ezetimibe",2.04716
-"30","fenofibrate",2.5
-"31","finasteride",1
-"32","fluconazole",20
+"27","ethinyl estradiol",2.96409e-06
+"28","ezetimibe",2.04716
+"29","fenofibrate",2.5
+"30","finasteride",1
+"31","fluconazole",20
+"32","fluorouracil",1
 "33","fluoxetine",1e-06
 "34","furosemide",0.061108
 "35","gabapentin",856198
@@ -41,12 +41,12 @@
 "40","ibuprofen",0.001
 "41","indomethacin",0.1
 "42","irbesartan",42.8537
-"43","ketoprofen",0.1
-"44","labetalol",32.8411
-"45","letrozole",285.308
-"46","levofloxacin",1000
-"47","levonorgestrel",0.00187
-"48","levothyroxine",0.00776875
+"43","ketoconazole",3000
+"44","ketoprofen",0.1
+"45","labetalol",32.8411
+"46","letrozole",285.308
+"47","levofloxacin",1000
+"48","levonorgestrel",0.00187
 "49","lisinopril",40.5494
 "50","losartan",1.69167
 "51","lovastatin",1.61819
