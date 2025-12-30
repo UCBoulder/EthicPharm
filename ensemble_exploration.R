@@ -230,7 +230,9 @@ transformed_data <- transformed_data %>%
 # remove any extra whitespaces in drug
 transformed_data$Drug <- trimws(transformed_data$Drug)
 
-# generate paginated plots and save to PDF
+# generate paginated plots and save to PDF (full plots used to make Figure S1 in
+# associated manuscript, select plots are used to create Figure 3 in associated
+# manuscript)
 pdf("Lit_pred_tox_mass_load_graphs.pdf", height = 24, width = 32)
 
 for (i in 1:num_pages) {
