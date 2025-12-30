@@ -6,15 +6,21 @@
 # search before comparing the literature-reported mass loads with the predicted
 # mass loads. Data visualizations are provided comparing the predictions with 
 # the reported values, as well as highlighting the comparison between specific
-# WRRFs' reported values and the national baseline values, provided by the 
-# predictions.
+# water resource recovery facilities' (WRRFs) reported values and the national
+# baseline values, provided by the predictions.
+
+# Functions used: 
+#     * pharmflush_model():
+#       * Input: the typical daily flow or design capacity of the WRRF and size
+#                of the sewershed population
+#       * Output: the average profile dataframe that includes the average
+#                 predicted concentration and mass load for all pharmaceuticals
 
 ################################################################################
 
 # load necessary libraries
 library("stats")
 library("tidyverse")
-library("viridis")
 library("svglite")
 library("patchwork")
 library("cowplot")
@@ -398,7 +404,6 @@ master_grid <- expand_grid(
 
 # prep to join by cleaning and selecting same columns in predicted
 predictions_heatmap = predictions_lit_comp %>%
-  rename(Pharmaceutical=Drug) %>%
   mutate(WRRF_ID = as.character(WRRF_ID))
 
 predictions_heatmap = predictions_heatmap %>%
@@ -426,8 +431,8 @@ heatmap_long = heatmap_long %>%
 
 # set categorical variables to distinguish missing pharmaceuticals for each WRRF
 # from ones measured but not detected (NA vs ND); also calculate difference
-# ratio between reported and predicted and note if the difference exceeds a
-# magnitude of 10
+# ratio between reported and predicted and note if the reported exceeds
+# predicted by at least a magnitude of 10
 heatmap_long <- heatmap_long %>%
   mutate(
     Cell_Category = case_when(
@@ -450,74 +455,48 @@ heatmap_long <- heatmap_long %>%
     Major_Discrepancy = if_else(Cell_Category != "Difference Ratio", NA, Major_Discrepancy)
   )
 
-# --- 1. Data Processing to add Abs_Log10_Ratio and updated Major_Discrepancy ---
-
-# Assuming Log10_Ratio is calculated as log10(Reported/Predicted)
-heatmap_long_updated = heatmap_long %>%
+# add flag for if absolute difference is greater than order of magnitude and
+# make sure discrepancy flag is only for measured/detected values
+heatmap_long = heatmap_long %>%
   mutate(
-    # Calculate the absolute value for the gradient color
     Abs_Log10_Ratio = abs(Log10_Ratio),
-    
-    # Create the new Major Discrepancy flag
-    # TRUE if Log10_Ratio is <= -1 AND the cell is a Difference Ratio cell
-    # This means RML exceeds PML by a factor of 10 or more.
     Major_Discrepancy_New = case_when(
       Cell_Category == "Difference Ratio" & Log10_Ratio <= -1 ~ TRUE,
-      TRUE ~ FALSE # Default to FALSE for all other cases (including ND/NA cells)
+      TRUE ~ FALSE 
     )
   )
 
-# Rename the data frame for consistency with your existing code
-heatmap_long <- heatmap_long_updated
-
-# --- 2. Re-create the data subsets using the updated heatmap_long ---
-# You need to run these again to ensure they pick up the new columns/values
+# separate by cell category to prep for plotting different colors
 data_difference <- heatmap_long %>% filter(Cell_Category == "Difference Ratio")
 data_nd <- heatmap_long %>% filter(Cell_Category == "Not Detected (ND)")
 data_na <- heatmap_long %>% filter(Cell_Category == "Not Measured (NA)")
 
+# define colors for not measured and not detected
 COLOR_ND <- "gray40" # Not Detected
 COLOR_NA <- "gray90" # Not Measured
 
-# ... (data filtering code from above)
-
 # plot the heatmap
 heatmap_plot <- ggplot(heatmap_long, aes(x = WRRF_ID, y = Pharmaceutical)) +
-  
-  # 1. Tiles for ND and NA (filled colors)
   geom_tile(data = data_na, fill = COLOR_NA, color = "white", linewidth = 0.1) +
   geom_tile(data = data_nd, fill = COLOR_ND, color = "white", linewidth = 0.1) +
-  
-  # 2. Tiles for Difference Ratio (gradient fill)
   geom_tile(data = data_difference, 
-            # 👇 EDIT 1: Use Abs_Log10_Ratio for the blue gradient fill
             aes(fill = Abs_Log10_Ratio), 
             color = "white", linewidth = 0.1) +
-  
-  # Color gradient scale for 'Difference Ratio'
   scale_fill_gradient(
     low = "lightblue", high = "darkblue", 
-    # 👇 EDIT 2: Use Abs_Log10_Ratio for limits
     limits = c(0, max(data_difference$Abs_Log10_Ratio, na.rm = TRUE)),
     name = "|log10(Predicted/Reported)|",
     guide = "colorbar"
   ) +
-  
-  # 3. Add a shape (point) for Major Discrepancy 
-  # 👇 EDIT 3: Filter using the new 'Major_Discrepancy_New' column
   geom_point(data = data_difference %>% filter(Major_Discrepancy_New == TRUE),
-             aes(shape = "Major Discrepancy (RML > 10x PML)"), # Updated Legend Label
+             aes(shape = "Major Discrepancy (RML > 10x PML)"), 
              color = "red",
              size = 1,
              stroke = 0.5) +
-  
-  # New: Add a dummy geom_tile for the other legend entries (ND/NA)
   geom_tile(data = heatmap_long %>% filter(Cell_Category != "Difference Ratio"),
             aes(colour = Cell_Category), 
             fill = NA, 
             linewidth = 0) +
-  
-  # Manual color scale for the ND/NA cell statuses (use 'colour' aesthetic)
   scale_colour_manual(
     name = "Cell Status",
     values = c("Not Detected (ND)" = COLOR_ND, 
@@ -528,11 +507,8 @@ heatmap_plot <- ggplot(heatmap_long, aes(x = WRRF_ID, y = Pharmaceutical)) +
       colour = "white"
     ))
   ) +
-  
-  # Manual shape scale for the discrepancy marker
   scale_shape_manual(
     name = "Discrepancy",
-    # 👇 NOTE: Updated the name here to match the aesthetic mapping above
     values = c("Major Discrepancy (RML > 10x PML)" = 17), 
     guide = guide_legend(override.aes = list(
       color = "red",
@@ -540,7 +516,6 @@ heatmap_plot <- ggplot(heatmap_long, aes(x = WRRF_ID, y = Pharmaceutical)) +
       fill = NA
     ))
   ) +
-  
   labs(
     x = "WRRF ID",
     y = "Pharmaceuticals"
@@ -553,8 +528,6 @@ heatmap_plot <- ggplot(heatmap_long, aes(x = WRRF_ID, y = Pharmaceutical)) +
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank()
   ) +
-  
-  # Control the order of the legends
   guides(fill = guide_colorbar(order = 1), 
          colour = guide_legend(order = 2),
          shape = guide_legend(order = 3))

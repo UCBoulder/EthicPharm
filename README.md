@@ -1,5 +1,5 @@
 # SeweRx
-<div style="display: flex; justify-content: space-around;">
+<div style="display: flex; justify-content: center;">
     <img src="sewerx logo.png" alt="PharmUse logo" width="400">
 </div>
 
@@ -64,8 +64,8 @@ sudo apt-get install poppler-utils
 In addition to these dependencies, Lit_pred_tox_mass_load_graphs.pdf must be in the same directory as
 get_png_from_pdf.py for the script to run. This PDF can be generated using ensemble_exploration.R.
 
-The script pharmuse_constructor.R requires tidyverse Version 2.0.0. Additionally, the functions library pharmuse_constructor_functions.R, the MEPS data file MEPS_data_2020.txt, drugs_to_remove.xlsx, and comptox_search.xlsx must be in the working directory to run this script.
+The script lit_comparison_all.R requires stats Version 4.4.3, tidyverse Version 2.0.0 (which includes readxl), svglite Version 2.1.3, patchwork Version 1.3.0, cowplot Version 1.1.3, and scales Version 1.4.0. Additionally, the function pharmflush_function.R (which houses the function format of the pharmflush.R model script) and wrrf_profiles.xlsx must be in the working directory to run this script.
 
-The script pharmflush.R requires tidyverse Version 2.0.0, viridis Version 0.6.5, svglite Version 2.1.3,
-patchwork Version 1.3.0, and cowplot Version 1.1.3. Additionally, pharmuse.csv, lit_values_all.csv, and lit_values_summary.csv must be in the working directory
-to run this script.
+The script pharmuse_constructor.R requires tidyverse Version 2.0.0. Additionally, the functions library pharmuse_constructor_functions.R, the MEPS data file MEPS_data_2020.txt, drugs_to_remove.xlsx, excretion_data.xlsx, comptox_search.xlsx, biotransformation_data.xlsx, and hydrolysis_full_data.xlsx must be in the working directory to run this script.
+
+The script pharmflush.R requires stats Version 4.4.3, tidyverse Version 2.0.0, svglite Version 2.1.3, patchwork Version 1.3.0, cowplot Version 1.1.3, and scales Version 1.4.0. Additionally, pharmuse.csv must be in the working directory to run this script. pharmflush.R was converted into a function pharmflush_function.R, which requires pharmuse.csv to be in the working directory to run.

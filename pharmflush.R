@@ -18,7 +18,6 @@
 # import libraries
 library("stats")
 library("tidyverse")
-library("viridis")
 library("svglite")
 library("patchwork")
 library("cowplot")

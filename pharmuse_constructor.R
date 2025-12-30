@@ -4,7 +4,8 @@
 # Description:
 # Loads, cleans and exports data to construct the PharmUse database. Data
 # sources include Medical Expenditure Panel Survey 2020 Prescribed Medicines
-# File and CompTox Chemicals Dashboard.
+# File, CompTox Chemicals Dashboard, Drugs@FDA database, Chemical Transformation
+# Simulator, and enviPath database.
 
 # Functions used: 
 #     * remove_drugs():
@@ -103,22 +104,67 @@ meps = meps %>%
 meps = meps %>%
   mutate(across(everything(), ~trimws(.)))
 
-# remove ophthalmic, otic, and nasal labels from drug names (this prevents
-# different forms of the same drug from being counted twice)
+# remove administration route labels from drug names (this prevents
+# different forms of the same drug from being counted twice) and add to own
+# column instead
+meps = meps %>%
+  mutate(Administration_route = case_when(grepl("OPHTHALMIC", Drug)==TRUE ~ "OPHTHALMIC",
+                                          grepl("OTIC", Drug)==TRUE ~ "OTIC",
+                                          grepl("NASAL",Drug)==TRUE ~ "NASAL",
+                                          grepl("TOPICAL",Drug)==TRUE ~ "TOPICAL",
+                                          grepl("ORAL",Drug)==TRUE ~ "ORAL",
+                                          grepl("SUBLINGUAL",Drug)==TRUE ~ "SUBLINGUAL",
+                                          grepl("BUCCAL",Drug)==TRUE ~ "BUCCAL",
+                                          grepl("RECTAL",Drug)==TRUE ~ "RECTAL",
+                                          grepl("INTRAVENOUS",Drug)==TRUE ~ "INTRAVENOUS",
+                                          grepl(" IV",Drug)==TRUE ~ "IV",
+                                          grepl("IV ",Drug)==TRUE ~ "IV",
+                                          grepl("INTRAMUSCULAR",Drug)==TRUE ~ "INTRAMUSCULAR",
+                                          grepl("SUBCUTANEOUS",Drug)==TRUE ~ "SUBCUTANEOUS",
+                                          grepl("INTRANASAL",Drug)==TRUE ~ "INTRANASAL",
+                                          grepl("INHALED",Drug)==TRUE ~ "INHALATION",
+                                          grepl("INHALATIONAL",Drug)==TRUE ~ "INHALATION",
+                                          grepl("INHALANT",Drug)==TRUE ~ "INHALATION",
+                                          grepl("VAGINAL",Drug)==TRUE ~ "VAGINAL",
+                                          grepl("TRANSDERMAL",Drug)==TRUE ~ "TRANSDERMAL",
+                                          .default=NA))
+
 meps$Drug = gsub(paste0("\\b", "OPHTHALMIC", "\\b"), "", meps$Drug,
                  ignore.case = TRUE)
 meps$Drug = gsub(paste0("\\b", "OTIC", "\\b"), "", meps$Drug,
                  ignore.case = TRUE)
 meps$Drug = gsub(paste0("\\b", "NASAL", "\\b"), "", meps$Drug,
                  ignore.case = TRUE)
-
-# group and remove topical drug forms
-topical_forms = c("CREA", "OINT", "OIN", "LOTN", "LOT", "CRE", "PSTE",
-                  "PAS", "GEL", "SHAM", "OIL","POWD","SOLG", "SHA",
-                  "Topical-Unspecified")
-for (form in topical_forms){
-  meps = remove_entries(meps, meps$Form, form)
-}
+meps$Drug = gsub(paste0("\\b", "TOPICAL", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "ORAL", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "SUBLINGUAL", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "BUCCAL", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "RECTAL", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "INTRAVENOUS", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "IV ", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "INTRAMUSCULAR", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "SUBCUTANEOUS", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "INTRANASAL", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "INHALATION", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "INHALATION", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "INHALATION", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "VAGINAL", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
+meps$Drug = gsub(paste0("\\b", "TRANSDERMAL", "\\b"), "", meps$Drug,
+                 ignore.case = TRUE)
 
 # remove ambiguous drug units
 miscoded_units = c("OTHER", "U/ML", "U/ML/U/ML", "UNIT", "UNIT/ML", "UNIT/GM",
@@ -140,15 +186,6 @@ fix_units_df = data.frame(miscoded_units = c("MCG/INH", "MG/ACT", "MCG/mg/Act",
 for (i in seq_len(nrow(fix_units_df))){
   meps = fix_drug_coding(meps, meps$Units, "Units", fix_units_df[i,1],
                          fix_units_df[i,2])
-}
-
-# remove dashes from Form column (to avoid confusing special characters):
-fix_forms_df = data.frame(miscoded_forms = c("CAP-Capsule", "INH-Inhaler",
-                                             "INH-Inhalant"),
-                          correct_forms = c("Capsule", "Inhaler", "Inhaler"))
-for (i in seq_len(nrow(fix_forms_df))){
-  meps = fix_drug_coding(meps, meps$Form, "Form", fix_forms_df[i,1],
-                         fix_forms_df[i,2])
 }
 
 # remove unnecessary commas
@@ -250,8 +287,8 @@ meps = meps %>%
                              str_replace_all(Units, "-", "/"),
                            .default = Units))
 
-# Remove drugs with dashes that are not combination drugs and will be removed
-# anyway
+# Remove drug names with dashes that are on the drugs_to_remove list early to 
+# avoid causing issues during combination drug handling
 drug_names_to_remove = c("OMEGA-3 POLYUNSATURATED FATTY ACIDS",
                           "ALPHA-LIPOIC ACID","ANTI-INFECTIVES",
                           "THIAZIDE AND THIAZIDE-LIKE DIURETICS",
@@ -339,13 +376,6 @@ drugs = remove_drugs(drugs, inbody_drugs)
 vague_drugs = unlist(as.list(read_excel("drugs_to_remove.xlsx", sheet=3,
                                         col_names=FALSE)))
 drugs = remove_drugs(drugs, vague_drugs)
-
-# remove topicals based on name
-for (drug in drugs){
-  if (grepl("TOPICAL", drug)==TRUE){
-    drugs = remove_drugs(drugs, drug)
-  }
-}
 
 # remove any duplicates introduced
 drugs = unique(drugs)
@@ -458,6 +488,77 @@ meps_clean = do.call(rbind, meps_clean)
 # remove Units (all same units now)
 meps_clean = subset(meps_clean, select=-c(Units))
 
+# change Form variable to reflect full form name for merging with excretion data
+meps_clean <- meps_clean %>%
+  mutate(Form = case_when(
+    Form %in% c("TABS", "TB24", "TAB", "CAPS", "CAP-Capsule", "TBEC", "CPDR", 
+                "TBDP", "T12A", "SYRP", "CP24", "TBCR", "CPCR", "TB12", "CHEW", 
+                "CPEP", "ECT", "CPSP", "CTB", "SYR", "CP12", "PACK", "TBED", "CHER", "SOCT", "TBPK", "TBDD", "CSDR") ~ "ORAL",
+    Form %in% c("AEPB", "INH-Inhaler", "INH-Inhalant", "NEBU", "AERB", "ACC") ~ "INHALATION",
+    Form %in% c("AERO", "AER", "AERS") & Administration_route == "NASAL" ~ "NASAL",
+    Form %in% c("AERO", "AER", "AERS") & Drug %in% c("FLUTICASONE", "ALBUTEROL", "TIOTROPIUM", "MOMETASONE", "LEVALBUTEROL", "CICLESONIDE", "SALMETEROL") ~ "INHALATION",
+    Form %in% c("SUSP", "SUS", "SUSR") & Administration_route == "NASAL" ~ "NASAL",
+    Form %in% c("SUSP", "SUS", "SUSR") & Administration_route == "OPHTHALMIC" ~ "OPHTHALMIC",
+    Form %in% c("SUSP", "SUS", "SUSR") & Administration_route == "OTIC" ~ "OTIC",
+    Form %in% c("SUSP", "SUS", "SUSR") & Administration_route == "TOPICAL" ~ "TOPICAL",
+    Form %in% c("SUSP", "SUS", "SUSR") & Drug %in% c("IBUPROFEN", "ACETAMINOPHEN", "CIPROFLOXACIN", "FAMOTIDINE", "CEFDINIR", "NAPROXEN", "AMOXICILLIN", "AZITHROMYCIN", "NITROFURANTOIN", "OXCARBAZEPINE", "OSELTAMIVIR", "CARBAMAZEPINE", "CEPHALEXIN") ~ "ORAL",
+    Form %in% c("SUSP", "SUS", "SUSR") & Drug == "BUDESONIDE" ~ "INHALATION",
+    Form %in% c("SUSP", "SUS", "SUSR") & Drug == "METHYLPREDNISOLONE" ~ "INTRAMUSCULAR/INTRA-ARTICULAR/SOFT TISSUE/INTRALESIONAL",
+    Form %in% c("SUSP", "SUS", "SUSR", "SUSY") & Drug == "MEDROXYPROGESTERONE" ~ "INTRAMUSCULAR",
+    Form %in% c("SOLN", "SOL", "SOLR") & Administration_route == "NASAL" ~ "NASAL",
+    Form %in% c("SOLN", "SOL", "SOLR") & Administration_route == "OPHTHALMIC" ~ "OPHTHALMIC",
+    Form %in% c("SOLN", "SOL", "SOLR") & Administration_route == "OTIC" ~ "OTIC",
+    Form %in% c("SOLN", "SOL", "SOLR") & Administration_route == "TOPICAL" ~ "TOPICAL",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug %in% c("METFORMIN", "OXYCODONE", "FUROSEMIDE", "GABAPENTIN", "PREDNISONE", "ASPIRIN", "PROMETHAZINE", "PREDNISOLONE", "ONDANSETRON", "ARIPIPRAZOLE", "LEVETIRACETAM", "CETIRIZINE", "PENICILLIN V POTASSIUM", "LORATADINE", "ALENDRONATE", "MORPHINE", "LACTULOSE") ~ "ORAL",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "SUMATRIPTAN" ~ "NASAL",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "ACETAMINOPHEN" & NDC == "43825010201" ~ "INTRAVENOUS",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "ACETAMINOPHEN" & NDC %in% c("00536012297", "00904701416") ~ "ORAL",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "BUDESONIDE" ~ "INHALATION",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "PANTOPRAZOLE" ~ "INTRAVENOUS",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug %in% c("KETOROLAC", "HALOPERIDOL") ~ "INTRAMUSCULAR",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "NITROGLYCERIN" ~ "SUBLINGUAL",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "METHOTREXATE" & NDC != "63323012310" & NDC != "00143951910" ~ "INTRAVENOUS/INTRAMUSCULAR/SUBCUTANEOUS",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "METHOTREXATE" & NDC == "63323012310" ~ "INTRAVENOUS/INTRAMUSCULAR/INTRA-ARTERIAL",
+    Form %in% c("SOLN", "SOL", "SOLR") & Drug == "METHOTREXATE" & NDC == "00143951910" ~ "INTRA-ARTERIAL/INTRATHECAL/INTRAVENOUS/INTRAMUSCULAR",
+    Form %in% c("CREA", "CRE", "SHA", "SHAM", "LOT", "LOTN", "PSTE", "OIL", "SWAB", "PADS") ~ "TOPICAL",
+    Form %in% c("OINT", "OIN") & Administration_route== "TOPICAL" ~  "TOPICAL",
+    Form %in% c("OINT", "OIN") & Administration_route== "OPHTHALMIC" ~  "OPHTHALMIC",
+    Form %in% c("OINT", "OIN") & Drug== "NITROGLYCERIN" ~  "TRANSDERMAL",
+    Form %in% c("Eye drops", "EMUL") ~ "OPHTHALMIC",
+    Form == "Drops" & Administration_route == "OPHTHALMIC" ~ "OPHTHALMIC",
+    Form == "Drops" & Administration_route == "OTIC" ~ "OTIC",
+    Form == "SPR" & Administration_route == "NASAL" ~ "NASAL",
+    Form == "SPR" & Administration_route == "TOPICAL" ~ "TOPICAL",
+    Form == "SPR" & Drug == "DIPHENHYDRAMINE" ~ "TOPICAL",
+    Form %in% c("SUBL", "Sublingual") ~ "SUBLINGUAL",
+    Form %in% c("PTWK", "PT24", "PTCH") ~ "TRANSDERMAL",
+    Form == "FILM" ~ "BUCCAL",
+    Form == "CONC" ~ "ORAL",
+    Form == "INJ" & NDC == "00409131209" ~ "INTRAVENOUS/INTRAMUSCULAR/SUBCUTANEOUS",
+    Form == "INJ" & Drug == "DULAGLUTIDE" ~ "SUBCUTANEOUS",
+    Form == "INJ" & Drug == "HALOPERIDOL" ~ "INTRAMUSCULAR",
+    Form == "SUPP" | NDC == "45802092341" ~ "RECTAL",
+    Form == "FOAM" & Drug == "BUDESONIDE" ~ "RECTAL",
+    Form == "FOAM" & Drug != "BUDESONIDE" ~ "TOPICAL",
+    Form %in% c("LIQD", "LIQ") & Administration_route == "TOPICAL" ~ "TOPICAL",
+    Form %in% c("LIQD", "LIQ") & Drug %in% c("ACETAMINOPHEN", "DOCUSATE", "DIPHENHYDRAMINE", "LOPERAMIDE", "GUAIFENESIN", "PSEUDOEPHEDRINE", "TRIPROLIDINE", "DEXTROMETHORPHAN") ~ "ORAL",
+    Form %in% c("Pen", "SOAJ", "SOPN") ~ "SUBCUTANEOUS",
+    Form ==  "SRER" & Drug == "METHYLPHENIDATE" ~ "ORAL",
+    Form %in%  c("SRER", "PRSY") & Drug == "ARIPIPRAZOLE" ~ "INTRAMUSCULAR",
+    Form ==  "PRSY" & Administration_route == "TOPICAL" ~ "TOPICAL",
+    Form ==  "GEL" & Administration_route == "TOPICAL" ~ "TOPICAL",
+    Form ==  "GEL" & Administration_route == "OPHTHALMIC" ~ "OPHTHALMIC",
+    Form == "SOLG" & Administration_route == "OPHTHALMIC" ~ "OPHTHALMIC",
+    TRUE ~ Form   
+  ))
+
+# remove fluconazole with NDC 49884093547 because NDC corresponds to diclofenac
+# and other data inaccuracies unclear for these rows
+meps_clean = meps_clean[meps_clean$NDC != "49884093547", ]
+
+# drop administration route column (no longer needed, it was a helper column)
+meps_clean = meps_clean %>% select(-Administration_route)
+
 # calculate daily frequency for each record
 meps_clean = meps_clean %>%
   mutate(Daily_Frequency = Quantity/Day_Supply)
@@ -466,32 +567,97 @@ meps_clean = meps_clean %>%
 meps_clean = meps_clean %>%
   mutate(Daily_Dosage = Strength*Daily_Frequency)
 
+################################################################################
+# Load and integrate excretion data.
+################################################################################
+
+# load machine readable section of spreadsheet
+excretion_data = read_excel("excretion_data.xlsx", sheet="Machine readable data")
+
+# make administration column same format as form column in MEPS data
+excretion_data <- excretion_data %>%
+  mutate(Form = toupper(Form)) %>%
+  rename(Drug = Pharmaceutical) %>% 
+  rename(Excretion_percentage = Excretion_fraction)
+
+excretion_data$Drug = trimws(toupper(excretion_data$Drug))
+
+meps_clean = meps_clean %>%
+  left_join(excretion_data %>% select(Drug, Form, Excretion_percentage),
+            by = c("Drug", "Form"))
+
+# fixing drugs that have forms in MEPS that do not match forms in excretion data
+# by either 1) adding available excretion fraction if multiple forms in MEPS
+# that are not in excretion data, or 2) adding highest available excretion
+# fraction of all available excretion forms in excretion data
+meps_clean = meps_clean %>%
+  mutate(Excretion_percentage = case_when(NDC=="00409131209" ~ 5,
+                                        NDC %in% c("61703035010","61703035038") ~ 100,
+                                        NDC=="45802073030" ~ 9,
+                                        NDC=="57896044305" ~ 100,
+                                        NDC=="00009307303" ~ 100,
+                                        NDC=="45802010901" ~ 100,
+                                        NDC %in% c("00597007541", "00597007547") ~ 7,
+                                        NDC %in% c("00904530760", "00536121429",
+                                                   "00904530780", "00904530680",
+                                                   "49348004534", "58657052816",
+                                                   "00904530660", "00536077085",
+                                                   "54838013540", "00536101001") ~ 100,
+                                        NDC=="63323012310" ~ 100,
+                                        NDC=="00143951910" ~ 100,
+                                        NDC=="12547017004" ~ 100,
+                                        NDC %in% c("64980051705", "60505057501",
+                                                   "59651006605", "00065427325",
+                                                   "61314027105", "70069000701",
+                                                   "60505058604", "62332050203",
+                                                   "00093768432", "61314027225",
+                                                   "65862075705", "62332050105") ~ 77.2,
+                                        .default=Excretion_percentage))
+
+################################################################################
+# Find summary stats for MEPS.
+################################################################################
+
 # find avg daily dosage for each drug and put into descending order (ug/day)
-avg_daily_dosages = aggregate(meps_clean$Daily_Dosage,list(meps_clean$Drug),
-                                FUN=mean)
-colnames(avg_daily_dosages) = c("Pharmaceutical",
-                                  "Average_Daily_Dosage")
-avg_daily_dosages = avg_daily_dosages %>%
+avg_daily_dosages = aggregate(
+  meps_clean$Daily_Dosage,
+  list(Drug = meps_clean$Drug, Form = meps_clean$Form),
+  FUN = mean
+)
+colnames(avg_daily_dosages) = c("Pharmaceutical", "Form", "Average_Daily_Dosage")
+avg_daily_dosages <- avg_daily_dosages %>%
   arrange(desc(Average_Daily_Dosage))
 
 # find total number of prescriptions per drug per year and put into descending
 # order
 total_prescribed = meps_clean %>%
-  count(Drug) %>%
+  count(Drug, Form) %>%
   arrange(desc(n))
-colnames(total_prescribed) = c("Pharmaceutical", "Num_Prescriptions")
+colnames(total_prescribed) = c("Pharmaceutical", "Form", "Num_Prescriptions")
 
 # find avg duration of prescription for each pharmaceutical, descending order
-avg_durations = aggregate(meps_clean$Day_Supply,list(meps_clean$Drug),
+avg_durations = aggregate(meps_clean$Day_Supply,list(meps_clean$Drug,
+                                                     Form = meps_clean$Form),
                           FUN=mean)
-colnames(avg_durations) = c("Pharmaceutical",
+colnames(avg_durations) = c("Pharmaceutical", "Form",
                                 "Average_Duration_per_Prescription")
 avg_durations = avg_durations %>%
   arrange(desc(Average_Duration_per_Prescription))
 
+# summarize all the metabolism stats for joining into PharmUse later on (using
+# max in case of discrepancies to make most conservative estimate)
+summarized_excretion = meps_clean %>%
+  group_by(Drug, Form) %>%
+  summarise(
+    Excretion_percentage = max(Excretion_percentage, na.rm = TRUE), 
+    .groups = "drop"
+  )
+
+summarized_excretion = summarized_excretion %>%
+  rename(Pharmaceutical=Drug)
+
 ################################################################################
 # Load and clean CompTox data. 
-# NOTE: all properties are added as medians of all available values
 ################################################################################
 
 # load first sheet (IDs, molecular formula, molar mass)
@@ -519,10 +685,11 @@ other_cols = setdiff(names(comptox_search_id_mf_mm), "Pharmaceutical")
 na_cols = setNames(rep(NA, length(other_cols)), other_cols)
 
 comptox_search_id_mf_mm = comptox_search_id_mf_mm %>%
-  add_row(Pharmaceutical = "DEXLANSOPRAZOLE", !!!na_cols) %>%
   add_row(Pharmaceutical = "DULAGLUTIDE", !!!na_cols) %>%
-  add_row(Pharmaceutical = "ERTUGLIFLOZIN", !!!na_cols) %>%
   add_row(Pharmaceutical = "SENNA", !!!na_cols)
+
+# make sure NA's imported from Excel are real NA values and not strings
+comptox_search_id_mf_mm[comptox_search_id_mf_mm == "NA"] <- NA
 
 # load second sheet: toxicity data
 comptox_search_tox = read_excel("comptox_search.xlsx", sheet=2)
@@ -530,7 +697,7 @@ comptox_search_tox = read_excel("comptox_search.xlsx", sheet=2)
 # remove unneeded columns
 cols_to_keep = c("SEARCHED_CHEMICAL", "DTXSID", "TOXVAL_TYPE",
                  "TOXVAL_NUMERIC", "TOXVAL_UNITS", "SPECIES_COMMON",
-                 "SPECIES_SUPERCATEGORY","HUMAN_ECO","CRITICAL_EFFECT") 
+                 "SPECIES_SUPERCATEGORY") 
 comptox_search_tox = comptox_search_tox[,cols_to_keep]
 # rename SEARCHED_CHEMICAL
 colnames(comptox_search_tox)[colnames(comptox_search_tox) == "SEARCHED_CHEMICAL"] = "Pharmaceutical"
@@ -555,23 +722,27 @@ comptox_search_tox$Pharmaceutical = trimws(tolower(comptox_search_tox$Pharmaceut
 comptox_search_tox = comptox_search_tox %>%
   inner_join(comptox_search_mm, by = "Pharmaceutical")
 
+# make sure molar mass is of class numeric
+comptox_search_tox$Molar_Mass = as.numeric(comptox_search_tox$Molar_Mass)
+
 # remove ambiguous units
 comptox_search_tox = comptox_search_tox[comptox_search_tox$TOXVAL_UNITS != "% diet", ]
 comptox_search_tox = comptox_search_tox[comptox_search_tox$TOXVAL_UNITS != "% of bdwt", ]
+# removing because mass is specified but not volume, can't get concentration
 comptox_search_tox = comptox_search_tox %>%
   filter(!(SPECIES_COMMON == "Goldfish" & TOXVAL_UNITS == "mg")) %>%
   filter(!(SPECIES_COMMON == "Spiny Dogfish" & TOXVAL_UNITS == "mg"))
 
 # convert all units to ug/L (assume that it's the concentration organism is
 # exposed to in the water (equivalent water weight), so convert all toxicities
-# expressed as mg/kg using density of water; also assume that full amount is
+# expressed as mg/kg using density of water (1kg/L); also assume that full amount is
 # taken up by organism)
-# NOTE: uM/kg-minute should be 50 uM according to citation; ng eq/ml is just
-# ng/ml estradiol according to citation; mg/kg-day is just mg/kg by food or body
-# weight according to original sources; L should be 1000 ug/mL according to 
-# citation; mg for axolotl is in 200 uL according to citation; mg for salmon is
-# in 1 uL according to citation; ng/egg is in 0.5 nL according to citation; all
-# citations are from the associated CompTox search result
+# NOTE: uM/kg-minute should be 50 uM according to provided citation; mg/kg-day 
+# is just mg/kg by food or body weight according to original sources; L should
+# be 1000 ug/mL according to citation; mg for axolotl is in 200 uL according to
+# citation; mg for salmon is in 1 uL according to citation; ng/egg is in 0.5 nL
+# according to citation; all citations are from the associated CompTox search
+# result
 comptox_search_tox = comptox_search_tox %>%
   mutate(TOXVAL_UNITS = case_when(TOXVAL_UNITS=="mg/m3" ~ "ug/L",
                                   .default=TOXVAL_UNITS)) %>%
@@ -594,16 +765,10 @@ comptox_search_tox = comptox_search_tox %>%
                                     .default=TOXVAL_NUMERIC)) %>%
   mutate(TOXVAL_UNITS = case_when(TOXVAL_UNITS=="mg/L" ~ "ug/L",
                                   .default=TOXVAL_UNITS)) %>%
-  mutate(TOXVAL_NUMERIC = case_when(TOXVAL_UNITS=="mg/L" ~ TOXVAL_NUMERIC*1000,
-                                    .default=TOXVAL_NUMERIC)) %>%
-  mutate(TOXVAL_UNITS = case_when(TOXVAL_UNITS=="mg/L" ~ "ug/L",
-                                  .default=TOXVAL_UNITS)) %>%
   mutate(TOXVAL_NUMERIC = case_when(TOXVAL_UNITS=="uM/kg-minute" ~
                                       50*Molar_Mass/1000*1E+06,
                                     .default=TOXVAL_NUMERIC)) %>%
   mutate(TOXVAL_UNITS = case_when(TOXVAL_UNITS == "uM/kg-minute" ~ "ug/L",
-                                  .default=TOXVAL_UNITS)) %>%
-  mutate(TOXVAL_UNITS = case_when(TOXVAL_UNITS == "ng eq/ml" ~ "ug/L",
                                   .default=TOXVAL_UNITS)) %>%
   mutate(TOXVAL_NUMERIC = case_when(TOXVAL_UNITS=="ug/g bw" ~
                                       TOXVAL_NUMERIC*1000,
@@ -697,7 +862,8 @@ lc50 = lc50 %>%
   rename(Vertebrate_Median_LC50 = Vertebrate) %>%
   rename(Invertebrate_Median_LC50 = Invertebrate)
 
-# estimate human LC50 by dividing min vertebrate LC50 by safety factor of 10
+# get LC50 divided across species supercategories and then estimate human LC50
+# by dividing min vertebrate LC50 by safety factor of 10
 lc50_vert = comptox_search_tox %>%
   filter(TOXVAL_TYPE=="LC50" & SPECIES_SUPERCATEGORY %in% vertebrates)
 
@@ -788,7 +954,9 @@ noec_human = noec_vert %>%
   group_by(Pharmaceutical) %>%
   summarize(Human=min(TOXVAL_NUMERIC)/10)
 
-# get in correct format to merge MEPS and tox data
+# get in correct format to merge MEPS and tox data (NOEC vertebrates,
+# invertebrates, plants/algae and human used to generate figures in paper, so
+# these are prepped for export here)
 noec$Pharmaceutical = trimws(tolower(noec$Pharmaceutical))
 noec_vert$Pharmaceutical = trimws(tolower(noec_vert$Pharmaceutical))
 noec_invert$Pharmaceutical = trimws(tolower(noec_invert$Pharmaceutical))
@@ -826,25 +994,38 @@ noec = noec %>%
 comptox_search_props = read_excel("comptox_search.xlsx",
                              sheet=3)
 comptox_search_props = subset(comptox_search_props,
-                              select=c(DTXSID, NAME, VALUE, UNITS))
+                              select=c(DTXSID, NAME, VALUE, UNITS, TYPE))
 
 # change VALUE column to numeric
 comptox_search_props$VALUE = as.numeric(comptox_search_props$VALUE)
 
 # make individual data frames for each property
 comptox_search_props$NAME = trimws(comptox_search_props$NAME)
-# split data frame by NAME
-properties = comptox_search_props %>%
-  group_split(NAME)
 
-# apply the calculate_median function to each data frame in the list
-median_list = lapply(properties, calculate_median)
+# change the second DTXSID for sulfacetamide sodium to be the same as the first
+first_dtxsid = "DTXSID50211129"
+extra_dtxsid = "DTXSID40889336"
+comptox_search_props$DTXSID[comptox_search_props$DTXSID == extra_dtxsid] = first_dtxsid
 
-# combine the results into a single data frame
-properties = do.call(rbind, median_list)
+# group by DTXSID and NAME, prioritize experimental properties over predicted
+# where available,and then calculate the median.
+properties_processed <- comptox_search_props %>%
+  dplyr::group_by(DTXSID, NAME) %>%
+  dplyr::mutate(
+    has_experimental = any(TYPE == "experimental")
+  ) %>%
+  dplyr::filter(
+    (has_experimental & TYPE == "experimental") |
+      (!has_experimental & TYPE == "predicted")
+  ) %>%
+  dplyr::summarise(
+    median_VALUE = median(VALUE, na.rm = TRUE),
+    UNITS = unique(UNITS)[1],
+    TYPE = unique(TYPE)[1], 
+    .groups = 'drop'
+  )
 
-# split into separate data frame for each property
-properties = split(properties, properties$NAME)
+properties = split(properties_processed, properties_processed$NAME)
 
 # add in NA's for missing values (to make data frames same length for sorting)
 for (i in seq_along(properties)) {
@@ -856,7 +1037,8 @@ for (i in seq_along(properties)) {
       DTXSID = rep(NA, missing_rows),
       NAME = rep(names(properties)[i], missing_rows),
       median_VALUE = rep(NA, missing_rows),
-      UNITS = rep(NA, missing_rows)
+      UNITS = rep(NA, missing_rows),
+      TYPE = rep(NA, missing_rows)
     )
     # bind missing rows to original data frame
     properties[[i]] = rbind(properties[[i]], missing_df)
@@ -882,29 +1064,58 @@ for (i in seq_along(properties)) {
 
 # replace NA values with missing DTXSID values for each data frame
 properties[1:22] = map2(properties[1:22], missing_dtxsid[1:22],
-                                   replace_na_with_missing_dtxsid)
+                        replace_na_with_missing_dtxsid)
 
 # map each DTXSID to pharmaceutical name
 properties = map(properties, ~ join_with_common_df(.x, comptox_search_dtxsid))
 
 # give names of pharmaceuticals without DTXSID
-pharma_no_dtxsid = c("dexlansoprazole", "dulaglutide", "ertugliflozin",
-                     "senna")
+pharma_no_dtxsid = c("dulaglutide", "senna")
 
-# add in four pharmaceuticals without DTXSIDs
-properties = map(properties, ~ add_rows(.x, "Pharmaceutical", pharma_no_dtxsid))
+# add in 2 pharmaceuticals without DTXSIDs
+properties <- lapply(properties, function(df) {
+  this_name <- unique(df$NAME)[1]
+  this_units <- unique(df$UNITS)[1]
+  
+  pharma_no_dtxsid <- data.frame(
+    DTXSID = NA,        
+    NAME = this_name,              
+    median_VALUE = NA,        
+    UNITS = NA,
+    TYPE = NA,
+    Pharmaceutical = pharma_no_dtxsid, 
+    stringsAsFactors = FALSE
+  )
+  rbind(df, pharma_no_dtxsid)
+})
 
 # remove extra columns not needed in main database
 properties = lapply(properties, function(df) df[, !(names(df) %in% c("NAME",
-                                                                     "DTXSID"))])
+                                                                     "DTXSID",
+                                                                     "TYPE",
+                                                                     "UNITS"))])
 
 # fix order of columns
-new_column_order = c("Pharmaceutical", "median_VALUE","UNITS")
+new_column_order = c("Pharmaceutical", "median_VALUE")
 properties = map(properties, ~ reorder_columns(.x, new_column_order))
 
 # rename median column to be name of property, lowercase units column
 properties = Map(rename_column, properties, names(properties),"median_VALUE")
-properties = Map(rename_column, properties, "Units","UNITS")
+
+################################################################################
+# Load biotransformation (from EnviPath) and hydrolysis data.
+################################################################################
+biotransformation_data = read_excel("biotransformation_data.xlsx",
+                                  sheet=1)
+hydrolysis_data = read_excel("hydrolysis_full_data.xlsx",
+                                  sheet=1)
+
+# rename columns for loading into PharmUse
+biotransformation_data = biotransformation_data %>%
+  rename(EnviPath_Biodegradation_Prediction=Biotransforms) %>%
+  select(-SMILES)
+hydrolysis_data = hydrolysis_data %>%
+  select(-SMILES)
 
 ################################################################################
 # Generate PharmUse database from MEPS and CompTox data.
@@ -912,64 +1123,68 @@ properties = Map(rename_column, properties, "Units","UNITS")
 
 # prep to merge data into PharmUse database
 avg_daily_dosages$Pharmaceutical = trimws(tolower(avg_daily_dosages$Pharmaceutical))
+avg_daily_dosages$Form = trimws(tolower(avg_daily_dosages$Form))
 avg_durations$Pharmaceutical = trimws(tolower(avg_durations$Pharmaceutical))
+avg_durations$Form = trimws(tolower(avg_durations$Form))
 total_prescribed$Pharmaceutical = trimws(tolower(total_prescribed$Pharmaceutical))
+total_prescribed$Form = trimws(tolower(total_prescribed$Form))
+summarized_excretion$Pharmaceutical = trimws(tolower(summarized_excretion$Pharmaceutical))
+summarized_excretion$Form = trimws(tolower(summarized_excretion$Form))
 comptox_search_id_mf_mm$Pharmaceutical = trimws(tolower(comptox_search_id_mf_mm$Pharmaceutical))
+lc50$Pharmaceutical = trimws(tolower(lc50$Pharmaceutical))
+lc50_vert$Pharmaceutical = trimws(tolower(lc50_vert$Pharmaceutical))
+lc50_invert$Pharmaceutical = trimws(tolower(lc50_invert$Pharmaceutical))
+lc50_human$Pharmaceutical = trimws(tolower(lc50_human$Pharmaceutical))
+noec$Pharmaceutical = trimws(tolower(noec$Pharmaceutical))
 for (i in 1:length(properties)){
   properties[[i]]$Pharmaceutical = trimws(tolower(properties[[i]]$Pharmaceutical))
 }
-lc50$Pharmaceutical = trimws(tolower(lc50$Pharmaceutical))
-noec$Pharmaceutical = trimws(tolower(noec$Pharmaceutical))
+biotransformation_data$Pharmaceutical = trimws(tolower(biotransformation_data$Pharmaceutical))
+hydrolysis_data$Pharmaceutical = trimws(tolower(hydrolysis_data$Pharmaceutical))
 
 # join data into PharmUse database
-pharmuse = left_join(avg_daily_dosages, total_prescribed,
-                     by="Pharmaceutical") %>%
-  left_join(avg_durations, by="Pharmaceutical") %>%
+pharmuse = left_join(summarized_excretion, avg_daily_dosages,
+                     by=c("Pharmaceutical","Form")) %>%
+  left_join(total_prescribed, by=c("Pharmaceutical","Form")) %>%
+  left_join(avg_durations, by=c("Pharmaceutical","Form")) %>%
   left_join(comptox_search_id_mf_mm, by="Pharmaceutical")
-
-pharmuse = reduce(properties, left_join, by = "Pharmaceutical",
-                  .init = pharmuse)
 
 pharmuse = left_join(pharmuse, lc50, by="Pharmaceutical") %>%
   left_join(noec, by="Pharmaceutical")
 
-# remove extraneous columns (they all start with X)
-pharmuse = pharmuse[, !grepl("^X", names(pharmuse))]
+pharmuse = reduce(properties, left_join, by = "Pharmaceutical",
+                  .init = pharmuse)
+
+pharmuse = left_join(pharmuse, biotransformation_data, by="Pharmaceutical") %>%
+  left_join(hydrolysis_data, by="Pharmaceutical")
 
 # change column names in PharmUse to be more readable
-colnames(pharmuse)[3] = "Number_of_Prescriptions"
-colnames(pharmuse)[12] = "Boiling Point Units"
-colnames(pharmuse)[14] = "Density Units"
-colnames(pharmuse)[16] = "Flash Point Units"
-colnames(pharmuse)[17] = "Henrys Law"
-colnames(pharmuse)[18] = "Henrys Law Units"
-colnames(pharmuse)[20] = "Index of Refraction Units"
-colnames(pharmuse)[21] = "Liquid Chromatography Retention Time"
-colnames(pharmuse)[22] = "Liquid Chromatography Retention Time Units"
-colnames(pharmuse)[24] = "LogD5.5 Units"
-colnames(pharmuse)[26] = "LogD7.4 Units"
-colnames(pharmuse)[27] = "LogKoa Octanol Air"
-colnames(pharmuse)[28] = "LogKoa Units"
-colnames(pharmuse)[29] = "LogKow Octanol Water"
-colnames(pharmuse)[30] = "LogKow Units"
-colnames(pharmuse)[32] = "Melting Point Units"
-colnames(pharmuse)[34] = "Molar Refractivity Units"
-colnames(pharmuse)[36] = "Molar Volume Units"
-colnames(pharmuse)[38] = "pKa Acidic Units"
-colnames(pharmuse)[40] = "pKa Basic Units"
-colnames(pharmuse)[42] = "Polarizability Units"
-colnames(pharmuse)[43] = "Readily Biodegrades"
-colnames(pharmuse)[46] = "Surface Tension Units"
-colnames(pharmuse)[48] = "Thermal Conductivity Units"
-colnames(pharmuse)[50] = "Vapor Pressure Units"
-colnames(pharmuse)[52] = "Viscosity Units"
-colnames(pharmuse)[54] = "Water Solubility Units"
-
-# remove units column for readily biodegrades variable
-pharmuse = pharmuse %>% select(-Units.x.x.x.x.x.x.x.x.x)
+pharmuse = pharmuse %>% 
+  rename(Administration_Route = Form) %>%
+  rename(Number_of_Prescriptions = Num_Prescriptions) %>%
+  rename(Boiling_Point = `Boiling Point`) %>%
+  rename(Flash_Point = `Flash Point`) %>%
+  rename(Henrys_Law = `Henry's Law`) %>%
+  rename(Index_of_Refraction = `Index of Refraction`) %>%
+  rename(Liquid_Chromatography_Retention_Time = `liquid chromatography Retention Time`) %>%
+  rename(LogKoa_Octanol_Air = `LogKoa: Octanol-Air`) %>%
+  rename(LogKow_Octanol_Water = `LogKow: Octanol-Water`) %>%
+  rename(Melting_Point = `Melting Point`) %>%
+  rename(Molar_Refractivity = `Molar Refractivity`) %>%
+  rename(Molar_volume = `Molar Volume`) %>%
+  rename(pKa_Acidic_Apparent = `pKa Acidic Apparent`) %>%
+  rename(pKa_Basic_Apparent = `pKa Basic Apparent`) %>%
+  rename(OPERA_Biodegradation_Prediction = ReadyBiodeg) %>%
+  rename(Surface_Tension = `Surface Tension`) %>%
+  rename(Thermal_Conductivity = `Thermal Conductivity`) %>%
+  rename(Vapor_Pressure = `Vapor Pressure`) %>%
+  rename(Water_Solubility = `Water Solubility`)
 
 # export PharmUse database and toxicity values used in ensemble_exploration.R
 write.csv(pharmuse, "pharmuse.csv")
 write.csv(noec_vert,"noec_vert.csv")
 write.csv(noec_invert,"noec_invert.csv")
 write.csv(noec_human,"noec_human.csv")
+write.csv(lc50_vert,"lc50_vert.csv")
+write.csv(lc50_invert,"lc50_invert.csv")
+write.csv(lc50_human,"lc50_human.csv")
