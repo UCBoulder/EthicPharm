@@ -1,4 +1,4 @@
-# PharmUse and PharmFlush
+# SeweRx
 <div style="display: flex; justify-content: space-around;">
     <img src="sewerx logo.png" alt="PharmUse logo" width="400">
 </div>
