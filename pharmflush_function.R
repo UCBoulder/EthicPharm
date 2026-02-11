@@ -54,6 +54,7 @@ pharmflush_model <- function(flow_capacity, population_served) {
       Number_of_Prescriptions = sum(Number_of_Prescriptions, na.rm = TRUE),
       Average_Duration_per_Prescription = mean(Average_Duration_per_Prescription,
                                                na.rm = TRUE),
+      Molar_Mass = first(Molar_Mass),
       .groups = "drop"
     )
   
@@ -62,6 +63,7 @@ pharmflush_model <- function(flow_capacity, population_served) {
   excreted_dose = pharmuse2$Excreted_dose
   prescrips = pharmuse2$Number_of_Prescriptions
   durations = pharmuse2$Average_Duration_per_Prescription
+  molar_masses = pharmuse2$Molar_Mass
   
   # calculate probability of detecting each pharmaceutical on any given day and 
   # create list of average daily mass for each pharmaceutical
@@ -114,6 +116,7 @@ pharmflush_model <- function(flow_capacity, population_served) {
                           prob=unlist(prob_distribution)) 
     sampled_df = drug_df[sampled_rows, ]
     sampled_df$Drug = drugs[i]
+    sampled_df$Molar_Mass = molar_masses[i]
     sampled_dataframes[[i]] = sampled_df
   }
   
@@ -126,6 +129,7 @@ pharmflush_model <- function(flow_capacity, population_served) {
                                            by = sample_size), ]
     ensemble = data.frame(
       Drug = selected_rows$Drug,
+      Molar_Mass = selected_rows$Molar_Mass,
       Number_prescrips_detected = selected_rows$Number_prescrips_detected,
       Probability = selected_rows$Probability
     )
@@ -138,7 +142,10 @@ pharmflush_model <- function(flow_capacity, population_served) {
       #  employees to residents)
       mutate(Predicted_concentration = Predicted_concentration/4) %>%
       mutate(Predicted_mass_load = Predicted_concentration*ww_volume_per_capita) %>%
-      arrange(desc(Predicted_concentration))
+      arrange(desc(Predicted_concentration)) %>%
+      # convert to get molar concentrations
+      mutate(Predicted_molar_concentration = Predicted_concentration/(1000000*Molar_Mass)) %>%
+      arrange(desc(Predicted_molar_concentration))
     ensemble_drug_profiles[[i]] = ensemble
   }
   
@@ -172,43 +179,55 @@ pharmflush_model <- function(flow_capacity, population_served) {
   # drug concentration/mass load profile that averages across all 100 ensembles
   # for each drug
   average_concs = list()
+  average_molars = list()
   average_loads = list()
   average_prescrips = list()
   average_masses = list()
   sem_loads = list() # SEM = standard error of mean
+  molar_masses_final = list()
   
   for (i in 1:length(indiv_drug_profiles)) {
-    avg_conc = mean(unlist(indiv_drug_profiles[[i]][6]))
+    avg_conc = mean(unlist(indiv_drug_profiles[[i]][7]))
     avg_conc = matrix(avg_conc, ncol = 1)
     average_concs[i] = avg_conc
-    avg_load = mean(unlist(indiv_drug_profiles[[i]][7]))
+    avg_molars = mean(unlist(indiv_drug_profiles[[i]][9]))
+    avg_molars = matrix(avg_molars, ncol = 1)
+    average_molars[i] = avg_molars
+    molar_masses = mean(unlist(indiv_drug_profiles[[i]][2]))
+    molar_masses = matrix(molar_masses, ncol = 1)
+    molar_masses_final[i] = molar_masses
+    avg_load = mean(unlist(indiv_drug_profiles[[i]][8]))
     avg_load = matrix(avg_load, ncol = 1)
     average_loads[i] = avg_load
-    avg_mass = mean(unlist(indiv_drug_profiles[[i]][5]))
+    avg_mass = mean(unlist(indiv_drug_profiles[[i]][6]))
     avg_mass = matrix(avg_mass, ncol = 1)
     average_masses[i] = avg_mass
-    stan_dev_load = sd(unlist(indiv_drug_profiles[[i]][7]))
+    stan_dev_load = sd(unlist(indiv_drug_profiles[[i]][8]))
     sem_load = stan_dev_load / sqrt(sample_size)
     sem_load = matrix(sem_load, ncol = 1)
     sem_loads[i] = sem_load
     
-    avg_prescrip = mean(unlist(indiv_drug_profiles[[i]][2]))
+    avg_prescrip = mean(unlist(indiv_drug_profiles[[i]][3]))
     avg_prescrip = matrix(avg_prescrip, ncol = 1)
     average_prescrips[i] = avg_prescrip
   }
   
   # put in form that is compatible with data frame
   average_concs = unlist(average_concs)
+  average_molars = unlist(average_molars)
   average_loads = unlist(average_loads)
   average_prescrips = unlist(average_prescrips)
   average_masses = unlist(average_masses)
   sem_loads = unlist(sem_loads)
+  molar_masses_final = unlist(molar_masses_final)
   
   # make data frame for average profile for each drug
   average_profile = data.frame(Drug=drugs,
+                               Molar_Mass = molar_masses_final,
                                Average_Number_Prescriptions=average_prescrips,
                                Average_Masses=average_masses,
                                Average_Predicted_Concentration=average_concs,
+                               Average_Predicted_Molar_Concentration=average_molars,
                                Average_Predicted_Mass_Load=average_loads,
                                Standard_Error_Predicted_Mass_Load=sem_loads)
   average_profile = average_profile %>%

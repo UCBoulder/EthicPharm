@@ -9,7 +9,7 @@
 # sewershed sizes by running this script with different values of
 # wastewater_pop_size parameter. The results are visualized with ggplot2.
 # Additionally, a preliminary analysis is conducted to determine the
-# pharmaceuticals most likely to end up at the water resource receovery facility
+# pharmaceuticals most likely to end up at the water resource recovery facility
 # (WRRF) based on their high excretion fraction and likelihood to biotransform,
 # sorb, or hydrolyze on the way there.
  
@@ -38,7 +38,7 @@ n = 26847 # size of representative sample (obtained from MEPS 2020
 # Use lines 40-45 if unknown daily flow and known population 
 ww_volume_per_capita = 310.404 # average American wastewater production in L per
                                # capita per day
-wastewater_pop_size = 100000 # size of sewershed (manually change for different sizes)
+wastewater_pop_size = 110262 # size of sewershed (manually change for different sizes)
 wastewater_pop_size = round(wastewater_pop_size) # for numerical stability in dbinom
 # total wastewater volume for sewershed of given size
 pop_wastewater_volume = wastewater_pop_size * ww_volume_per_capita 
@@ -62,6 +62,7 @@ pharmuse = pharmuse %>%
 pharmuse = pharmuse %>%
   relocate(c(Excretion_fraction, Excreted_dose), .after = Average_Daily_Dosage)
 
+
 # update PharmUse to be total excreted dose for all administration routes
 # instead of the excreted dose for each route
 # (average of average excreted doses per route, sum of number of prescriptions
@@ -73,6 +74,7 @@ pharmuse2 = pharmuse %>%
     Number_of_Prescriptions = sum(Number_of_Prescriptions, na.rm = TRUE),
     Average_Duration_per_Prescription = mean(Average_Duration_per_Prescription,
                                              na.rm = TRUE),
+    Molar_Mass = first(Molar_Mass),
     .groups = "drop"
   )
 
@@ -81,6 +83,7 @@ drugs = pharmuse2$Pharmaceutical
 excreted_dose = pharmuse2$Excreted_dose
 prescrips = pharmuse2$Number_of_Prescriptions
 durations = pharmuse2$Average_Duration_per_Prescription
+molar_masses = pharmuse2$Molar_Mass
 
 # calculate probability of detecting each pharmaceutical on any given day and 
 # create list of average daily mass for each pharmaceutical
@@ -133,6 +136,7 @@ for (i in 1:length(drugs)) {
                         prob=unlist(prob_distribution)) 
   sampled_df = drug_df[sampled_rows, ]
   sampled_df$Drug = drugs[i]
+  sampled_df$Molar_Mass = molar_masses[i]
   sampled_dataframes[[i]] = sampled_df
 }
 
@@ -145,6 +149,7 @@ selected_rows = final_sampled_data[seq(i, nrow(final_sampled_data),
                                        by = sample_size), ]
 ensemble = data.frame(
   Drug = selected_rows$Drug,
+  Molar_Mass = selected_rows$Molar_Mass,
   Number_prescrips_detected = selected_rows$Number_prescrips_detected,
   Probability = selected_rows$Probability
 )
@@ -157,7 +162,10 @@ ensemble = ensemble %>%
   #  employees to residents)
   mutate(Predicted_concentration = Predicted_concentration/4) %>%
   mutate(Predicted_mass_load = Predicted_concentration*ww_volume_per_capita) %>%
-  arrange(desc(Predicted_concentration))
+  arrange(desc(Predicted_concentration)) %>%
+  # convert to get molar concentrations
+  mutate(Predicted_molar_concentration = Predicted_concentration/(1000000*Molar_Mass)) %>%
+  arrange(desc(Predicted_molar_concentration))
 ensemble_drug_profiles[[i]] = ensemble
 }
 
@@ -191,43 +199,55 @@ for (drug in drugs) {
 # concentration/mass load profile that averages across all 100 ensembles for
 # each drug
 average_concs = list()
+average_molars = list()
 average_loads = list()
 average_prescrips = list()
 average_masses = list()
 sem_loads = list() # SEM = standard error of mean
+molar_masses_final = list()
 
 for (i in 1:length(indiv_drug_profiles)) {
-  avg_conc = mean(unlist(indiv_drug_profiles[[i]][6]))
+  avg_conc = mean(unlist(indiv_drug_profiles[[i]][7]))
   avg_conc = matrix(avg_conc, ncol = 1)
   average_concs[i] = avg_conc
-  avg_load = mean(unlist(indiv_drug_profiles[[i]][7]))
+  avg_molars = mean(unlist(indiv_drug_profiles[[i]][9]))
+  avg_molars = matrix(avg_molars, ncol = 1)
+  average_molars[i] = avg_molars
+  molar_masses = mean(unlist(indiv_drug_profiles[[i]][2]))
+  molar_masses = matrix(molar_masses, ncol = 1)
+  molar_masses_final[i] = molar_masses
+  avg_load = mean(unlist(indiv_drug_profiles[[i]][8]))
   avg_load = matrix(avg_load, ncol = 1)
   average_loads[i] = avg_load
-  avg_mass = mean(unlist(indiv_drug_profiles[[i]][5]))
+  avg_mass = mean(unlist(indiv_drug_profiles[[i]][6]))
   avg_mass = matrix(avg_mass, ncol = 1)
   average_masses[i] = avg_mass
-  stan_dev_load = sd(unlist(indiv_drug_profiles[[i]][7]))
+  stan_dev_load = sd(unlist(indiv_drug_profiles[[i]][8]))
   sem_load = stan_dev_load / sqrt(sample_size)
   sem_load = matrix(sem_load, ncol = 1)
   sem_loads[i] = sem_load
   
-  avg_prescrip = mean(unlist(indiv_drug_profiles[[i]][2]))
+  avg_prescrip = mean(unlist(indiv_drug_profiles[[i]][3]))
   avg_prescrip = matrix(avg_prescrip, ncol = 1)
   average_prescrips[i] = avg_prescrip
 }
 
 # put in form that is compatible with data frame
 average_concs = unlist(average_concs)
+average_molars = unlist(average_molars)
 average_loads = unlist(average_loads)
 average_prescrips = unlist(average_prescrips)
 average_masses = unlist(average_masses)
 sem_loads = unlist(sem_loads)
+molar_masses_final = unlist(molar_masses_final)
 
 # make data frame for average profile for each drug
 average_profile = data.frame(Drug=drugs,
+                             Molar_Mass = molar_masses_final,
                              Average_Number_Prescriptions=average_prescrips,
                              Average_Masses=average_masses,
                              Average_Predicted_Concentration=average_concs,
+                             Average_Predicted_Molar_Concentration=average_molars,
                              Average_Predicted_Mass_Load=average_loads,
                              Standard_Error_Predicted_Mass_Load=sem_loads)
 average_profile = average_profile %>%
@@ -253,6 +273,7 @@ for (i in seq_along(ensemble_drug_profiles)) {
   # Select relevant columns 
   ensemble_subset = ensemble[, c('Ensemble_number', 'Drug',
                                  'Predicted_concentration',
+                                 'Predicted_molar_concentration',
                                  'Predicted_mass_load')]
   
   # Append the dataframe to the combined dataframe
@@ -261,13 +282,18 @@ for (i in seq_along(ensemble_drug_profiles)) {
 
 # export all 100 ensembles for each pharmaceutical to csv (make sure this is 
 # saving for the correct sewershed size!)
-write.csv(stacked_ensembles,"all_ensembles_100k.csv")
+write.csv(stacked_ensembles,"all_ensembles_1mil.csv")
 
 # aggregate average of all 313 pharmaceuticals for each sewershed size for export
 stacked_ensembles_avg_conc = aggregate(stacked_ensembles$Predicted_concentration,
                                   list(stacked_ensembles$Drug),FUN=mean)
 colnames(stacked_ensembles_avg_conc) = c("Pharmaceutical","Predicted_concentration")
 stacked_ensembles_avg_conc$Pharmaceutical = str_to_title(stacked_ensembles_avg_conc$Pharmaceutical)
+
+stacked_ensembles_avg_molar = aggregate(stacked_ensembles$Predicted_molar_concentration,
+                                       list(stacked_ensembles$Drug),FUN=mean)
+colnames(stacked_ensembles_avg_molar) = c("Pharmaceutical","Predicted_molar_concentration")
+stacked_ensembles_avg_molar$Pharmaceutical = str_to_title(stacked_ensembles_avg_molar$Pharmaceutical)
 
 stacked_ensembles_avg_load = aggregate(stacked_ensembles$Predicted_mass_load,
                                        list(stacked_ensembles$Drug),FUN=mean)
@@ -276,8 +302,9 @@ stacked_ensembles_avg_load$Pharmaceutical = str_to_title(stacked_ensembles_avg_l
 
 # the averaged concentration/mass load of each pharmaceutical across all 100
 # ensembles (make sure this is saving for the correct sewershed size!)
-write.csv(stacked_ensembles_avg_conc,"stacked_ensembles_avg_conc_100k.csv")
-write.csv(stacked_ensembles_avg_load,"stacked_ensembles_avg_load_100k.csv")
+write.csv(stacked_ensembles_avg_conc,"stacked_ensembles_avg_conc_1mil.csv")
+write.csv(stacked_ensembles_avg_molar,"stacked_ensembles_avg_molar_1mil.csv")
+write.csv(stacked_ensembles_avg_load,"stacked_ensembles_avg_load_1mil.csv")
 
 ################################################################################
 # Data visualization for different sewershed sizes
@@ -285,96 +312,102 @@ write.csv(stacked_ensembles_avg_load,"stacked_ensembles_avg_load_100k.csv")
 
 # Figure 4 code in associated manuscript:
 
-# get all pharmaceuticals over 10 ensembles with concentration < 4 ug/L
+# get all pharmaceuticals over 10 ensembles with concentration < 1E-08 M
 # (arbitrary cutoff for visualization)
-stacked_ensembles_lessthan4 = stacked_ensembles %>%
+stacked_ensembles_lessthan = stacked_ensembles %>%
   filter(Ensemble_number <= 10) %>%
-  filter(Predicted_concentration < 4)
-# sum up concentrations less than 4 ug/L
-stacked_ensembles_lessthan4 = aggregate(stacked_ensembles_lessthan4$Predicted_concentration,
-                                        list(stacked_ensembles_lessthan4$Ensemble_number),
+  filter(Predicted_molar_concentration < 1E-08)
+# sum up concentrations less than 1E-08 ug/L
+stacked_ensembles_lessthan = aggregate(stacked_ensembles_lessthan$Predicted_molar_concentration,
+                                        list(stacked_ensembles_lessthan$Ensemble_number),
                                         FUN=sum)
-stacked_ensembles_lessthan4 = stacked_ensembles_lessthan4 %>%
+stacked_ensembles_lessthan = stacked_ensembles_lessthan %>%
   mutate(Drug = "Others") %>%
   relocate(Drug, .after=Group.1)
-colnames(stacked_ensembles_lessthan4) = c("Ensemble_number","Drug",
-                                          "Predicted_concentration")
+colnames(stacked_ensembles_lessthan) = c("Ensemble_number","Drug",
+                                          "Predicted_molar_concentration")
 
-# get all pharmaceuticals over 10 ensembles with concentration >= 4 ug/L
-stacked_ensembles_greaterthan4 = stacked_ensembles %>%
+# get all pharmaceuticals over 10 ensembles with concentration >= 1E-08 ug/L
+stacked_ensembles_greaterthan = stacked_ensembles %>%
   filter(Ensemble_number <= 10) %>%
-  filter(Predicted_concentration >= 4) %>%
-  select(Ensemble_number, Drug, Predicted_concentration)
-stacked_ensembles_greaterthan4$Drug = str_to_title(stacked_ensembles_greaterthan4$Drug)
+  filter(Predicted_molar_concentration >= 1E-08) %>%
+  select(Ensemble_number, Drug, Predicted_molar_concentration)
+stacked_ensembles_greaterthan$Drug = str_to_title(stacked_ensembles_greaterthan$Drug)
   
 
-# merge sums < 4 for each ensemble with pharmaceuticals > 4 for each ensemble
-stacked_ensembles_filtered = rbind(stacked_ensembles_greaterthan4,
-                                   stacked_ensembles_lessthan4)
+# merge sums < 1E-08 for each ensemble with pharmaceuticals > 1E-08 for each ensemble
+stacked_ensembles_filtered = rbind(stacked_ensembles_greaterthan,
+                                   stacked_ensembles_lessthan)
 
 # for below, ensure correct color palette for population size is selected (these
-# are the available palettes for figure in the manuscript)
+# are the available palettes for figure 4 in the manuscript)
 
-# # color palette for wastewater_pop_size = 100
-#   color_palette = c(
-#     "Metformin"="#0072B2",
-#     "Cadexomer Iodine"="#3F00FF",
-#     "Gabapentin"="#56B4E9",
-#     "Ketoconazole"="#009E73",
-#     "Levetiracetam"="#FFD700",
-#     "Others"="#999999",
-#     "Lactulose"="#E41A1C",
-#     "Pregabalin"="#654321",
-#     "Valacyclovir"="#8A9B0F",
-#     "Diclofenac"="#D95F02",
-#     "Acyclovir"="#BBA8FF",
-#     "Mesalamine"="#00BFC4",
-#     "Docusate"="#FB8072",
-#     "Ibuprofen"="#E69F00",
-#     "Lidocaine"="#556B2F",
-#     "Ciprofloxacin"="#A62A29",
-#     "Amoxicillin"='#C19A6B'
-#   )
-# 
-# # color palette for wastewater_pop_size = 1000
-# color_palette = c(
-#   "Metformin"="#0072B2",
-#   "Gabapentin"="#56B4E9",
-#   "Ibuprofen"="#E69F00",
-#   "Levetiracetam"="#FFD700",
-#   "Others"="#999999",
-#   "Lactulose"="#E41A1C",
-#   "Mesalamine"="#00BFC4",
-#   "Fluorouracil"="#413839",
-#   "Amoxicillin"="#C19A6B",
-#   "Diclofenac" ="#D95F02",
-#   "Lidocaine"="#556B2F",
-#   "Chlorhexidine"="#ff007f",
-#   "Benzoyl Peroxide"="#8E44AD",
-#   "Ketoconazole"="#009E73"
-# )
+# color palette for wastewater_pop_size = 100
+  color_palette = c(
+    "Metformin"="#0072B2",
+    "Allopurinol"="#3F00FF",
+    "Gabapentin"="#56B4E9",
+    "Ketoconazole"="#009E73",
+    "Levetiracetam"="#FFD700",
+    "Others"="#999999",
+    "Lactulose"="#E41A1C",
+    "Pregabalin"="#654321",
+    "Valacyclovir"="#8A9B0F",
+    "Diclofenac"="#D95F02",
+    "Acyclovir"="#BBA8FF",
+    "Mesalamine"="#00BFC4",
+    "Docusate"="#FB8072", 
+    "Ibuprofen"="#E69F00",
+    "Lidocaine"="#556B2F",
+    "Ciprofloxacin"="#A62A29",
+    "Amoxicillin"='#C19A6B',
+    "Nitroglycerin" = "#FF00FF",
+    "Olopatadine" = "#311064",
+    "Dorzolamide" = "#6A0DAD"
+  )
 
-# color palette for wastewater_pop_size = 100000
+# color palette for wastewater_pop_size = 1000
+color_palette = c(
+  "Metformin"="#0072B2",
+  "Allopurinol"="#3F00FF",
+  "Gabapentin"="#56B4E9",
+  "Ibuprofen"="#E69F00",
+  "Levetiracetam"="#FFD700",
+  "Others"="#999999",
+  "Lactulose"="#E41A1C",
+  "Mesalamine"="#00BFC4",
+  "Fluorouracil"="#413839",
+  "Pregabalin"="#654321",
+  "Valacyclovir"="#8A9B0F",
+  "Acyclovir"="#BBA8FF",
+  "Amoxicillin"="#C19A6B",
+  "Diclofenac" ="#D95F02",
+  "Lidocaine"="#556B2F",   
+  "Imiquimod"="#ff007f",
+  "Benzoyl Peroxide"="#8E44AD",
+  "Ketoconazole"="#009E73",
+  "Ciclopirox" = "#C0392B",
+  "Diphenhydramine" = "#1E272E"
+)
+
+#color palette for wastewater_pop_size = 100000 and 1 million
 color_palette = c("Metformin"="#0072B2", "Diclofenac"="#D95F02",
                    "Gabapentin"="#56B4E9", "Ketoconazole"="#009E73",
-                   "Benzoyl Peroxide"="#8E44AD","Others"="#999999")
+                   "Benzoyl Peroxide"="#8E44AD",  "Levetiracetam"="#FFD700",
+                   "Ibuprofen"="#E69F00", "Allopurinol"="#3F00FF",
+                   "Fluorouracil"="#413839", "Mesalamine"="#00BFC4",
+                   "Others"="#999999")
 
-# # color palette for wastewater_pop_size = 1 million
-# color_palette = c("Metformin"="#0072B2", "Diclofenac"="#D95F02",
-#                   "Gabapentin"="#56B4E9", "Ketoconazole"="#009E73",
-#                   "Others"="#999999")
-
-# create plot of stacked ensembles for concentrations > 4 ug/L
+# create plot of stacked ensembles for concentrations > 1E-08 ug/L
 drug_stacked = ggplot(stacked_ensembles_filtered, aes(x = as.factor(Ensemble_number),
-                                       y = Predicted_concentration,
+                                       y = Predicted_molar_concentration,
                                        fill = Drug)) +
   geom_bar(stat = "identity", position = "stack") +
   scale_fill_manual(values = color_palette) + 
   labs(x = "Concentration Profile",
-       y = expression("Predicted Concentration ("*mu*"g/L)"),
+       y = "Predicted Concentration (mol/L)",
        fill="Pharmaceutical") +
   theme_minimal() + 
-  coord_cartesian(ylim = c(0, 200)) + # use for 100k and 1mil plots only
   theme(axis.title.x = element_text(size = 14),  
         axis.title.y = element_text(size = 14),  
         axis.text.x = element_text(size = 12),   
@@ -382,7 +415,7 @@ drug_stacked = ggplot(stacked_ensembles_filtered, aes(x = as.factor(Ensemble_num
   guides(fill="none") 
 # check this line to make sure saving the simulation for the correct sewershed
 # size!
-ggsave("drug_ensembles_100k.svg", plot = drug_stacked, width = 5, height = 5,
+ggsave("drug_ensembles_1mil.svg", plot = drug_stacked, width = 5, height = 5,
          device="svg")
 
 ################################################################################
@@ -394,12 +427,12 @@ average_profile = average_profile %>%
    rename(Pharmaceutical = Drug)
 
 # find drugs in top 25% for predicted mass load
-mass_load_threshold = quantile(average_profile$Average_Predicted_Mass_Load,
+molar_conc_threshold = quantile(average_profile$Average_Predicted_Molar_Concentration,
                                probs = 0.75, na.rm = TRUE)
 
 top_25_percent_drugs = average_profile %>%
-  filter(Average_Predicted_Mass_Load >= mass_load_threshold) %>%
-  arrange(desc(Average_Predicted_Mass_Load))
+  filter(Average_Predicted_Molar_Concentration >= molar_conc_threshold) %>%
+  arrange(desc(Average_Predicted_Molar_Concentration))
 
 pharmuse_wrrf_relevant = pharmuse %>%
   select(Pharmaceutical, LogKow_Octanol_Water,
@@ -409,8 +442,8 @@ pharmuse_wrrf_relevant = pharmuse %>%
 log_kow_cutoff = 3.5
 
 # find pharmaceuticals with LogKow < 3.5 and that are not expected to biodegrade
-# or hydrolyze (those that meet the condition get marked to highlight red in 
-# heatmap and those that do not get marked to highlight gray)
+# or hydrolyze (those that meet the condition get marked to highlighted_red in 
+# Highlight_Condition column and those that do not get marked to normal_gray)
 pharmuse_wrrf_relevant = pharmuse_wrrf_relevant %>%
   mutate(
     Highlight_Condition = case_when(

@@ -33,9 +33,10 @@ source("pharmflush_function.R")
 wrrf_profiles = read_excel("wrrf_profiles.xlsx")
 
 # define the columns to keep from PharmFlush output
-TARGET_OUTPUT_COLUMNS <- c("Drug", "Average_Predicted_Mass_Load",
+TARGET_OUTPUT_COLUMNS <- c("Drug", "Molar_Mass", "Average_Predicted_Mass_Load",
                            "Standard_Error_Predicted_Mass_Load",
-                           "Average_Predicted_Concentration")
+                           "Average_Predicted_Concentration",
+                           "Average_Predicted_Molar_Concentration")
 
 # get unique WRRF info per row
 predictions_lit_comp <- wrrf_profiles %>%
@@ -163,6 +164,11 @@ lit_comp = wrrf_profiles_detected %>%
   full_join(predictions_lit_comp, by = c("WRRF_ID","Pharmaceutical")) #%>%
   #select(-X)
 
+# convert from mass loads to mole loads
+lit_comp = lit_comp %>%
+  mutate(Predicted_mole_load = Average_Predicted_Mass_Load/(1000000*Molar_Mass)) %>%
+  mutate(Reported_mole_load = Reported_mass_load/(1000000*Molar_Mass))
+
 # remove NA in resulting dataframe
 lit_comp = na.omit(lit_comp)
 
@@ -197,6 +203,8 @@ lit_comp_scatter_df = lit_comp %>%
     Average_Predicted_Mass_Load = mean(Site_specific_avg_predicted_ML,
                                        na.rm=TRUE),
     Average_Reported_Mass_Load = mean(Reported_mass_load, na.rm=TRUE),
+    Average_Predicted_Mole_Load = mean(Predicted_mole_load, na.rm=TRUE),
+    Average_Reported_Mole_Load = mean(Reported_mole_load, na.rm=TRUE),
     Count = n(),
     SD_Predicted_ML = ifelse(Count == 1, 0, sd(Site_specific_avg_predicted_ML,
                                                na.rm = TRUE)),
@@ -266,9 +274,9 @@ ggsave("comp_scatter.svg", plot = comp_scatter, width = 6, height = 6,
 # 2b: make a bar graph for comparison of pharmaceuticals with 10 highest
 # predicted concentrations
 lit_comp_bar_df = lit_comp_scatter_df %>%
-  arrange(desc(Average_Predicted_Mass_Load)) %>%
-  select(c(Pharmaceutical, Average_Predicted_Mass_Load,
-           Average_Reported_Mass_Load)) %>%
+  arrange(desc(Average_Predicted_Mole_Load)) %>%
+  select(c(Pharmaceutical, Average_Predicted_Mole_Load,
+           Average_Reported_Mole_Load)) %>%
   distinct(Pharmaceutical, .keep_all = TRUE) 
 
 lit_comp_bar_df = lit_comp_bar_df[1:10,]
@@ -288,7 +296,7 @@ lit_comp_bar_df$Pharmaceutical = sapply(lit_comp_bar_df$Pharmaceutical,
 
 # Prep dataset to plot
 lit_comp_long = lit_comp_bar_df %>%
-  pivot_longer(cols = c(Average_Predicted_Mass_Load, Average_Reported_Mass_Load),
+  pivot_longer(cols = c(Average_Predicted_Mole_Load, Average_Reported_Mole_Load),
                names_to = "Variable",
                values_to = "Value") %>%
   arrange(desc(Value))
@@ -297,11 +305,11 @@ lit_comp_long = lit_comp_bar_df %>%
 comp_bar = ggplot(lit_comp_long, aes(x = reorder(Pharmaceutical, -Value),  
                                      y = Value, fill = Variable)) +
   geom_bar(stat = "identity", position = "dodge", width = 0.7) +
-  labs(x = "", y = expression("Mass Load ("*mu*"g/cap/d)"),
+  labs(x = "", y = "Mole Load (mol/cap/d)",
        fill = "") +
   theme_bw() +
-  scale_fill_manual(values = c("blue", "red"), labels = c("Predicted Mass Load",
-                                                 "Reported Mass Load")) + 
+  scale_fill_manual(values = c("blue", "red"), labels = c("Predicted Mole Load",
+                                                 "Reported Mole Load")) + 
   theme(legend.position = "bottom",
         legend.direction="horizontal",
         legend.box="horizontal") +
@@ -316,8 +324,8 @@ comp_bar = ggplot(lit_comp_long, aes(x = reorder(Pharmaceutical, -Value),
   theme(panel.grid.major = element_line(color = "white"), 
         panel.grid.minor = element_line(color = "white"), 
         panel.border = element_blank(),
-        legend.position = "none") + 
-  geom_hline(yintercept = seq(0, 20000, by = 2500), 
+        legend.position = "none") +
+  geom_hline(yintercept = seq(0, 0.00015, by = 0.00005),
              color = "white",
              linewidth = 0.5,
              linetype = "solid")
