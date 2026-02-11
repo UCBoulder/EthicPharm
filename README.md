@@ -21,6 +21,9 @@ No Observed Effect Mass Loads.
 The script get_png_from_pdf.py converts each page of the PDF file generated in ensemble_exploration.R into
 separate PNG files. 
 
+## Supplementary Materials
+Supplementary Materials include a Word document (Supplementary Text and Figures, supp_materials_figs_text_tracked_changes.docx and supp_materials_figs_text_resubmission.docx, where the "resubmission" file has all changes accepted) and an Excel spreadsheet (Supplementary Tables, supp_tables_resubmission.docx). There is a table of contents for the Supplementary Text and Figures within the Word document containing them, while there is a separate list of tables for the Supplementary Tables within its own Word document (list_of_tables_supplemental.docx).
+
 ## Software:
 All code is compatible with R 4.4.3 for Windows 11 and RStudio 2025.09.2.418, except the script
 get_png_from_pdf.py, which is compatible with Python 3.13.9 for Windows 11 and Visual Studio Code 1.107.1.
